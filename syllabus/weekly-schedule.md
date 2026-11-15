@@ -74,19 +74,19 @@
 
 ## Integrated Lecture and Lab Timeline
 
-| Week | Module | Lecture topic | Lab / assessment milestone |
+| Week | Module | Lecture Topic | Lab / Assessment Milestone |
 | :--- | :--- | :--- | :--- |
-| **1** | **I. Geometric Foundations** | Continuous ($\mathbb{R}^2$) vs. discrete ($\mathbb{Z}^2$) image spaces; injective mappings | **Lab 1:** Resampling and interpolation decay |
-| **2** | **I. Geometric Foundations** | Nonlinear warping, swirl ciphers, and *Operation Vico* | **Lab 2 (Part A):** Forward / inverse swirl and grid search |
-| **3** | **I. Geometric Foundations** | JPEG DCT quantization, chroma subsampling, and resampling traces | **Lab 2 (Part B):** Unwarping under JPEG compression *(Labs 1–2 due)* |
-| **4** | **II. Inverse Problems** | Spatial convolution, PSFs, and 2D Fourier transform | **Lab 3 (Part A):** Synthetic motion vs. Gaussian blur |
-| **5** | **II. Inverse Problems** | Hadamard ill-posedness and frequency-domain noise explosion | **Lab 3 (Part B):** Naive inversion failure analysis *(Lab 3 due)* |
-| **6** | **II. Inverse Problems** | Wiener filtering, Richardson–Lucy, and blind deconvolution | **Lab 4:** Regularized text and plate restoration |
-| **7** | **II. Inverse Problems** | Review and forensic limits of deconvolution | **Midterm exam + practical reconstruction challenge** *(Lab 4 due)* |
-| **8** | **III. Forensic Standards** | Bit-stream integrity, SHA-256, and investigative vs. courtroom evidence | **Lab 5 (Part A):** Hash-verified pipeline setup |
-| **9** | **III. Forensic Standards** | *Daubert* / *Mohan*, ISO 17025, and SWGDE validation | **Lab 5 (Part B):** Forward-and-reverse control testing |
-| **10** | **III. Forensic Standards** | Deterministic math vs. neural super-resolution and hallucination detection | **Lab 5 (Part C):** Audit generative face restoration *(Lab 5 due)* |
-| **11** | **IV. Visual Privacy** | Why pixelation and blur fail: dictionary / forward-matching attacks | **Lab 6 (Part A):** Forward-blur brute-force attack |
-| **12** | **IV. Visual Privacy** | Web-scale privacy engineering and Street View architecture | **Lab 6 (Part B):** Noise-injected irreversible blurring |
-| **13** | **IV. Visual Privacy** | Zero-leakage GAN / diffusion anonymization and video jitter | **Lab 6 (Part C):** DeepPrivacy2 video deployment *(Lab 6 due)* |
-| **14** | **IV. Visual Privacy** | Privacy-utility trade-offs, re-identification metrics, and synthesis | **Capstone demos and final red-team evaluation** |
+| **1** | **I. Geometric Foundations** | Continuous ($\mathbb{R}^2$) vs. Discrete ($\mathbb{Z}^2$) Image Spaces; Injective Mappings | **Lab 1:** Resampling & Interpolation Decay |
+| **2** | **I. Geometric Foundations** | Non-Linear Warping, Swirl Ciphers & *Operation Vico* Case Study | **Lab 2 (Part A):** Forward/Inverse Swirl & Grid Search |
+| **3** | **I. Geometric Foundations** | JPEG DCT Quantization, Chroma Subsampling & Resampling Traces | **Lab 2 (Part B):** Unwarping Under JPEG Compression *(Lab 1–2 Due)* |
+| **4** | **II. Inverse Problems** | Spatial Convolution, Point Spread Functions & 2D Fourier Transform | **Lab 3 (Part A):** Synthetic Motion vs. Gaussian Blur |
+| **5** | **II. Inverse Problems** | Hadamard Ill-Posedness & Frequency-Domain Noise Explosion | **Lab 3 (Part B):** Naive Inversion Failure Analysis *(Lab 3 Due)* |
+| **6** | **II. Inverse Problems** | Wiener Filtering, Richardson–Lucy & Blind Deconvolution | **Lab 4:** Regularized Text & Plate Restoration |
+| **7** | **II. Inverse Problems** | Review & Forensic Limits of Deconvolution | **Midterm Exam + Practical Reconstruction Challenge** *(Lab 4 Due)* |
+| **8** | **III. Forensic Standards** | Bit-Stream Integrity, SHA-256 Hashing & Investigative vs. Court Evidence | **Lab 5 (Part A):** Hash-Verified Forensic Pipeline Setup |
+| **9** | **III. Forensic Standards** | *Daubert* / *Mohan* Admissibility, ISO 17025 & SWGDE Control Validation | **Lab 5 (Part B):** Forward-and-Reverse Control Testing |
+| **10** | **III. Forensic Standards** | Deterministic Math vs. Neural Super-Resolution & Hallucination Detection | **Lab 5 (Part C):** Auditing Generative Face Restoration *(Lab 5 Due)* |
+| **11** | **IV. Visual Privacy** | Why Pixelation & Blur Fail: Dictionary & Forward-Matching Attacks | **Lab 6 (Part A):** Forward-Blur Brute-Force Attack |
+| **12** | **IV. Visual Privacy** | Web-Scale Privacy Engineering (*Google Street View* Architecture) | **Lab 6 (Part B):** Noise-Injected Irreversible Blurring |
+| **13** | **IV. Visual Privacy** | Zero-Leakage GAN/Diffusion Anonymization (*DeepPrivacy2*) & Video Jitter | **Lab 6 (Part C):** Deploying DeepPrivacy2 on Video *(Lab 6 Due)* |
+| **14** | **IV. Visual Privacy** | Privacy-Utility Trade-Offs, Re-Identification Metrics & Course Synthesis | **Capstone Project Demos & Final Red-Team Evaluation** |
