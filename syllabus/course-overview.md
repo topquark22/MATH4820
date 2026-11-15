@@ -1,6 +1,6 @@
 # Course Overview
 
-## MATH 5820 — Computational Image Forensics, Inverse Problems, and Visual Privacy
+## MATH 4820 (Cross-Listed: CS 6820) — Computational Image Forensics, Inverse Problems, and Visual Privacy
 
 - **Credits:** 3.0 (3 lecture hours and 1 lab hour per week; confirm locally)
 - **Level:** Senior undergraduate / graduate
