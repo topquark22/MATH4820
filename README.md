@@ -1,4 +1,4 @@
-# MATH 5820: Computational Image Forensics, Inverse Problems, and Visual Privacy
+# MATH 4820 (Cross-Listed: CS 6820) — Computational Image Forensics, Inverse Problems, and Visual Privacy
 
 A draft syllabus for an advanced course in image processing, inverse problems, digital forensics, and visual privacy. The material is organized from the [source Gist](https://gist.github.com/topquark22/4db7770e3ca7488cb5ae56afb558c593).
 
