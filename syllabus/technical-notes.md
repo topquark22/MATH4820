@@ -1,20 +1,20 @@
 # Core Concepts and Technical Notes
 
-## Geometric Transformations ($T: \\mathbb{R}^2 \\to \\mathbb{R}^2$)
+## Geometric Transformations ($T: \mathbb{R}^2 \to \mathbb{R}^2$)
 
-- **Bijective mappings:** Radial swirl transforms permute spatial coordinates around a center $(x_0, y_0)$ by an angle $\\theta(r)$ while preserving pixel intensity values:
+- **Bijective mappings:** Radial swirl transforms permute spatial coordinates around a center $(x_0, y_0)$ by an angle $\theta(r)$ while preserving pixel intensity values:
 
   $$
-  \\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} x_0 \\\\ y_0 \\end{pmatrix} + \\begin{pmatrix} \\cos\\theta(r) & -\\sin\\theta(r) \\\\ \\sin\\theta(r) & \\cos\\theta(r) \\end{pmatrix} \\begin{pmatrix} x - x_0 \\\\ y - y_0 \\end{pmatrix}
+  \begin{pmatrix} x' \\ y' \end{pmatrix} = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix} + \begin{pmatrix} \cos\theta(r) & -\sin\theta(r) \\ \sin\theta(r) & \cos\theta(r) \end{pmatrix} \begin{pmatrix} x - x_0 \\ y - y_0 \end{pmatrix}
   $$
 
-- **Historical benchmark (*Operation Vico*, 2007):** The source material describes forensic specialists with Germany's BKA reversing a digital swirl filter by estimating its center, radius, and twist angle via edge continuity and applying the inverse rotation $-\\theta(r)$.
-- **Discrete hurdles ($\\mathbb{Z}^2$ vs. $\\mathbb{R}^2$):** Continuous swirl transforms can be invertible, while digital images introduce interpolation blurring and JPEG block quantization, making practical inverses noisy approximations.
+- **Historical benchmark (*Operation Vico*, 2007):** The source material describes forensic specialists with Germany's BKA reversing a digital swirl filter by estimating its center, radius, and twist angle via edge continuity and applying the inverse rotation $-\theta(r)$.
+- **Discrete hurdles ($\mathbb{Z}^2$ vs. $\mathbb{R}^2$):** Continuous swirl transforms can be invertible, while digital images introduce interpolation blurring and JPEG block quantization, making practical inverses noisy approximations.
 
 ## Convolution, Blur, and Deconvolution
 
 - **Forward degradation model:** $B = (I * G) + N$, where $I$ is the true image, $G$ is the point spread function (PSF), and $N$ is sensor or quantization noise.
-- **Why naive Gaussian deconvolution fails:** In the Fourier domain, division by near-zero values of $\\mathcal{F}(G)$ can amplify sensor and rounding noise exponentially because the Fourier transform of a Gaussian decays at high spatial frequencies.
+- **Why naive Gaussian deconvolution fails:** In the Fourier domain, division by near-zero values of $\mathcal{F}(G)$ can amplify sensor and rounding noise exponentially because the Fourier transform of a Gaussian decays at high spatial frequencies.
 - **Motion / defocus blur vs. Gaussian blur:** Motion and out-of-focus kernels have structured frequency responses and can be partially recoverable with regularized methods such as Wiener deconvolution and Richardson–Lucy. Strong Gaussian smoothing can destroy high-frequency structure below 8-bit quantization.
 - **Forward-matching attacks:** Even when mathematical inversion fails, low-radius blur or pixelation of constrained domains (such as passwords, cards, or license plates) may be vulnerable to candidate-generation and forward-comparison attacks.
 

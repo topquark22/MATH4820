@@ -7,20 +7,20 @@ The source draft describes six labs, alternating between guided implementation a
 ### Lab 1: Discrete Grids, Interpolation, and Resampling Artifacts
 
 - **Aligned lecture:** Week 1 (Continuous vs. Discrete Image Spaces)
-- **Objective:** Quantify how mapping continuous coordinates `(x, y) ∈ ℝ²` onto discrete pixel grids `ℤ²` introduces irreversible high-frequency loss.
+- **Objective:** Quantify how mapping continuous coordinates $(x, y) \in \mathbb{R}^2$ onto discrete pixel grids $\mathbb{Z}^2$ introduces irreversible high-frequency loss.
 - **Tasks:**
   - Implement nearest-neighbor, bilinear, and bicubic resampling kernels from scratch in `NumPy`.
-  - Apply repeated sub-pixel translations and rotations (for example, 36 increments of 10°) to a test target and measure cumulative Peak Signal-to-Noise Ratio (PSNR) and Structural Similarity (SSIM) decay.
+  - Apply repeated sub-pixel translations and rotations (for example, 36 increments of $10^\circ$) to a test target and measure cumulative Peak Signal-to-Noise Ratio (PSNR) and Structural Similarity (SSIM) decay.
 - **Deliverable:** Python module and a short analytical plot comparing spatial-frequency attenuation across interpolation kernels.
 
 ### Lab 2: Geometric Unwarping and Blind Parameter Estimation (*Operation Vico* Simulation)
 
 - **Aligned lectures:** Weeks 2–3 (Geometric Warping, Swirl Ciphers, and JPEG Quantization)
-- **Objective:** Reverse a nonlinear radial swirl when center `(x₀, y₀)`, radius `R`, and twist angle `θ_max` are unknown.
+- **Objective:** Reverse a nonlinear radial swirl when center $(x_0, y_0)$, radius $R$, and twist angle $\theta_{\max}$ are unknown.
 - **Tasks:**
-  - Implement forward and inverse radial swirl transformation `T: ℝ² → ℝ²`.
+  - Implement forward and inverse radial swirl transformation $T: \mathbb{R}^2 \to \mathbb{R}^2$.
   - Build a coarse-to-fine optimization search using Sobel gradient magnitudes and bilateral facial / object symmetry metrics to estimate unknown swirl parameters automatically.
-  - Repeat after saving the swirled image at JPEG quality factors `Q = 95, 75, 50` to observe how 8×8 DCT block quantization degrades inversion.
+  - Repeat after saving the swirled image at JPEG quality factors $Q = 95, 75, 50$ to observe how $8 \times 8$ DCT block quantization degrades inversion.
 - **Deliverable:** Automated unwarping script and error-surface heatmap showing parameter convergence under clean vs. JPEG-compressed inputs.
 
 ### Lab 3: The Noise Explosion in Naive Deconvolution
@@ -28,8 +28,8 @@ The source draft describes six labs, alternating between guided implementation a
 - **Aligned lectures:** Weeks 4–5 (2D Convolution, Fourier Domain, and Ill-Posedness)
 - **Objective:** Demonstrate empirically why naive inverse filtering fails on blurred digital images.
 - **Tasks:**
-  - Generate synthetic motion-blurred and Gaussian-blurred images (`σ = 1.5, 3.0, 5.0`) using 2D Fast Fourier Transforms (`numpy.fft.fft2`).
-  - Apply naive frequency-domain division `F(B) / F(G)` to floating-point noiseless images, then after adding 8-bit integer quantization and Gaussian sensor noise (`σ_noise = 0.01`).
+  - Generate synthetic motion-blurred and Gaussian-blurred images ($\sigma = 1.5, 3.0, 5.0$) using 2D Fast Fourier Transforms (`numpy.fft.fft2`).
+  - Apply naive frequency-domain division $F(B) / F(G)$ to floating-point noiseless images, then after adding 8-bit integer quantization and Gaussian sensor noise ($\sigma_{\text{noise}} = 0.01$).
 - **Deliverable:** Jupyter notebook visualizing the radial frequency spectrum of `1 / F(G)` alongside resulting noise amplification.
 
 ### Lab 4: Regularized Deconvolution (Wiener vs. Richardson–Lucy)
@@ -57,7 +57,7 @@ The source draft describes six labs, alternating between guided implementation a
 - **Objective:** Break weak redaction via forward-matching, then deploy a privacy pipeline intended to prevent recovery.
 - **Tasks:**
   - **Part A — Attack:** Given a Gaussian-blurred or pixelated seven-character license plate rendered in a known font, write a brute-force forward-blur matcher that recovers the plate string without inverting the blur.
-  - **Part B — Defense:** Implement a Street View-style noise-injected blur (`Gaussian + N(0, σ_noise)` plus alpha-blending) and verify that the forward-matching attack fails.
+  - **Part B — Defense:** Implement a Street View-style noise-injected blur (Gaussian blur plus $N(0, \sigma_{\text{noise}})$ noise and alpha-blending) and verify that the forward-matching attack fails.
   - **Part C — Generative anonymization:** Deploy DeepPrivacy2 on a sample street-scene image and short video clip; verify pixel masking in the protected region and inspect frame-to-frame temporal consistency.
 - **Deliverable:** Attack / defense benchmark script and anonymized-video output analysis.
 

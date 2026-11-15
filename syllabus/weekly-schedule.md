@@ -5,7 +5,7 @@
 ### Part I: Mathematical Foundations and Geometric Transformations (Weeks 1–3)
 
 #### Week 1: Continuous vs. Discrete Image Spaces
-- Model images as $f: \\mathbb{R}^2 \\to \\mathbb{R}^k$ and discrete arrays $I \\in \\mathbb{Z}^{M \\times N \\times k}$.
+- Model images as $f: \mathbb{R}^2 \to \mathbb{R}^k$ and discrete arrays $I \in \mathbb{Z}^{M \times N \times k}$.
 - Injective, surjective, and bijective operators in image processing.
 - Resampling, coordinate grids, and interpolation kernels (nearest-neighbor, bilinear, bicubic) as low-pass filters.
 
@@ -76,7 +76,7 @@
 
 | Week | Module | Lecture topic | Lab / assessment milestone |
 | :--- | :--- | :--- | :--- |
-| **1** | **I. Geometric Foundations** | Continuous (`ℝ²`) vs. discrete (`ℤ²`) image spaces; injective mappings | **Lab 1:** Resampling and interpolation decay |
+| **1** | **I. Geometric Foundations** | Continuous ($\mathbb{R}^2$) vs. discrete ($\mathbb{Z}^2$) image spaces; injective mappings | **Lab 1:** Resampling and interpolation decay |
 | **2** | **I. Geometric Foundations** | Nonlinear warping, swirl ciphers, and *Operation Vico* | **Lab 2 (Part A):** Forward / inverse swirl and grid search |
 | **3** | **I. Geometric Foundations** | JPEG DCT quantization, chroma subsampling, and resampling traces | **Lab 2 (Part B):** Unwarping under JPEG compression *(Labs 1–2 due)* |
 | **4** | **II. Inverse Problems** | Spatial convolution, PSFs, and 2D Fourier transform | **Lab 3 (Part A):** Synthetic motion vs. Gaussian blur |
