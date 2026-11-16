@@ -39,7 +39,7 @@ $$
 \begin{pmatrix} x' \\ y' \end{pmatrix} = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}.
 $$
 
-- Examples: scaling $\operatorname{diag}(s_x,s_y)$; rotation by $\theta$:
+- Examples: scaling $\mathrm{diag}(s_x,s_y)$; rotation by $\theta$:
 
 $$
 R_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}.
