@@ -13,3 +13,5 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 
 - [Week 1, Day 1](week01-day1.md): Images as functions and arrays; injective/surjective/bijective operators
 - [Week 1, Day 2](week01-day2.md): Matrix refresher; coordinate grids; resampling and interpolation
+- [Week 2, Day 1](week02-day1.md): Affine maps, homographies, pixel permutations, resampling consequences
+- [Week 2, Day 2](week02-day2.md): Swirl/twirl warps, inversion, parameter estimation, brief intro to *Operation Vico*
