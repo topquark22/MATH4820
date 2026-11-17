@@ -62,7 +62,7 @@ $$
 \hat f(x,y) = \sum_{m,n} I[m,n]\, h(x-m,\,y-n).
 $$
 
-Interpolation produces values not in the original data, so repeated resampling accumulates error. This is why discrete inverses of geometric transforms are only approximate (technical notes: "Discrete hurdles").
+Interpolation produces values not in the original data, so repeated resampling accumulates error. Since $f$ is not assumed continuous (it may have sharp edges), $\hat f$ is only an estimate and can blur or overshoot at jumps. This is why discrete inverses of geometric transforms are only approximate (technical notes: "Discrete hurdles").
 
 ### 5. Interpolation kernels (25 min)
 In 1D (2D kernels are products $h(x)h(y)$ — a standard separability fact):

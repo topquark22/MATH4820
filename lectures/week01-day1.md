@@ -8,7 +8,7 @@
 
 By the end of this session students can:
 
-1. Describe an image both as a continuous function $f: \mathbb{R}^2 \to \mathbb{R}^k$ and as a discrete array.
+1. Describe an image both as a function $f: \mathbb{R}^2 \to \mathbb{R}^k$ on a continuous domain and as a discrete array.
 2. Explain what sampling and quantization do, and why they lose information.
 3. Define injective, surjective, and bijective maps, and classify simple image operations accordingly.
 4. Explain why invertibility matters for forensics (the course's central theme).
@@ -19,7 +19,7 @@ By the end of this session students can:
 |-----|---------|
 | 10 | Welcome, course overview (learning outcomes), logistics |
 | 10 | Motivation: can every image edit be undone? |
-| 20 | Continuous images $f:\mathbb{R}^2\to\mathbb{R}^k$ |
+| 20 | Images on a continuous domain: $f:\mathbb{R}^2\to\mathbb{R}^k$ |
 | 15 | Discrete images: sampling and quantization |
 | 5 | Break |
 | 20 | Injective, surjective, bijective maps |
@@ -31,7 +31,7 @@ By the end of this session students can:
 ### 1. Motivation (10 min)
 Discuss informally, without math, two edits: a *swirl* that twists pixels around a point, and a *strong blur*. One can often be undone; the other generally cannot. The course asks *when* and *why*. (The swirl case study, *Operation Vico*, is Week 2; mention only as a teaser.)
 
-### 2. Continuous images (20 min)
+### 2. Images on a continuous domain (20 min)
 An image is a function assigning a color/intensity to each point of the plane:
 
 $$
@@ -40,6 +40,7 @@ $$
 
 - $k = 1$: grayscale; $k = 3$: color (e.g. RGB).
 - Domain: positions $(x,y)$; codomain: pixel values.
+- **"Continuous" refers to the domain $\mathbb{R}^2$ (positions can be any real numbers), not to $f$.** We do *not* assume $f$ is continuous or smooth: $f$ is a general function and may jump, e.g. at sharp edges.
 - Think of $f$ as an idealized "scene"; no finite device records it exactly.
 
 ### 3. Discrete images (15 min)
@@ -52,7 +53,7 @@ $$
 - $M \times N$ is the grid of pixel positions (**sampling**); $k$ channels per pixel.
 - **Quantization:** round values to integers (e.g. $\{0,\dots,255\}$ for 8-bit — assumed typical example).
 - Both steps discard information: many different $f$ give the same $I$.
-- Course theme: continuous operations can be invertible, but digital versions pick up interpolation blurring and quantization (see `syllabus/technical-notes.md`, "Discrete hurdles").
+- Course theme: operations on the continuous domain can be invertible, but digital versions pick up interpolation blurring and quantization (see `syllabus/technical-notes.md`, "Discrete hurdles").
 
 ### 4. Injective, surjective, bijective (20 min)
 For a map $T: X \to Y$:
@@ -74,14 +75,14 @@ Small groups classify the operations in Exercise 3 and report back; close with a
 
 ## Key Definitions Summary
 
-- Continuous image: $f:\mathbb{R}^2\to\mathbb{R}^k$.
+- Image on a continuous domain: $f:\mathbb{R}^2\to\mathbb{R}^k$ (no continuity or smoothness of $f$ assumed).
 - Discrete image: $I\in\mathbb{Z}^{M\times N\times k}$.
 - Injective / surjective / bijective as above; an inverse exists iff the map is bijective.
 
 ## Exercises
 
-1. In your own words, why can two different continuous images produce the same discrete array?
-2. A $4\times 4$ grayscale image has 8-bit values. How many distinct such images exist? Is "sampling + quantization" injective on all continuous images?
+1. In your own words, why can two different functions $f:\mathbb{R}^2\to\mathbb{R}^k$ produce the same discrete array?
+2. A $4\times 4$ grayscale image has 8-bit values. How many distinct such images exist? Is "sampling + quantization" injective on the set of all functions $f:\mathbb{R}^2\to\mathbb{R}^k$ (continuous or not)?
 3. Classify each as injective / surjective / bijective / none (state domain and codomain, e.g. 8-bit values or a finite pixel grid): (a) reversing pixel order in each row; (b) setting every pixel to its row's maximum; (c) converting RGB to grayscale; (d) flipping the image upside down; (e) rounding values to the nearest multiple of 10.
 4. Give a function $\mathbb{R}\to\mathbb{R}$ that is injective but not surjective, and one that is surjective but not injective.
 5. *(Discussion)* Why would a forensic analyst care whether an operation is injective?
