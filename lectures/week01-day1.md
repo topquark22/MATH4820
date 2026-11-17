@@ -41,6 +41,7 @@ $$
 - $k = 1$: grayscale; $k = 3$: color (e.g. RGB).
 - Domain: positions $(x,y)$; codomain: pixel values.
 - **"Continuous" refers to the domain $\mathbb{R}^2$ (positions can be any real numbers), not to $f$.** We do *not* assume $f$ is continuous or smooth: $f$ is a general function and may jump, e.g. at sharp edges.
+- *Why this matters:* real images contain sharp discontinuities such as text and hard edges. Smooth or band-limited models represent these poorly. For example, JPEG (block-DCT quantization, covered in Week 3) tends to render text badly, producing ringing, Gibbs-like harmonic artifacts around edges. Mention only as a teaser here.
 - Think of $f$ as an idealized "scene"; no finite device records it exactly.
 
 ### 3. Discrete images (15 min)
@@ -86,3 +87,4 @@ Small groups classify the operations in Exercise 3 and report back; close with a
 3. Classify each as injective / surjective / bijective / none (state domain and codomain, e.g. 8-bit values or a finite pixel grid): (a) reversing pixel order in each row; (b) setting every pixel to its row's maximum; (c) converting RGB to grayscale; (d) flipping the image upside down; (e) rounding values to the nearest multiple of 10.
 4. Give a function $\mathbb{R}\to\mathbb{R}$ that is injective but not surjective, and one that is surjective but not injective.
 5. *(Discussion)* Why would a forensic analyst care whether an operation is injective?
+6. *(Discussion)* A photo of printed text saved as a heavily compressed JPEG shows faint ripples near the letter edges. Why might sharp edges be harder to represent than smooth regions? (Assumed prompt; the details come in Week 3.)
