@@ -15,3 +15,5 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 1, Day 2](week01-day2.md): Matrix refresher; coordinate grids; resampling and interpolation
 - [Week 2, Day 1](week02-day1.md): Affine maps, homographies, pixel permutations, resampling consequences
 - [Week 2, Day 2](week02-day2.md): Swirl/twirl warps, inversion, parameter estimation, brief intro to *Operation Vico*
+- [Week 3, Day 1](week03-day1.md): Color spaces, chroma subsampling, 8×8 block DCT
+- [Week 3, Day 2](week03-day2.md): Quantization and information loss; double-JPEG and resampling traces
