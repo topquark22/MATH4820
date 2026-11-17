@@ -21,9 +21,9 @@
 
 ### Part II: Convolution, Blur, and Ill-Posed Inverse Problems (Weeks 4–7)
 
-#### Week 4: Spatial Convolution and the 2D Fourier Transform
-- Point spread functions (PSFs) for linear motion blur, out-of-focus bokeh disks, and atmospheric turbulence.
-- The 2D Convolution Theorem; frequency-domain zeros and attenuation.
+#### Week 4: DFT/FFT Fundamentals; Spatial Convolution and the Convolution Theorem
+- **Lecture 1:** Discrete Fourier Transform (DFT) fundamentals: the 1D DFT as a change of basis, the 2D DFT as separable row/column transforms, the Fast Fourier Transform (FFT) as an $O(N \log N)$ divide-and-conquer algorithm, and reading a centered magnitude spectrum.
+- **Lecture 2:** Spatial convolution and point spread functions (PSFs) for linear motion blur, out-of-focus bokeh disks, and atmospheric turbulence; the 2D Convolution Theorem (circular vs. linear convolution, zero-padding); frequency-domain zeros and attenuation.
 
 #### Week 5: Why Naive Inversion Fails
 - Hadamard's definition of well-posed vs. ill-posed problems.
@@ -79,7 +79,7 @@
 | **1** | **I. Geometric Foundations** | Continuous ($\mathbb{R}^2$) vs. Discrete ($\mathbb{Z}^2$) Image Spaces; Injective Mappings | **Lab 1:** Resampling & Interpolation Decay |
 | **2** | **I. Geometric Foundations** | Non-Linear Warping, Swirl Ciphers & *Operation Vico* Case Study | **Lab 2 (Part A):** Forward/Inverse Swirl & Grid Search |
 | **3** | **I. Geometric Foundations** | JPEG DCT Quantization, Chroma Subsampling & Resampling Traces | **Lab 2 (Part B):** Unwarping Under JPEG Compression *(Lab 1–2 Due)* |
-| **4** | **II. Inverse Problems** | Spatial Convolution, Point Spread Functions & 2D Fourier Transform | **Lab 3 (Part A):** Synthetic Motion vs. Gaussian Blur |
+| **4** | **II. Inverse Problems** | L1: DFT/FFT Fundamentals; L2: Spatial Convolution, Point Spread Functions & the Convolution Theorem | **Lab 3 (Part A):** Synthetic Motion vs. Gaussian Blur |
 | **5** | **II. Inverse Problems** | Hadamard Ill-Posedness & Frequency-Domain Noise Explosion | **Lab 3 (Part B):** Naive Inversion Failure Analysis *(Lab 3 Due)* |
 | **6** | **II. Inverse Problems** | Wiener Filtering, Richardson–Lucy & Blind Deconvolution | **Lab 4:** Regularized Text & Plate Restoration |
 | **7** | **II. Inverse Problems** | Review & Forensic Limits of Deconvolution | **Midterm Exam + Practical Reconstruction Challenge** *(Lab 4 Due)* |

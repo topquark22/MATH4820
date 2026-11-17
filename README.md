@@ -7,6 +7,7 @@ A draft syllabus for an advanced course in image processing, inverse problems, d
 - [Course overview](syllabus/course-overview.md): description, learning outcomes, and prerequisites
 - [Technical notes](syllabus/technical-notes.md): mathematical foundations and key concepts
 - [Weekly schedule](syllabus/weekly-schedule.md): 14-week lecture plan and integrated milestones
+- [Lecture notes](lectures/README.md): per-lecture plans (two 90-minute lectures per week)
 - [Laboratory specifications](labs/lab-specifications.md): six labs and their deliverables
 - [References](syllabus/references.md): literature, standards, and textbooks
 

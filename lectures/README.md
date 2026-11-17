@@ -17,3 +17,5 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 2, Day 2](week02-day2.md): Swirl/twirl warps, inversion, parameter estimation, brief intro to *Operation Vico*
 - [Week 3, Day 1](week03-day1.md): Color spaces, chroma subsampling, 8×8 block DCT
 - [Week 3, Day 2](week03-day2.md): Quantization and information loss; double-JPEG and resampling traces
+- [Week 4, Day 1](week04-day1.md): DFT/FFT fundamentals (1D and 2D DFT, FFT algorithm, reading spectra)
+- [Week 4, Day 2](week04-day2.md): PSFs, spatial convolution, the Convolution Theorem, circular vs. linear convolution, zeros and attenuation

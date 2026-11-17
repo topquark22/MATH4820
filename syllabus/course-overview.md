@@ -22,6 +22,6 @@ Upon successful completion of this course, students will be able to:
 ### Prerequisites
 
 - **Mathematics:** Linear algebra (eigenvalues, matrix decompositions, vector spaces) and multivariable calculus (partial derivatives, Jacobians, change of variables in $\mathbb{R}^2$).
-- **Signals and systems / imaging:** Introductory digital image processing or signals and systems (familiarity with 2D convolution and the Discrete Fourier Transform), or permission of the instructor.
+- **Signals and systems / imaging:** Introductory digital image processing or signals and systems (familiarity with 2D convolution and the Discrete Fourier Transform is helpful but not assumed: Week 4 develops the DFT/FFT, spatial convolution, and the Convolution Theorem from first principles), or permission of the instructor.
 - **Computing:** Proficiency in Python and scientific libraries (`NumPy`, `SciPy`, `OpenCV`), and basic familiarity with `PyTorch` for the final module.
 - **Recommended, not required:** Introductory probability and statistics (Bayesian inference, Gaussian and Poisson noise models) or information security fundamentals.
