@@ -23,3 +23,5 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 5, Day 2](week05-day2.md): Controlled failure analysis of naive inverse filtering under noise, blur, and PSF mismatch
 - [Week 6, Day 1](week06-day1.md): Tikhonov regularization and Wiener filtering
 - [Week 6, Day 2](week06-day2.md): Richardson–Lucy for Poisson data and blind deconvolution
+- [Week 7, Day 1](week07-day1.md): Midterm examination (Weeks 1–6)
+- [Week 7, Day 2](week07-day2.md): Applied reconstruction challenge and limits of recovery
