@@ -40,19 +40,19 @@ Tikhonov and Wiener filtering in Day 1 assume a known PSF and stabilize the inve
 
 For photon-limited imaging, model each observed pixel as a Poisson count with expected value `(Hf)_i`, where `H` is the blur operator and `f` is nonnegative. Recall Week 5, Day 1: conditional count variance equals expected count, unlike the constant variance of the simple additive Gaussian model. For conditionally independent counts, writing $\mu_i=(Hf)_i$, the negative log-likelihood up to a constant is
 
-$
+$$
 \mathcal L_{\mathrm P}(f;b)=\sum_i\bigl(\mu_i-b_i\log\mu_i\bigr).
-$
+$$
 
 Use the limiting convention that a zero count contributes no logarithmic term, while a positive count at zero predicted intensity has infinite loss. In contrast, independent Gaussian noise of common variance $\sigma^2$ gives the negative log-likelihood (up to a constant)
 
-$
+$$
 \mathcal L_{\mathrm G}(f;b)=\frac{1}{2\sigma^2}\sum_i(b_i-\mu_i)^2.
-$
+$$
 
 These distinct likelihoods explain why the observation model affects the reconstruction objective.
 
- Under a known nonnegative PSF, standard RL iterates
+Under a known nonnegative PSF, standard RL iterates
 
 $$
 f^{(k+1)}=f^{(k)}\odot H^*\!\left(\frac{b}{Hf^{(k)}}\right),
