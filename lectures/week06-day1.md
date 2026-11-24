@@ -41,7 +41,7 @@ Week 5 showed that `B=HF+N` leads naive division to `F̂=F+N/H`. A regularized m
 For a linear observation `b=Hf+n`, define the estimate as the minimizer
 
 $$
-\widehat f_\lambda = \arg\min_f \left\{\|Hf-b\|_2^2 + \lambda\|Lf\|_2^2\right\}, \qquad \lambda>0.
+\widehat f_\lambda = \arg\min_f \left\lbrace\|Hf-b\|_2^2 + \lambda\|Lf\|_2^2\right\rbrace, \qquad \lambda>0.
 $$
 
 The first term asks the blurred estimate to fit the observation; the second penalizes solutions that violate the chosen prior. With `L=I`, large-amplitude solutions are discouraged. With `L` as a discrete derivative, rapidly varying solutions are penalized, expressing a smoothness preference. The normal equations are
