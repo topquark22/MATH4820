@@ -25,7 +25,7 @@ The source draft describes six labs, alternating between guided implementation a
 
 ### Lab 3: The Noise Explosion in Naive Deconvolution
 
-- **Aligned lectures:** Week 4 Day 2 and Weeks 5 Days 1–2 (convolution, Fourier domain, ill-posedness, and naive-inversion failure analysis)
+- **Aligned lectures:** Week 4 Days 1–2 and Weeks 5 Days 1–2 (DFT/convolution foundations, ill-posedness, and naive-inversion failure analysis)
 - **Objective:** Demonstrate empirically why naive inverse filtering fails on blurred digital images and relate the failure to noise amplification, PSF mismatch, and boundary assumptions.
 - **Part A — Week 4:** Generate synthetic motion-blurred and Gaussian-blurred images ($\sigma = 1.5, 3.0, 5.0$) using 2D Fast Fourier Transforms (`numpy.fft.fft2`). Inspect the PSFs and transfer-function magnitudes, and compare the forward blur under the documented boundary convention.
 - **Part B — Week 5:** Apply naive frequency-domain division to floating-point noiseless images, then repeat with 8-bit quantization and increasing Gaussian sensor noise ($\sigma_{\text{noise}} = 0.01$). Sweep blur strength, test a slightly mismatched PSF and boundary convention, and report any denominator threshold used.
