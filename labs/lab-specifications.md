@@ -25,22 +25,22 @@ The source draft describes six labs, alternating between guided implementation a
 
 ### Lab 3: The Noise Explosion in Naive Deconvolution
 
-- **Aligned lectures:** Weeks 4–5 (2D Convolution, Fourier Domain, and Ill-Posedness)
-- **Objective:** Demonstrate empirically why naive inverse filtering fails on blurred digital images.
-- **Tasks:**
-  - Generate synthetic motion-blurred and Gaussian-blurred images ($\sigma = 1.5, 3.0, 5.0$) using 2D Fast Fourier Transforms (`numpy.fft.fft2`).
-  - Apply naive frequency-domain division $F(B) / F(G)$ to floating-point noiseless images, then after adding 8-bit integer quantization and Gaussian sensor noise ($\sigma_{\text{noise}} = 0.01$).
-- **Deliverable:** Jupyter notebook visualizing the radial frequency spectrum of `1 / F(G)` alongside resulting noise amplification.
+- **Aligned lectures:** Week 4 Day 2 and Weeks 5 Days 1–2 (convolution, Fourier domain, ill-posedness, and naive-inversion failure analysis)
+- **Objective:** Demonstrate empirically why naive inverse filtering fails on blurred digital images and relate the failure to noise amplification, PSF mismatch, and boundary assumptions.
+- **Part A — Week 4:** Generate synthetic motion-blurred and Gaussian-blurred images ($\sigma = 1.5, 3.0, 5.0$) using 2D Fast Fourier Transforms (`numpy.fft.fft2`). Inspect the PSFs and transfer-function magnitudes, and compare the forward blur under the documented boundary convention.
+- **Part B — Week 5:** Apply naive frequency-domain division to floating-point noiseless images, then repeat with 8-bit quantization and increasing Gaussian sensor noise ($\sigma_{\text{noise}} = 0.01$). Sweep blur strength, test a slightly mismatched PSF and boundary convention, and report any denominator threshold used.
+- **Deliverable:** Jupyter notebook with paired Part A/Part B experiments, inverse-gain and reconstruction plots, reference-based error measurements, and a short Hadamard stability / model-mismatch analysis. Keep clipped display images separate from reported floating-point metrics.
 
-### Lab 4: Regularized Deconvolution (Wiener vs. Richardson–Lucy)
+### Lab 4: Regularized and Iterative Deconvolution
 
-- **Aligned lectures:** Weeks 6–7 (Regularized Restoration and Midterm Challenge)
-- **Objective:** Recover obscured alphanumeric text and synthetic license plates using stabilized inverse methods.
+- **Aligned lectures:** Week 6 Days 1–2 (Tikhonov/Wiener regularization, Richardson–Lucy, and blind deconvolution); results support the Week 7 practical challenge.
+- **Objective:** Compare stabilized restoration methods under stated PSF and noise assumptions, and test how uncertainty about the PSF changes the result.
 - **Tasks:**
-  - Implement Wiener deconvolution and tune regularization parameter `K` (inverse SNR) across varying noise levels.
-  - Implement iterative Richardson–Lucy deconvolution (`scikit-image` / `SciPy`) and analyze iteration count, edge ringing (Gibbs phenomenon), and noise amplification.
-  - Compare recovery limits on linear motion blur vs. Gaussian blur of equal kernel support.
-- **Deliverable:** Comparative benchmark table and restored-image gallery for the Week 7 Midterm Practical Challenge.
+  - Implement Tikhonov and Wiener deconvolution; sweep regularization parameter / inverse SNR across noise levels and compare the bias–variance trade-off.
+  - Apply Richardson–Lucy to nonnegative Poisson-count data with a known PSF. Compare Gaussian-noise cases with a Gaussian data-fit objective (such as Tikhonov); do not treat standard RL as a generic Gaussian-noise method. Examine iteration count and residuals.
+  - Run a small constrained blind-deconvolution experiment with unknown motion-blur kernel support. Enforce nonnegativity and PSF normalization, compare the estimated kernel with ground truth, and document ambiguity or initialization sensitivity. This is a controlled comparison, not a claim of unique recovery.
+  - Compare method limits on linear motion blur versus Gaussian blur of similar support.
+- **Deliverable:** Comparative benchmark table and restored-image gallery for text / synthetic plate targets, including parameter or stopping choices, noise-model assumptions, reference metrics, residuals, and a blind-PSF estimate with limitations.
 
 ### Lab 5: Forensic Validation and Detecting AI Hallucinations
 

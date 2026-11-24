@@ -28,12 +28,12 @@
 #### Week 5: Why Naive Inversion Fails
 - **Lecture 1:** Hadamard's definition of well-posed vs. ill-posed problems; Gaussian smoothing, exponential frequency-domain decay, and amplification of sensor and quantization noise.
 - **Lecture 2:** Controlled failure analysis of naive inverse filtering: noise/blur sweeps, PSF mismatch, boundary effects, and responsible evaluation. See `lectures/week05-day2.md`.
-- **Lab 3 (Part B):** Demonstrate naive inverse filtering and noise explosion on synthetic and noisy blurred images; analyze why the naive inverse fails.
+- **Lab 3 (Parts A–B):** Part A follows Week 4's forward-blur models; Part B tests naive inversion under Week 5 noise and PSF-mismatch conditions.
 
 #### Week 6: Regularized and Iterative Deconvolution
 - **Lecture 1:** Tikhonov regularization and Wiener filtering: SNR priors, parameter selection, and the bias–variance trade-off.
 - **Lecture 2:** Richardson–Lucy for Poisson data; distinguish Gaussian-noise objectives; constrained blind deconvolution and PSF estimation.
-- **Lab 4:** Regularized text and plate restoration, with method/noise-model comparisons.
+- **Lab 4:** Compare Tikhonov/Wiener, Poisson-model Richardson–Lucy, and constrained blind-PSF estimation on controlled text / plate targets.
 
 #### Week 7: Midterm Exam and Applied Reconstruction Challenge
 - Practical benchmark: recover obscured text and license plates from motion-blurred vs. Gaussian-blurred test sets under controlled noise levels.
@@ -81,7 +81,7 @@
 | **3** | **I. Geometric Foundations** | JPEG DCT Quantization, Chroma Subsampling & Resampling Traces | **Lab 2 (Part B):** Unwarping Under JPEG Compression *(Lab 1–2 Due)* |
 | **4** | **II. Inverse Problems** | L1: DFT/FFT Fundamentals; L2: Spatial Convolution, Point Spread Functions & the Convolution Theorem | **Lab 3 (Part A):** Synthetic Motion vs. Gaussian Blur |
 | **5** | **II. Inverse Problems** | L1: Hadamard Ill-Posedness & Frequency-Domain Noise Explosion; L2: Naive Inverse Failure Analysis | **Lab 3 (Part B):** Noise/Model-Mismatch Analysis *(Lab 3 Due)* |
-| **6** | **II. Inverse Problems** | L1: Tikhonov/Wiener Regularization; L2: Richardson–Lucy & Blind Deconvolution | **Lab 4:** Regularized Text & Plate Restoration |
+| **6** | **II. Inverse Problems** | L1: Tikhonov/Wiener Regularization; L2: Richardson–Lucy & Blind Deconvolution | **Lab 4:** Tikhonov/Wiener, RL, and blind-PSF comparison |
 | **7** | **II. Inverse Problems** | Review & Forensic Limits of Deconvolution | **Midterm Exam + Practical Reconstruction Challenge** *(Lab 4 Due)* |
 | **8** | **III. Forensic Standards** | Bit-Stream Integrity, SHA-256 Hashing & Investigative vs. Court Evidence | **Lab 5 (Part A):** Hash-Verified Forensic Pipeline Setup |
 | **9** | **III. Forensic Standards** | *Daubert* / *Mohan* Admissibility, ISO 17025 & SWGDE Control Validation | **Lab 5 (Part B):** Forward-and-Reverse Control Testing |
