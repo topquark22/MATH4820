@@ -20,3 +20,4 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 4, Day 1](week04-day1.md): DFT/FFT fundamentals (1D and 2D DFT, FFT algorithm, reading spectra)
 - [Week 4, Day 2](week04-day2.md): PSFs, spatial convolution, the Convolution Theorem, circular vs. linear convolution, zeros and attenuation
 - [Week 5, Day 1](week05-day1.md): Hadamard ill-posedness, Gaussian frequency decay, and naive inverse-filter noise amplification
+- [Week 5, Day 2](week05-day2.md): Wiener filtering, Richardson–Lucy, and blind deconvolution
