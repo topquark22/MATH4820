@@ -1,6 +1,6 @@
 # Week 5, Day 2 — Wiener Filtering, Richardson–Lucy, and Blind Deconvolution
 
-*90-minute lecture. This follows the requested Week 5 Day 2 sequence. The current `syllabus/weekly-schedule.md` places Wiener filtering, Richardson–Lucy, and blind deconvolution in Week 6; this note does not change that schedule.*
+*90-minute lecture. Week 5 Day 2 introduces these restoration methods; Week 6 develops them further for regularized and iterative restoration. See `syllabus/weekly-schedule.md` for the clarified sequence.*
 
 > **Assumptions and cautions:**
 > - Wiener filtering below is the linear minimum-mean-square-error (LMMSE) estimator for a stationary signal and additive, uncorrelated noise with known power spectra. Practical spectra are estimated, not known exactly.
@@ -112,7 +112,7 @@ A common strategy alternates: hold `h` fixed and estimate `f`, then hold `f` fix
 
 **Case-selection activity:** assign groups three situations: (a) calibrated Gaussian blur with estimated stationary noise power; (b) a low-light photon-count image and calibrated PSF; (c) a single photograph with unknown camera motion. Ask each group to select a method or combination, name the key assumption, and identify one failure mode. Reasonable first choices are Wiener for (a), standard RL for (b), and constrained blind estimation for (c), while emphasizing that (c) is the least identifiable and no method guarantees recovery of lost detail.
 
-Wrap-up: regularization stabilizes an inverse by deciding which solutions are plausible; it does not reveal what the data never measured. The next practical step is controlled evaluation against known originals, varying blur and noise and reporting both fidelity and artifacts. The syllabus currently schedules regularized text/plate restoration as Lab 4 in Week 6.
+Wrap-up: regularization stabilizes an inverse by deciding which solutions are plausible; it does not reveal what the data never measured. Week 6 will deepen this introduction through regularization choices, parameter selection, and practical restoration. The syllabus schedules regularized text/plate restoration as Lab 4 in Week 6.
 
 ## Key Definitions Summary
 
