@@ -25,14 +25,14 @@
 - **Lecture 1:** Discrete Fourier Transform (DFT) fundamentals: the 1D DFT as a change of basis, the 2D DFT as separable row/column transforms, the Fast Fourier Transform (FFT) as an $O(N \log N)$ divide-and-conquer algorithm, and reading a centered magnitude spectrum.
 - **Lecture 2:** Spatial convolution and point spread functions (PSFs) for linear motion blur, out-of-focus bokeh disks, and atmospheric turbulence; the 2D Convolution Theorem (circular vs. linear convolution, zero-padding); frequency-domain zeros and attenuation.
 
-#### Week 5: Why Naive Inversion Fails and How to Stabilize It
+#### Week 5: Why Naive Inversion Fails
 - **Lecture 1:** Hadamard's definition of well-posed vs. ill-posed problems; Gaussian smoothing, exponential frequency-domain decay, and amplification of sensor and quantization noise.
-- **Lecture 2:** Introduction to Wiener filtering, Richardson–Lucy and blind deconvolution: key assumptions, regularization intuition, and identifiability limits. See `lectures/week05-day2.md`.
+- **Lecture 2:** Controlled failure analysis of naive inverse filtering: noise/blur sweeps, PSF mismatch, boundary effects, and responsible evaluation. See `lectures/week05-day2.md`.
 - **Lab 3 (Part B):** Demonstrate naive inverse filtering and noise explosion on synthetic and noisy blurred images; analyze why the naive inverse fails.
 
-#### Week 6: Regularized and Iterative Deconvolution in Practice
-- **Lecture 1:** Tikhonov regularization and Wiener deconvolution: SNR priors, regularization-parameter selection, and the bias–variance trade-off.
-- **Lecture 2:** Iterative restoration and unknown PSFs: Richardson–Lucy for Poisson data, comparison with Gaussian-noise objectives, and constrained blind PSF estimation from blurred images.
+#### Week 6: Regularized and Iterative Deconvolution
+- **Lecture 1:** Tikhonov regularization and Wiener filtering: SNR priors, parameter selection, and the bias–variance trade-off.
+- **Lecture 2:** Richardson–Lucy for Poisson data; distinguish Gaussian-noise objectives; constrained blind deconvolution and PSF estimation.
 - **Lab 4:** Regularized text and plate restoration, with method/noise-model comparisons.
 
 #### Week 7: Midterm Exam and Applied Reconstruction Challenge
@@ -80,8 +80,8 @@
 | **2** | **I. Geometric Foundations** | Non-Linear Warping, Swirl Ciphers & *Operation Vico* Case Study | **Lab 2 (Part A):** Forward/Inverse Swirl & Grid Search |
 | **3** | **I. Geometric Foundations** | JPEG DCT Quantization, Chroma Subsampling & Resampling Traces | **Lab 2 (Part B):** Unwarping Under JPEG Compression *(Lab 1–2 Due)* |
 | **4** | **II. Inverse Problems** | L1: DFT/FFT Fundamentals; L2: Spatial Convolution, Point Spread Functions & the Convolution Theorem | **Lab 3 (Part A):** Synthetic Motion vs. Gaussian Blur |
-| **5** | **II. Inverse Problems** | L1: Hadamard Ill-Posedness & Frequency-Domain Noise Explosion; L2: Wiener, Richardson–Lucy & Blind Deconvolution (introduction) | **Lab 3 (Part B):** Naive Inversion Failure Analysis *(Lab 3 Due)* |
-| **6** | **II. Inverse Problems** | L1–L2: Regularization and iterative restoration in practice (Tikhonov/Wiener, RL, blind PSF estimation) | **Lab 4:** Regularized Text & Plate Restoration |
+| **5** | **II. Inverse Problems** | L1: Hadamard Ill-Posedness & Frequency-Domain Noise Explosion; L2: Naive Inverse Failure Analysis | **Lab 3 (Part B):** Noise/Model-Mismatch Analysis *(Lab 3 Due)* |
+| **6** | **II. Inverse Problems** | L1: Tikhonov/Wiener Regularization; L2: Richardson–Lucy & Blind Deconvolution | **Lab 4:** Regularized Text & Plate Restoration |
 | **7** | **II. Inverse Problems** | Review & Forensic Limits of Deconvolution | **Midterm Exam + Practical Reconstruction Challenge** *(Lab 4 Due)* |
 | **8** | **III. Forensic Standards** | Bit-Stream Integrity, SHA-256 Hashing & Investigative vs. Court Evidence | **Lab 5 (Part A):** Hash-Verified Forensic Pipeline Setup |
 | **9** | **III. Forensic Standards** | *Daubert* / *Mohan* Admissibility, ISO 17025 & SWGDE Control Validation | **Lab 5 (Part B):** Forward-and-Reverse Control Testing |
