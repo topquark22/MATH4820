@@ -63,6 +63,10 @@ The first term shows model error; the second shows noise amplification. Even wit
 
 Also test boundary mismatch. The DFT naturally represents circular convolution; applying a circular inverse to data produced with a different boundary convention can create wraparound seams and edge artifacts. Compare appropriate padding/cropping choices, and connect them to Week 4's circular-versus-linear convolution discussion.
 
+**Operator-order mismatch.** Recall Week 4, Day 2: a geometric warp $W_T$ and fixed convolution operator $H$ need not commute. If the true noise-free forward model is $g=HW_T f$ but the assumed model is $W_T Hf$, even exact knowledge of the warp and PSF does not eliminate model error. When both operators are invertible, the correct formal inverse is $(HW_T)^{-1}=W_T^{-1}H^{-1}$: deblur first, then unwarp. In practice, non-injectivity, instability, and interpolation may prevent exact recovery.
+
+As a short controlled demonstration, compare the two forward orders using a quarter-turn and a horizontal motion-blur PSF on a synthetic square image, with consistent boundary conventions. Inspect their difference before adding noise. This illustrates a model error distinct from PSF mismatch and prepares for the Week 7 reconstruction challenge.
+
 For every run, compare the floating-point estimate with the displayed image. Clipping to `[0,255]`, rescaling each image independently, or changing contrast can make noise look like detail. Report the unclipped range and use a consistent display scale.
 
 ### 5. Quantitative evaluation and residuals (15 min)
@@ -89,6 +93,7 @@ Have students write a short failure analysis for each experiment: what was chang
 3. A noise-free image is reconstructed accurately with the exact PSF, but adding small noise causes strong oscillation. Which Hadamard condition does this demonstrate, and why does the noise-free result not contradict it?
 4. Why can a DFT-based inverse create edge or wraparound artifacts if the forward image was formed with a different boundary convention?
 5. A clipped reconstruction looks sharper and has lower displayed contrast variation than an unclipped one. Why is that not a valid quality comparison? Name two measurements you would report for a synthetic test.
+6. If the forward model is $HW_T$, in which order should the formal inverses be applied? Why might reversing the order fail even with exact parameters?
 
 ## Instructor Answer Sketch
 
@@ -97,3 +102,4 @@ Have students write a short failure analysis for each experiment: what was chang
 3. Stability. The exact, noise-free case tests only one datum; stability asks whether nearby data produce nearby solutions.
 4. The DFT assumes periodic extension, so opposing boundaries can interact. A mismatch between circular and linear convolution or padding conventions introduces discontinuities and wraparound structure.
 5. Clipping discards out-of-range values and rescales can mask error. For a known reference, report an unclipped error metric such as MSE/PSNR and inspect the residual or error-versus-noise curve, using consistent scaling.
+6. Apply $H^{-1}$ first and $W_T^{-1}$ second, assuming both exist. Reversing the order assumes commutativity, which fails in general (Week 4, Day 2). Actual inversion may also be unstable or impossible.

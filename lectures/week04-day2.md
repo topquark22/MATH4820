@@ -19,6 +19,7 @@ By the end of this session students can:
 3. State and **derive** the (circular) Convolution Theorem: $G[k]=F[k]\,H[k]$.
 4. Explain circular vs. linear convolution, wrap-around, zero-padding size rules, and PSF centering pitfalls.
 5. Explain why some blur kernels have exact zeros in their spectra and others merely attenuate, and why zeros make the blur non-injective (lead-in to Week 5).
+6. Distinguish commutativity of convolution from commutativity of blur and geometric warping.
 
 ## Timed Outline (90 min)
 
@@ -72,6 +73,32 @@ $$
 - Linear in $I$; shift-invariant: shifting the input shifts the output; commutative and associative.
 - If $\sum G=1$: $\sum(I*G)=\sum I$ (mass is preserved), so the mean brightness is unchanged (exercise 2).
 - A point source $I=\delta$ (impulse) gives output $G$: that is why $G$ is called the **point spread function**.
+
+**Convolution and geometric warping.** Recall Week 2's warp $W_T f=f\circ T^{-1}$ for a bijective coordinate transformation $T$. Write $H_h f=f*h$ for convolution with a fixed PSF $h$. Although convolution is commutative in its two arguments, this does not imply that $H_h$ commutes with $W_T$.
+
+For an invertible affine map $T(x)=Ax+b$ on the plane, a change of variables in the convolution integral gives
+
+$
+W_T H_h f=H_{h_A}W_T f,\qquad h_A(x)=\frac{1}{|\det A|}h(A^{-1}x).
+$
+
+Indeed, writing $x$ and $u$ as two-dimensional vectors,
+
+$
+(W_T H_h f)(x)=\int_{\mathbb{R}^2} f(A^{-1}(x-b)-u)h(u)\,du
+$
+
+and substituting $v=Au$ gives the convolution of $W_T f$ with $h_A$. Thus the warp transforms the PSF as well as the image.
+
+For a concrete counterexample, let $h$ be a horizontal motion-blur PSF and let $T$ rotate the plane by $90^\circ$. Blurring a small circular spot and then rotating it produces a vertical smear; rotating the spot first and then applying the same horizontal blur produces a horizontal smear. Hence in general
+
+$
+H_h W_T\ne W_T H_h.
+$
+
+There are important exceptions on the full plane: translations commute with shift-invariant convolution, and rotations commute with radially symmetric PSFs such as an isotropic Gaussian. For nonlinear warps, the transformed blur need not even be shift-invariant. Discrete resampling, cropping, and boundary conventions can further break these ideal continuous identities.
+
+Use the spot example during the properties discussion (about 2–3 minutes); the affine change-of-variables derivation can be assigned as reading if time is short.
 
 **Forward model** (from the technical notes): $B=(I*G)+N$ where $I$ is the true image, $G$ the PSF, and $N$ sensor/quantization noise. Inverse problem (Weeks 5–6): given $B$ and (maybe) $G$, find $I$.
 
@@ -226,6 +253,7 @@ Three sentences: (1) blur is convolution with a PSF; (2) in the DFT basis convol
 9. A photograph of printed text is blurred (circularly) by a wide Gaussian and the right-hand border of the text is dark while the left-hand border is white. Describe visible wrap-around artifacts and how to prevent them.
 10. *(Discussion)* Why can a motion-blurred license plate be partially recoverable, while a heavily Gaussian-blurred one typically is not? (Use zeros versus attenuation.)
 11. *(Python)* Verify the Convolution Theorem numerically: compare `np.fft.fft(blur)` with `np.fft.fft(f)*np.fft.fft(h)` for random $f,h$ of length 16 under circular convolution computed by a direct loop.
+12. Give a counterexample to commutativity of a geometric warp and a fixed blur operator. Explain why a rotation and isotropic Gaussian blur do commute on the full plane. *(Extension)* Derive the transformed PSF for an invertible affine warp.
 
 ## Instructor Answer Key
 
@@ -240,3 +268,4 @@ Three sentences: (1) blur is convolution with a PSF; (2) in the DFT basis convol
 9. The dark right border bleeds onto the left (and vice versa), causing a dark/bright halo along the image edges; likewise top/bottom. Prevent by zero-padding (or mirror padding) by at least the PSF extent and cropping, i.e. doing a linear convolution.
 10. Motion blur has exact zeros only at specific frequencies and a structured spectrum: most other frequencies are kept at moderate gain, so regularized methods can recover much. A wide Gaussian attenuates all high frequencies smoothly to below the quantization/noise floor, so the information is effectively gone.
 11. Loop: `g[n] = sum(f[m]*h[(n-m)%N] for m in range(N))`; then `np.allclose(np.fft.fft(g), np.fft.fft(f)*np.fft.fft(h))` is `True`.
+12. A quarter-turn rotates a horizontal motion-blur smear into a vertical one, whereas applying horizontal blur after rotating a circular spot gives a horizontal smear. For an isotropic Gaussian and a rotation $A$, $|\det A|=1$ and $h(A^{-1}x)=h(x)$, so the operators commute. The affine identity follows by substituting $v=Au$ in the integral above.
