@@ -38,7 +38,21 @@ Tikhonov and Wiener filtering in Day 1 assume a known PSF and stabilize the inve
 
 ### 2. Richardson–Lucy for Poisson data (20 min)
 
-For photon-limited imaging, model each observed pixel as a Poisson count with expected value `(Hf)_i`, where `H` is the blur operator and `f` is nonnegative. Under a known nonnegative PSF, standard RL iterates
+For photon-limited imaging, model each observed pixel as a Poisson count with expected value `(Hf)_i`, where `H` is the blur operator and `f` is nonnegative. Recall Week 5, Day 1: conditional count variance equals expected count, unlike the constant variance of the simple additive Gaussian model. For conditionally independent counts, writing $\mu_i=(Hf)_i$, the negative log-likelihood up to a constant is
+
+$
+\mathcal L_{\mathrm P}(f;b)=\sum_i\bigl(\mu_i-b_i\log\mu_i\bigr).
+$
+
+Use the limiting convention that a zero count contributes no logarithmic term, while a positive count at zero predicted intensity has infinite loss. In contrast, independent Gaussian noise of common variance $\sigma^2$ gives the negative log-likelihood (up to a constant)
+
+$
+\mathcal L_{\mathrm G}(f;b)=\frac{1}{2\sigma^2}\sum_i(b_i-\mu_i)^2.
+$
+
+These distinct likelihoods explain why the observation model affects the reconstruction objective.
+
+ Under a known nonnegative PSF, standard RL iterates
 
 $$
 f^{(k+1)}=f^{(k)}\odot H^*\!\left(\frac{b}{Hf^{(k)}}\right),
@@ -50,7 +64,7 @@ The update has three steps: blur the current estimate to predict counts; form ob
 
 ### 3. Iterations, noise models, and stopping (15 min)
 
-More iterations do not always mean a better reconstruction. Early stopping can act as regularization; later iterations can fit noise and PSF error. On synthetic data, compare multiple iteration counts against the known reference and inspect residuals.
+More iterations do not always mean a better reconstruction. Early stopping can act as regularization; later iterations can fit noise and PSF error. On synthetic calibration data, compare multiple iteration counts against known references and inspect residuals. For held-out tests, select stopping criteria using calibration data or a predeclared observation-only rule, record the estimate and iteration count, and then reveal the test reference (Week 5, Day 2). Selecting the best iteration retrospectively from the test reference gives an oracle comparison, not a deployable stopping rule.
 
 Standard RL is not a generic method for additive Gaussian noise. Gaussian-noise restoration is commonly posed with a squared-error data term and a regularizer. Low-light sensor data may combine Poisson photon counts with approximately Gaussian read noise; use a mixed-noise likelihood or explicitly state the approximation. Do not silently use standard RL and describe it as a Gaussian-noise estimator.
 
@@ -84,7 +98,7 @@ Compare methods using a known test image and matched synthetic degradations:
 | Richardson–Lucy | Yes | Nonnegative Poisson counts | Noise-model mismatch, late-iteration noise, PSF error |
 | Blind deconvolution | No | Data fit plus image/kernel constraints | Ambiguity, local minima, prior dependence |
 
-Have students choose which method fits (a) calibrated blur with stationary noise estimates, (b) photon counts with a calibrated PSF, and (c) a single image with unknown motion blur. Require them to state assumptions and one failure mode. Lab 4 should compare regularized text/plate restoration under controlled blur and noise, using reference metrics where the original is known. Report PSF knowledge, noise model, parameter/iteration choice, residuals, and artifacts—not just visual sharpness.
+Have students choose which method fits (a) calibrated blur with stationary noise estimates, (b) photon counts with a calibrated PSF, and (c) a single image with unknown motion blur. Require them to state assumptions and one failure mode. Lab 4 should compare regularized text/plate restoration under controlled blur and noise, using reference metrics where the original is known. Report PSF knowledge, noise model, parameter/iteration choice, residuals, and artifacts—not just visual sharpness. In the blind case, withhold the true PSF as well as the clean image until the reconstruction and estimated kernel are recorded.
 
 ## Key Definitions Summary
 

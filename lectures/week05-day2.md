@@ -15,6 +15,7 @@ By the end of this session students can:
 2. Explain how noise amplification and model error appear in the recovered image and spectrum.
 3. Distinguish genuine data-supported detail from ringing, boundary artifacts, and amplified noise.
 4. Evaluate a reconstruction using known-reference metrics and residuals rather than visual sharpness alone.
+5. Separate calibration and parameter selection from held-out reconstruction evaluation.
 
 ## Timed Outline (90 min)
 
@@ -45,6 +46,10 @@ Use a reference image containing smooth regions, edges, and fine text. Fix the i
 
 Record the clean reference, blurred observation, noise realization, assumed PSF, and all scaling conventions. The noise-free/exact-PSF result is a baseline, not evidence that the inverse is robust.
 
+**Calibration versus held-out evaluation.** A known-reference demonstration is useful for understanding failure mechanisms, but it is not an independent test of a reconstruction procedure chosen using that reference. Use separate synthetic calibration examples to choose thresholds, model assumptions, or other settings. For a held-out test, supply only the degraded observation and the metadata that would legitimately be available in practice; withhold the clean image, hidden PSF parameters in blind cases, and noise realization. Fix the method and selection rule before the test, then record the reconstruction and selected settings before revealing the reference. A predeclared observation-based rule may select settings from the test observation itself.
+
+The instructor or data generator may retain all ground truth privately. Use it afterward to compute reference metrics; do not use those scores to revise the reported test result. If the same reference is used to choose a method and score it, label the result exploratory or an oracle benchmark rather than independent evidence of performance. A new held-out example is needed for a fresh independent evaluation after retuning.
+
 ### 3. Noise and blur-strength sweep (20 min)
 
 For a fixed PSF and exact assumed transfer function, compare `F̂ = B/H` across noise levels. Inspect the output and centered Fourier magnitude. Students should see that noise concentrated where `|H|` is small can dominate the estimate, producing grain, oscillation, and ringing. Stronger blur lowers more of the transfer spectrum and makes the inverse more sensitive.
@@ -71,7 +76,7 @@ For every run, compare the floating-point estimate with the displayed image. Cli
 
 ### 5. Quantitative evaluation and residuals (15 min)
 
-When the synthetic reference is known, compute mean-squared error or PSNR against the reference, and inspect the residual `f̂ - f`. No single metric proves that a reconstruction is perceptually or evidentially correct: MSE can penalize small shifts heavily, while a visually sharp output can still contain unsupported high-frequency structure.
+When the synthetic reference is known, compute mean-squared error or PSNR against the reference, and inspect the residual `f̂ - f`. For held-out tests, do this only after recording the reconstruction; distinguish reference error from the observation-space residual available during reconstruction. No single metric proves that a reconstruction is perceptually or evidentially correct: MSE can penalize small shifts heavily, while a visually sharp output can still contain unsupported high-frequency structure.
 
 Plot error against noise level and blur strength. Compare exact-PSF and mismatched-PSF curves. Students should explain why a reconstruction can be good in a noise-free control and fail abruptly once modest noise or model error is introduced. For real unknown images, a reference-based score is unavailable; residuals and sensitivity tests can expose instability but cannot certify the true image.
 
@@ -94,6 +99,7 @@ Have students write a short failure analysis for each experiment: what was chang
 4. Why can a DFT-based inverse create edge or wraparound artifacts if the forward image was formed with a different boundary convention?
 5. A clipped reconstruction looks sharper and has lower displayed contrast variation than an unclipped one. Why is that not a valid quality comparison? Name two measurements you would report for a synthetic test.
 6. If the forward model is $HW_T$, in which order should the formal inverses be applied? Why might reversing the order fail even with exact parameters?
+7. A student chooses the denominator threshold that minimizes error against a test reference and reports that same error as independent test performance. What is wrong with the experiment, and how should it be redesigned?
 
 ## Instructor Answer Sketch
 
@@ -103,3 +109,4 @@ Have students write a short failure analysis for each experiment: what was chang
 4. The DFT assumes periodic extension, so opposing boundaries can interact. A mismatch between circular and linear convolution or padding conventions introduces discontinuities and wraparound structure.
 5. Clipping discards out-of-range values and rescales can mask error. For a known reference, report an unclipped error metric such as MSE/PSNR and inspect the residual or error-versus-noise curve, using consistent scaling.
 6. Apply $H^{-1}$ first and $W_T^{-1}$ second, assuming both exist. Reversing the order assumes commutativity, which fails in general (Week 4, Day 2). Actual inversion may also be unstable or impossible.
+7. The test reference influenced parameter selection, so the score is not independent and can be optimistically biased. Select the threshold on separate calibration data or by a predeclared observation-only rule; freeze the reconstruction before revealing the held-out reference.

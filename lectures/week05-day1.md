@@ -77,6 +77,24 @@ $$
 
 The first term is the desired signal; the second is amplified noise. The magnitude of the inverse filter is `1 / |H|`. Where `|H|` is small, even modest `|N|` can dominate. If `H=0`, division is undefined and the lost component cannot be uniquely recovered from the observation alone.
 
+**Observation models: additive Gaussian noise versus Poisson counts.** The algebraic representation of an observation as signal plus error does not imply that the error is statistically independent of the signal. In a simple additive Gaussian model, write $\mu=Hf$ and
+
+$
+b_i=\mu_i+n_i,\qquad n_i\sim\mathcal N(0,\sigma^2),
+$
+
+with independent noise samples of fixed variance, independent of the underlying image. In an ideal photon-counting model with nonnegative expected counts $\mu_i$, instead assume conditionally independent observations
+
+$
+b_i\mid f\sim\operatorname{Poisson}(\mu_i),\qquad \mu_i=(Hf)_i.
+$
+
+For a Poisson variable with mean $\mu$, its probability at integer $k\ge 0$ is $e^{-\mu}\mu^k/k!$ (at $\mu=0$, the count is zero almost surely), and its mean and variance both equal $\mu$. Hence the centered error $n_i=b_i-\mu_i$ has conditional mean zero and conditional variance $\mu_i$. Its distribution depends on the signal; it is not independent additive noise with constant variance.
+
+For example, expected counts of 4 and 100 have standard deviations of 2 and 10 counts, respectively, but relative standard deviations of 50% and 10%. At high counts a Gaussian approximation to Poisson observations may be useful, but its variance is still intensity-dependent. Read noise may add a separate approximately Gaussian component. Week 6 will connect these models to different data-fit objectives.
+
+For a short board example, compare these two count levels with a fixed-variance Gaussian model. The frequency-domain error identity above still holds algebraically when the centered Poisson error is used, but the statistical assumptions and resulting estimators differ.
+
 In an implementation, blindly dividing by exact zeros or machine-level values is not a solution. Replacing small denominators by a threshold prevents numerical overflow but changes the method and acts as an implicit frequency cutoff; it does not restore information that the measurement did not retain.
 
 ### 4. Gaussian smoothing and frequency-domain explosion (20 min)
@@ -134,6 +152,8 @@ Wrap-up: the forward blur can be stable while its inverse is unstable. Naive inv
 
 ## Exercises
 
+*Additional observation-model exercise:* For two pixels with expected photon counts 25 and 400, compute their conditional noise variances, standard deviations, and relative standard deviations. Explain why fixed-variance independent additive Gaussian noise is not the exact model.
+
 1. For `b = h * f + n`, derive the Fourier-domain naive inverse and isolate the reconstruction error. State what happens when `H=0`.
 2. A frequency component has `|H|=0.02` and noise magnitude `|N|=0.004`. What is the magnitude of the noise in the naively recovered component? What if `|H|=0.0002`?
 3. Explain why “the Gaussian Fourier transform is never zero” does not imply stable deconvolution.
@@ -141,6 +161,8 @@ Wrap-up: the forward blur can be stable while its inverse is unstable. Naive inv
 5. *(Discussion)* A naively restored image looks sharper than the blurred input. Give two reasons this alone does not show that the recovered details are correct.
 
 ## Instructor Answer Sketch
+
+*Observation-model exercise:* Variances are 25 and 400 counts squared; standard deviations are 5 and 20 counts; relative standard deviations are 20% and 5%. The conditional error distribution varies with the underlying expected count.
 
 1. `B=HF+N`, so `F̂=B/H=F+N/H` for `H≠0`; the error is `N/H`. For `H=0`, that component cannot be obtained by division and is not identified by the data.
 2. The amplified magnitudes are `0.004/0.02 = 0.2` and `0.004/0.0002 = 20`.

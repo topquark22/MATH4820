@@ -44,7 +44,7 @@ $$
 \widehat f_\lambda = \arg\min_f \left\lbrace\|Hf-b\|_2^2 + \lambda\|Lf\|_2^2\right\rbrace, \qquad \lambda>0.
 $$
 
-The first term asks the blurred estimate to fit the observation; the second penalizes solutions that violate the chosen prior. With `L=I`, large-amplitude solutions are discouraged. With `L` as a discrete derivative, rapidly varying solutions are penalized, expressing a smoothness preference. The normal equations are
+The first term asks the blurred estimate to fit the observation; the second penalizes solutions that violate the chosen prior. As discussed in Week 5, Day 1, a squared-error data term is proportional to the negative log-likelihood for independent additive Gaussian noise of common variance (up to a constant and scale). It is not the exact Poisson negative log-likelihood; Day 2 develops the alternative. With `L=I`, large-amplitude solutions are discouraged. With `L` as a discrete derivative, rapidly varying solutions are penalized, expressing a smoothness preference. The normal equations are
 
 $$
 (H^*H+\lambda L^*L)\widehat f=H^*b.
@@ -89,7 +89,7 @@ It accepts less high-frequency content, reducing noise sensitivity but leaving m
 
 ### 5. Parameter selection and evaluation (15 min)
 
-On synthetic data with known reference, sweep several logarithmically spaced parameter values. Plot reference error and inspect residuals; report the selected value and the criterion used. If a separate validation image is available, choose parameters on validation data rather than tuning on the test image. For real unknown data, report sensitivity across plausible settings and avoid claiming that a visually preferred output is the true image.
+On synthetic calibration data with known references, sweep several logarithmically spaced parameter values. Plot reference error and inspect residuals; report the selected value and the criterion used. Following Week 5, Day 2, reserve separate held-out test images: choose parameters on calibration data or use a predeclared observation-only selection rule, record the test reconstruction and settings, and only then reveal the test reference. If no held-out data are available, describe reference-tuned results as exploratory or oracle results, not independent test performance. For real unknown data, report sensitivity across plausible settings and avoid claiming that a visually preferred output is the true image.
 
 Check for model mismatch as well as parameter choice: an incorrect PSF or boundary convention can leave structured residuals that no choice of `λ` or `K` repairs. Compare the restored output with the forward projection of the estimate, `H f̂`, and examine the residual `b-H f̂` in addition to the image.
 
