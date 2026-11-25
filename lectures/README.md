@@ -29,3 +29,5 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 8, Day 2](week08-day2.md): Reproducible forensic enhancement, numerical determinism, audit manifests, and investigative versus evidentiary conclusions
 - [Week 9, Day 1](week09-day1.md): Scientific evidence, US and Canadian expert-evidence law, ISO/IEC 17025, and SWGDE guidance
 - [Week 9, Day 2](week09-day2.md): Experimental validation, positive and negative controls, feature error, binomial confidence bounds, and model mismatch
+- [Week 10, Day 1](week10-day1.md): Bayesian inverse problems, learned priors, super-resolution, GANs, diffusion, and the perception–distortion trade-off
+- [Week 10, Day 2](week10-day2.md): Generative artifacts, identity drift, controlled restoration experiments, provenance, and forensic reliability

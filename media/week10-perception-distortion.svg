@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" role="img" aria-labelledby="title desc">
+  <title id="title">Conceptual perception-distortion boundary</title>
+  <desc id="desc">A decreasing schematic frontier separates a lower-left region of unattainable objectives from an upper-right region of attainable or dominated objectives. Both axes are minimized.</desc>
+  <rect width="680" height="440" fill="#ffffff"/>
+  <g font-family="Arial, sans-serif" fill="#172334">
+    <path d="M95 35 H640 V300 C470 291 330 265 235 209 S120 94 95 35 Z" fill="#e5f1eb"/>
+    <path d="M95 35 C120 94 140 153 235 209 S470 291 640 300 V350 H95 Z" fill="#f7e7e7"/>
+    <path d="M95 35 C120 94 140 153 235 209 S470 291 640 300" fill="none" stroke="#16756a" stroke-width="4"/>
+    <path d="M95 22 V350 H652" stroke="#172334" stroke-width="2.5" fill="none"/>
+    <path d="M89 31 L95 22 L101 31 M643 344 L652 350 L643 356" fill="none" stroke="#172334" stroke-width="2"/>
+    <text x="401" y="101" text-anchor="middle" font-size="19">Attainable or dominated</text>
+    <text x="233" y="322" text-anchor="middle" font-size="17">Unattainable</text>
+    <text x="373" y="391" text-anchor="middle" font-size="20">Expected distortion</text>
+    <text transform="translate(27 194) rotate(-90)" text-anchor="middle" font-size="20">Perceptual discrepancy</text>
+    <text x="373" y="419" text-anchor="middle" font-size="15" fill="#475569">Lower is better on both axes; schematic only.</text>
+  </g>
+</svg>
