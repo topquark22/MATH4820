@@ -42,6 +42,24 @@ $$
 
 Only two steps discard information: chroma subsampling and quantization. (Entropy coding is lossless.) Today: the first three steps; Day 2: quantization.
 
+~~~mermaid
+flowchart TD
+A[RGB] --> B[YCbCr]
+ B --> C[Optional chroma subsampling]
+ C --> D[8 x 8 blocks and level shift]
+ D --> E[Block DCT]
+ E --> F[Quantization]
+ F --> G[Coefficient ordering and entropy coding]
+ G --> H[JPEG bitstream]
+ H --> I[Entropy decoding and reordering]
+ I --> J[Dequantization]
+ J --> K[Inverse DCT and reverse level shift]
+ K --> L[Chroma upsampling if needed]
+ L --> M[Output color conversion]
+~~~
+
+*Figure 1. Baseline JPEG encoding and decoding. Subsampling and quantization discard information; rounding and clipping may introduce further loss.*
+
 ### 2. Color spaces (20 min)
 A color pixel is a vector in $\mathbb{R}^3$ (the $k=3$ case). YCbCr (JFIF convention, 8-bit, assumed) is an invertible linear change of coordinates plus offset:
 

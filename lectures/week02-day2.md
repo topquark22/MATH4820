@@ -84,6 +84,20 @@ Notes:
 - Search cost grows quickly with the number of parameters; this motivates coarse-to-fine strategies.
 - **Forensic caution (preview of Weeks 8–9):** a visually plausible result does not prove the parameters are correct; validation uses control images processed with the same filter.
 
+~~~mermaid
+flowchart TD
+A[Warped observation] --> B[Candidate grid]
+ B --> C[Inverse warp each candidate]
+ C --> D[Score edge continuity]
+ D --> E[Select best candidate]
+ E --> F{Stopping rule met?}
+ F -->|No| G[Refine grid]
+ G --> C
+ F -->|Yes| H[Report estimate and limitations]
+~~~
+
+*Figure 1. Coarse-to-fine parameter search. Illustrative search, not a historical account; a high score does not establish uniqueness.*
+
 ### 6. Case study: *Operation Vico* (2007), brief (15 min)
 *Keep this short and factual; it is an introduction, not the legal unit.*
 

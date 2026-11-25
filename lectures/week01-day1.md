@@ -56,6 +56,16 @@ $$
 - Both steps discard information: many different $f$ give the same $I$.
 - Course theme: operations on the continuous domain can be invertible, but digital versions pick up interpolation blurring and quantization (see `syllabus/technical-notes.md`, "Discrete hurdles").
 
+~~~mermaid
+flowchart TD
+A[Continuous image] --> B[Sample spatial grid]
+ B --> C[Discrete samples]
+ C --> D[Quantize intensities]
+ D --> E[Stored pixel array]
+~~~
+
+*Figure 1. Sampling and quantization. Sampling discretizes locations; quantization discretizes values.*
+
 ### 4. Injective, surjective, bijective (20 min)
 For a map $T: X \to Y$:
 
@@ -70,6 +80,26 @@ Image-flavored intuition (no matrices):
 - Adding a constant brightness — injective on $\mathbb{R}$, but with 8-bit clipping at 255 it is not (illustrative assumption).
 
 Links to Course Learning Outcome 1 (classify operators as injective, surjective, or destructive).
+
+~~~mermaid
+flowchart TD
+subgraph I["Injective, not surjective"]
+ a1((x1)) --> b1((y1))
+ a2((x2)) --> b2((y2))
+ b3((y3))
+ end
+ subgraph S["Surjective, not injective"]
+ c1((x1)) --> d1((y1))
+ c2((x2)) --> d1
+ c3((x3)) --> d2((y2))
+ end
+ subgraph B["Bijective"]
+ e1((x1)) --> f1((y1))
+ e2((x2)) --> f2((y2))
+ end
+~~~
+
+*Figure 2. Function classifications. The first mapping misses y3; the second maps two inputs to y1.*
 
 ### 5. Activity (10 min)
 Small groups classify the operations in Exercise 3 and report back; close with a one-minute preview of Day 2 (matrix refresher, grids, interpolation).

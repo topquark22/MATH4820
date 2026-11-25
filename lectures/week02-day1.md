@@ -47,6 +47,19 @@ $$
 - On a pixel grid, **backward mapping** evaluates $f$ at $T^{-1}(\mathbf{q})$ for each output pixel $\mathbf{q}$, using an interpolation kernel from Week 1. Forward mapping can leave holes or overlaps.
 - Photoshop connection: Edit → Transform (Scale, Rotate, Skew, Distort, Perspective, Warp) are all of this form, plus an interpolation choice (nearest neighbor / bilinear / bicubic) that students may have seen in the resampling dialog.
 
+~~~mermaid
+flowchart TD
+A[Source and destination grids] --> B[Forward mapping]
+ A --> C[Backward mapping]
+ B --> D[Map source samples to destination]
+ D --> E[Resolve overlaps and holes]
+ C --> F[Choose destination pixel]
+ F --> G[Apply inverse coordinate map]
+ G --> H[Interpolate source]
+~~~
+
+*Figure 1. Forward and backward mapping. Neither discrete procedure guarantees lossless resampling.*
+
 ### 3. Affine maps (20 min)
 
 $$
@@ -69,6 +82,15 @@ $$
 - Straight lines map to straight lines, but parallel lines may converge (vanishing points); this is the Photoshop "Perspective" / "Perspective Warp" look.
 - **Caveat on bijectivity:** the points with $w=0$ map "to infinity", so a homography is a bijection only between the plane minus a line and the plane minus another line (or on a suitable region, such as the image rectangle when $w>0$ there). Students should state the domain when classifying it.
 - Inverse: $H^{-1}$ (also a homography). Rectifying a photographed document or license plate uses this.
+
+~~~mermaid
+flowchart TD
+A[Rigid] --> B[Similarity]
+ B --> C[Invertible affine]
+ C --> D[Nonsingular projective]
+~~~
+
+*Figure 2. Nested transformation classes. Arrows denote class inclusion, not processing order. Projective maps are understood on the projective plane.*
 
 ### 5. Permutation "ciphers" (15 min)
 A pixel permutation keeps every value and only rearranges positions. On an $M\times N$ grid, a permutation $\pi$ of the $MN$ positions gives $I'[\pi(m,n)]=I[m,n]$.

@@ -50,6 +50,20 @@ Record the clean reference, blurred observation, noise realization, assumed PSF,
 
 The instructor or data generator may retain all ground truth privately. Use it afterward to compute reference metrics; do not use those scores to revise the reported test result. If the same reference is used to choose a method and score it, label the result exploratory or an oracle benchmark rather than independent evidence of performance. A new held-out example is needed for a fresh independent evaluation after retuning.
 
+~~~mermaid
+flowchart TD
+A[Calibration data] --> B[Choose settings or predeclare selection rule]
+ C[Independent held-out reference] --> D[Generate degraded observation]
+ D --> E[Reconstruct using fixed rule]
+ B --> E
+ E --> F[Record output and settings]
+ C --> G[Reveal reference for evaluation]
+ F --> G
+ G --> H[Measure errors and residuals]
+~~~
+
+*Figure 1. Controlled reconstruction experiment. Keep held-out references and hidden degradation information out of reconstruction and parameter selection.*
+
 ### 3. Noise and blur-strength sweep (20 min)
 
 For a fixed PSF and exact assumed transfer function, compare `F̂ = B/H` across noise levels. Inspect the output and centered Fourier magnitude. Students should see that noise concentrated where `|H|` is small can dominate the estimate, producing grain, oscillation, and ringing. Stronger blur lowers more of the transfer spectrum and makes the inverse more sensitive.
@@ -73,6 +87,20 @@ Also test boundary mismatch. The DFT naturally represents circular convolution; 
 As a short controlled demonstration, compare the two forward orders using a quarter-turn and a horizontal motion-blur PSF on a synthetic square image, with consistent boundary conventions. Inspect their difference before adding noise. This illustrates a model error distinct from PSF mismatch and prepares for the Week 7 reconstruction challenge.
 
 For every run, compare the floating-point estimate with the displayed image. Clipping to `[0,255]`, rescaling each image independently, or changing contrast can make noise look like detail. Report the unclipped range and use a consistent display scale.
+
+~~~mermaid
+flowchart TD
+A[Original image f] --> B[Geometric warp W]
+ A --> C[Convolution H]
+ B --> D[Convolution H]
+ C --> E[Geometric warp W]
+ D --> F[HWf]
+ E --> G[WHf]
+ F --> H[Compare outputs]
+ G --> H
+~~~
+
+*Figure 2. Noncommutativity of warp and convolution. Outputs generally differ, although particular operators may commute. Use consistent coordinates and boundaries.*
 
 ### 5. Quantitative evaluation and residuals (15 min)
 

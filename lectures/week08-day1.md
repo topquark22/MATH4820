@@ -89,6 +89,21 @@ If the source is changing or inaccessible, a separate later source hash may not 
 
 Use a classroom simulation with an ordinary synthetic file, not a real disk or device. The demonstration does not implement or validate a write-blocker.
 
+~~~mermaid
+flowchart TD
+A[Source evidence] --> B[Controlled acquisition within authorized scope]
+ B --> C[Preserved acquisition]
+ B --> D[Protected reference SHA-256 digest]
+ C --> E[Create working copy]
+ E --> F[Compute working-copy digest]
+ D --> G{Digests match for same byte domain?}
+ F --> G
+ G -->|Yes| H[Integrity check passed]
+ G -->|No| I[Stop and investigate discrepancy]
+~~~
+
+*Figure 1. Evidence acquisition and verification. A successful comparison supports byte integrity, not authenticity, completeness or authorization.*
+
 ### 4. Cryptographic hashing and SHA-256 (25 min)
 
 **Definition and non-injectivity (5 min).** In an idealized treatment, write an $n$-bit hash function as

@@ -93,6 +93,18 @@ On synthetic calibration data with known references, sweep several logarithmical
 
 Check for model mismatch as well as parameter choice: an incorrect PSF or boundary convention can leave structured residuals that no choice of `λ` or `K` repairs. Compare the restored output with the forward projection of the estimate, `H f̂`, and examine the residual `b-H f̂` in addition to the image.
 
+~~~mermaid
+flowchart TD
+A[Calibration or predeclared observation-only criterion] --> B[Fix parameter or selection rule]
+ C[Held-out degraded observation] --> D[Reconstruct]
+ B --> D
+ D --> E[Record result and chosen parameter]
+ F[Withheld reference] --> G[Evaluate after reconstruction]
+ E --> G
+~~~
+
+*Figure 1. Regularization parameter selection. Do not tune against the held-out reference.*
+
 ### 6. Wrap-up and Day 2 preview (10 min)
 
 Both methods make the inverse less sensitive by declining to trust weakly measured frequencies. Their assumptions differ, and both can oversmooth or retain artifacts if the prior, parameter, or PSF is wrong. Day 2 turns to iterative methods: Richardson–Lucy for Poisson observations and constrained blind deconvolution when the PSF is unknown.

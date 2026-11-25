@@ -63,6 +63,20 @@ Suppose an image is compressed with table $Q_1$, decoded (and possibly edited), 
 - Caveats: the effect disappears if the image was cropped or warped so that the 8×8 grid misaligns (this ties directly to Week 2 geometric edits); images from different cameras/software have different tables; false positives occur.
 - Forensic reading: evidence the file was recompressed, not proof of tampering by itself.
 
+~~~mermaid
+flowchart TD
+A[Reference raster] --> B[JPEG encode at Q2]
+ A --> C[JPEG encode at Q1]
+ C --> D[Decode]
+ D --> E[Optional crop or resampling]
+ E --> F[JPEG encode at Q2]
+ B --> G[Inspect coefficient statistics]
+ F --> G
+ G --> H[Compare compression traces]
+~~~
+
+*Figure 1. Single versus double JPEG. Quality and alignment affect detectability; traces alone do not establish manipulation.*
+
 ### 5. Resampling traces (15 min)
 When an image is resized or rotated (Weeks 1–2), each interpolated pixel is a fixed linear combination of its neighbors.
 

@@ -166,6 +166,16 @@ $$
 
 **Why this matters computationally.** Direct 2D convolution with a $P\times P$ PSF costs about $MNP^2$; via FFT: transform, multiply pointwise, inverse transform, about $MN\log(MN)$, independent of $P$ (large PSFs especially). It also explains *deconvolution*: dividing $B$'s spectrum by $H$ (Week 5).
 
+~~~mermaid
+flowchart TD
+A[Spatial arrays f and h] -->|Circular convolution| B[g = f convolved with h]
+ A -->|DFT of each array| C[Frequency arrays F and H]
+ C -->|Pointwise multiplication| D[G = F H]
+ B -->|DFT| D
+~~~
+
+*Figure 1. Convolution theorem. The paths agree for circular convolution under the stated DFT convention. Linear convolution requires appropriate zero-padding and output extraction.*
+
 ### 5. Circular vs. linear convolution; padding and centering (15 min)
 
 **Linear convolution** of lengths $L_1$ and $L_2$ has length $L_1+L_2-1$. The DFT product corresponds to **circular** convolution; to make them agree, zero-pad both sequences to a common length $N\ge L_1+L_2-1$.

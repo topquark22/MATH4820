@@ -62,6 +62,20 @@ where division and `⊙` are elementwise, and `H*` is the adjoint blur (convolut
 
 The update has three steps: blur the current estimate to predict counts; form observed-to-predicted ratios; back-project the ratios through the adjoint and multiply the estimate by the correction. Positivity is preserved. If the PSF or observation model is wrong, the iteration can converge to a biased or artifact-filled estimate.
 
+~~~mermaid
+flowchart TD
+A[Observed counts and known PSF] --> B[Initialize positive estimate]
+ B --> C[Forward project current estimate]
+ C --> D[Form observed-to-predicted ratio]
+ D --> E[Back-project ratio using adjoint]
+ E --> F[Normalize correction and multiply estimate]
+ F --> G{Stopping criterion met?}
+ G -->|No| C
+ G -->|Yes| H[Return reconstruction]
+~~~
+
+*Figure 1. Richardson–Lucy iteration. Use the appropriate adjoint normalization and zero handling for the forward operator and boundary convention.*
+
 ### 3. Iterations, noise models, and stopping (15 min)
 
 More iterations do not always mean a better reconstruction. Early stopping can act as regularization; later iterations can fit noise and PSF error. On synthetic calibration data, compare multiple iteration counts against known references and inspect residuals. For held-out tests, select stopping criteria using calibration data or a predeclared observation-only rule, record the estimate and iteration count, and then reveal the test reference (Week 5, Day 2). Selecting the best iteration retrospectively from the test reference gives an oracle comparison, not a deployable stopping rule.
@@ -87,6 +101,18 @@ Without constraints the problem has ambiguities:
 - **Trivial fits:** a delta kernel with the blurred observation as the image, or an over-flexible kernel that absorbs image structure, can fit data without identifying the physical blur.
 
 A common algorithm alternates between estimating `f` with `h` fixed and estimating `h` with `f` fixed. Constraints such as known kernel support, nonnegativity, normalization, and plausible motion limits reduce the solution space. Calibration images, multiple observations, or known camera-motion information can help further. Alternating optimization can still be initialization-sensitive and settle in local minima; communicate uncertainty and assumptions.
+
+~~~mermaid
+flowchart TD
+A[Observation and initial PSF] --> B[Estimate image with PSF fixed]
+ B --> C[Estimate PSF with image fixed]
+ C --> D[Enforce PSF constraints]
+ D --> E{Stopping rule met?}
+ E -->|No| B
+ E -->|Yes| F[Return image and PSF estimates]
+~~~
+
+*Figure 2. Alternating blind deconvolution. This is one constrained strategy. PSF normalization and nonnegativity do not guarantee unique or correct recovery.*
 
 ### 5. Controlled method comparison and Lab 4 (25 min)
 

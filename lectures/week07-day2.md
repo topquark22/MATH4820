@@ -60,6 +60,21 @@ $$
 
 Discuss the consequences for reconstruction: for the displayed model, deconvolution before unwarping corresponds to reversing the forward order, but resampling and regularization can make sequential restoration approximate. Do not assume that geometric reconstruction must always precede deconvolution.
 
+~~~mermaid
+flowchart TD
+A[Hidden synthetic reference] --> B[Geometric warp]
+ B --> C[Convolution]
+ C --> D[Add noise]
+ D --> E[Quantize]
+ E --> F[Available observation]
+ F --> G[Estimate parameters and select restoration]
+ G --> H[Record reconstructed result]
+ A --> I[Reveal reference for evaluation]
+ H --> I
+~~~
+
+*Figure 1. Composite degradation and restoration challenge. Illustrates the additive-noise model. Poisson observations and JPEG require their appropriate forward models.*
+
 ### 3. Geometric reconstruction and parameter estimation (20 min)
 
 Reuse the geometric transformation and parameter-estimation methods from Labs 1–2. Compare known-parameter and estimated-parameter cases, documenting interpolation and boundary conventions. Students may estimate warp parameters or test candidate mappings during this segment, then apply the selected restoration sequence in the next segment.

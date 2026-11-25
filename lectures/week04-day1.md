@@ -120,6 +120,16 @@ Cost (with $M=N$): direct double sum for every $(u,v)$ costs $\sim(MN)^2=N^4$; s
 
 A consequence of separability worth stating: if $I[m,n]=a[m]\,b[n]$ (an outer product), then $F[u,v]=A[u]\,B[v]$ (exercise 6).
 
+~~~mermaid
+flowchart TD
+A[M x N spatial samples] --> B[Length-N DFT of every row]
+ B --> C[Intermediate row spectra]
+ C --> D[Length-M DFT of every column]
+ D --> E[M x N frequency coefficients]
+~~~
+
+*Figure 1. Separable two-dimensional DFT. Separability permits either row-first or column-first evaluation.*
+
 ### 5. The FFT (20 min)
 The matrix-vector product $X=\mathcal{W}x$ costs $N^2$ complex multiplications. The FFT (Cooley–Tukey, radix-2) computes **exactly the same $X$** using $O(N\log N)$ operations, by exploiting the structure of $W^{kn}$. Take $N$ even and split $x$ into even- and odd-indexed samples. Write $n=2r$ or $n=2r+1$:
 
@@ -158,6 +168,20 @@ $$
 - Radix-2 needs $N$ a power of two, but libraries (e.g. `numpy.fft`) handle other sizes with mixed-radix or other algorithms; sizes with only small prime factors are fast, large prime sizes are slow. This matters for zero-padding choices on Day 2.
 - The inverse FFT is the same algorithm with $W^{-1}$ and a factor $1/N$.
 - 2D: apply the 1D FFT along rows and columns (separability), cost $O(MN\log(MN))$.
+
+~~~mermaid
+flowchart TD
+A[Length-N sequence, N a power of two] --> B{N = 1?}
+ B -->|Yes| C[Return single sample]
+ B -->|No| D[Split even and odd indices]
+ D --> E[Recursively compute even DFT]
+ D --> F[Recursively compute odd DFT]
+ E --> G[Combine with twiddle factors and butterflies]
+ F --> G
+ G --> H[Return length-N DFT]
+~~~
+
+*Figure 2. Radix-2 FFT recursion. Each branch has half the input length; linear work in the combination stage yields O(N log N) overall.*
 
 ### 6. Reading a centered magnitude spectrum (15 min incl. demos)
 Raw `fft2` output puts the DC term $F[0,0]$ at the corner and negative frequencies in the second half of each axis. `fftshift` rearranges so that $F[0,0]$ is at the center. Because dynamic range is huge, display $\log(1+|F|)$.

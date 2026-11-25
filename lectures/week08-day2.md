@@ -278,6 +278,21 @@ record the comparison and any discrepancies
 
 A manifest containing hashes is not automatically tamper-evident: an attacker who can rewrite both an artifact and its manifest can recompute the digest. Protect records using appropriate access controls, independently retained reference records, and authenticated or signed records where suitable, as discussed on Day 1. Hashing a manifest requires a defined byte representation; reformatting JSON changes its file digest. Do not confuse the digest of a configuration with evidence that the program actually used that configuration.
 
+~~~mermaid
+flowchart TD
+A[Verified evidence] --> B[Reconstruction run 1]
+ A --> C[Reconstruction run 2]
+ D[Calibration artifact] --> B
+ D --> C
+ B --> E[Derived image 1]
+ C --> F[Derived image 2]
+ E --> G[Comparative assessment]
+ F --> G
+ G --> H[Forensic report]
+~~~
+
+*Figure 2. Branching forensic provenance graph. Artifacts and processing activities form a directed acyclic graph. Each run and artifact has its own identifier and associated records.*
+
 ### 6. Investigative intelligence versus courtroom evidence (10 min)
 
 An enhanced image may suggest a useful direction for further investigation without being sufficient to establish an identification. Distinguish what was observed directly, what was computed, what was inferred from a model, and what was independently corroborated.

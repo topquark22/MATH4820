@@ -97,6 +97,20 @@ For a short board example, compare these two count levels with a fixed-variance 
 
 In an implementation, blindly dividing by exact zeros or machine-level values is not a solution. Replacing small denominators by a threshold prevents numerical overflow but changes the method and acts as an implicit frequency cutoff; it does not restore information that the measurement did not retain.
 
+~~~mermaid
+flowchart TD
+A[Original image f] --> B[Blur H]
+ B --> C[Add observation error]
+ D[Noise or centered error n] --> C
+ C --> E[Observation b]
+ E --> F[Transform to frequency domain]
+ F --> G[Divide by nonzero transfer function]
+ G --> H[Inverse DFT]
+ H --> I[Signal plus amplified error]
+~~~
+
+*Figure 1. Forward degradation and inverse noise amplification. The algebraic model is b = Hf + n. Small transfer-function values amplify errors; exact zeros cannot be inverted. The error need not be independent of the signal.*
+
 ### 4. Gaussian smoothing and frequency-domain explosion (20 min)
 
 For the normalized 2D Gaussian PSF with spatial standard deviation `σ`,
