@@ -12,7 +12,7 @@
 #### Week 2: Geometric Warping and Permutation Ciphers
 - Affine and nonlinear coordinate mappings (swirl, twirl, perspective homographies).
 - Case study: *Operation Vico* (2007), radial swirl filters, and parameter estimation via edge continuity.
-- **Lab 1:** Implement forward swirl distortion and automated inverse grid search in Python / OpenCV.
+- **Lab 2 (Part A):** Implement forward swirl distortion and automated inverse grid search in Python / OpenCV.
 
 #### Week 3: Compression, Quantization, and Information Loss
 - Color spaces (RGB, YCbCr), chroma subsampling, and Discrete Cosine Transform (DCT) block quantization in JPEG.
