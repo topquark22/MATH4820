@@ -27,3 +27,4 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 7, Day 2](week07-day2.md): Applied reconstruction challenge and limits of recovery
 - [Week 8, Day 1](week08-day1.md): Digital evidence acquisition, write-blocking, SHA-256, birthday bound, and chain of custody
 - [Week 8, Day 2](week08-day2.md): Reproducible forensic enhancement, numerical determinism, audit manifests, and investigative versus evidentiary conclusions
+- [Week 9, Day 1](week09-day1.md): Scientific evidence, US and Canadian expert-evidence law, ISO/IEC 17025, and SWGDE guidance
