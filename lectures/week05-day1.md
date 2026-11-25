@@ -86,7 +86,7 @@ $$
 with independent noise samples of fixed variance, independent of the underlying image. In an ideal photon-counting model with nonnegative expected counts $\mu_i$, instead assume conditionally independent observations
 
 $$
-b_i\mid f\sim\operatorname{Poisson}(\mu_i),\qquad \mu_i=(Hf)_i.
+b_i\mid f\sim\mathrm{Poisson}(\mu_i),\qquad \mu_i=(Hf)_i.
 $$
 
 For a Poisson variable with mean $\mu$, its probability at integer $k\ge 0$ is $e^{-\mu}\mu^k/k!$ (at $\mu=0$, the count is zero almost surely), and its mean and variance both equal $\mu$. Hence the centered error $n_i=b_i-\mu_i$ has conditional mean zero and conditional variance $\mu_i$. Its distribution depends on the signal; it is not independent additive noise with constant variance.
