@@ -122,6 +122,20 @@ A label such as "Tikhonov deconvolution, followed by unwarping" does not determi
 
 Recall that operator order generally matters. Applying a geometric correction before deconvolution may change the effective blur model. Parameter estimation is itself a computational stage; record the candidate ranges, objective, constraints, tie-breaking rule, and chosen parameters. Record manual choices, such as crop coordinates or control points, in the coordinate system of the relevant input artifact.
 
+~~~mermaid
+flowchart TD
+    A["Original evidence: preserved, never modified"] --> B["Verified working copy: SHA-256 comparison"]
+    B --> C["Regularized deconvolution"]
+    C --> D["Geometric correction"]
+    D --> E["Derived evidence: independently verifiable"]
+    B -.-> F["Audit trail: parameters, software versions, hashes, execution records"]
+    C -.-> F
+    D -.-> F
+    E -.-> F
+~~~
+
+*Figure 1. Example of an auditable forensic enhancement pipeline using techniques from Weeks 1–6. The processing order follows the worked example above; other degradation models may require a different order. Independent verification of a derivative does not establish the truth of its depicted features.*
+
 **Information versus inference (5 min).** In the linear setting, if $v\ne 0$ and $Hv=0$, then
 
 $$
