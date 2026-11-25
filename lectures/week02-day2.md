@@ -56,10 +56,11 @@ $$
 Because $T$ preserves $r$, the inverse is a rotation by the opposite angle at the same radius:
 
 $$
-\begin{aligned}
-T^{-1}:\quad \begin{pmatrix} x \\ y \end{pmatrix} &= \begin{pmatrix} x_0 \\ y_0 \end{pmatrix} + \begin{pmatrix} \cos\theta(r) & \sin\theta(r) \\ -\sin\theta(r) & \cos\theta(r) \end{pmatrix} \begin{pmatrix} x' - x_0 \\ y' - y_0 \end{pmatrix}, \\
-r &= \sqrt{(x'-x_0)^2+(y'-y_0)^2}.
-\end{aligned}
+T^{-1}:\quad \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix} + \begin{pmatrix} \cos\theta(r) & \sin\theta(r) \\ -\sin\theta(r) & \cos\theta(r) \end{pmatrix} \begin{pmatrix} x' - x_0 \\ y' - y_0 \end{pmatrix},
+$$
+
+$$
+r=\sqrt{(x'-x_0)^2+(y'-y_0)^2}.
 $$
 
 In the continuous model this recovers $f$ exactly. On a pixel grid:
