@@ -75,7 +75,15 @@ $$
 Write $\mathbf{p}=(x,y)$ as $\tilde{\mathbf{p}}=(x,y,1)^T$. An affine map is then a $3\times 3$ matrix with last row $(0,0,1)$. A **perspective homography** allows any invertible $3\times 3$ matrix $H$:
 
 $$
-\begin{pmatrix} u \\ v \\ w \end{pmatrix} = H \begin{pmatrix} x \\ y \\ 1 \end{pmatrix}, \qquad (x',y') = \left(\frac{u}{w},\,\frac{v}{w}\right).
+\begin{pmatrix}
+u\\
+v\\
+w
+\end{pmatrix} = H \begin{pmatrix}
+x\\
+y\\
+1
+\end{pmatrix}, \qquad (x',y') = \left(\frac{u}{w},\,\frac{v}{w}\right).
 $$
 
 - $H$ is defined up to a nonzero scalar; it has 8 degrees of freedom. Four point correspondences (no three collinear) determine $H$.
@@ -123,7 +131,17 @@ Pairs match each Photoshop operation (Rotate, Skew, Perspective, Flip, Warp) wit
 
 1. Find $A$ and $\mathbf{t}$ for a rotation by $30^\circ$ about the point $(2,1)$. Give $T^{-1}$.
 2. Is $T(x,y)=(2x+y,\,4x+2y)$ a bijection of $\mathbb{R}^2$? What does it do to the plane? Can the warp $f\circ T^{-1}$ be formed?
-3. A homography has $H=\begin{pmatrix}1&0&0\\0&1&0\\0.01&0&1\end{pmatrix}$. Compute the image of $(100,50)$. Which line is sent to infinity?
+3. A homography has
+
+   $$
+   H=\begin{pmatrix}
+   1&0&0\\
+   0&1&0\\
+   0.01&0&1
+   \end{pmatrix}.
+   $$
+
+   Compute the image of $(100,50)$. Which line is sent to infinity?
 4. Show that composing two affine maps is affine, and give the resulting $A$ and $\mathbf{t}$.
 5. Count: how many pixel permutations exist for a $3\times 3$ image? How many keyed block-shuffles of four $2\times 2$ blocks in a $4\times 4$ image?
 6. A photo of text is rotated by $10^\circ$ and rotated back using bilinear interpolation. Predict qualitatively what changes near the letter edges.

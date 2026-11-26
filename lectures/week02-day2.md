@@ -44,7 +44,19 @@ Swirl, twirl, pinch, ripple, and mesh warps are not affine: lines generally beco
 Fix a center $(x_0,y_0)$ and let $r=\sqrt{(x-x_0)^2+(y-y_0)^2}$. The swirl rotates each point about the center by an angle depending only on its radius (from `syllabus/technical-notes.md`):
 
 $$
-\begin{pmatrix} x' \\ y' \end{pmatrix} = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix} + \begin{pmatrix} \cos\theta(r) & -\sin\theta(r) \\ \sin\theta(r) & \cos\theta(r) \end{pmatrix} \begin{pmatrix} x - x_0 \\ y - y_0 \end{pmatrix}.
+\begin{pmatrix}
+x'\\
+y'
+\end{pmatrix} = \begin{pmatrix}
+x_0\\
+y_0
+\end{pmatrix} + \begin{pmatrix}
+\cos\theta(r)&-\sin\theta(r)\\
+\sin\theta(r)&\cos\theta(r)
+\end{pmatrix} \begin{pmatrix}
+x - x_0\\
+y - y_0
+\end{pmatrix}.
 $$
 
 - Intensities are carried along: $f'(x',y')=f(x,y)$. Positions are permuted, values are preserved.
@@ -60,7 +72,19 @@ $$
 Because $T$ preserves $r$, the inverse is a rotation by the opposite angle at the same radius:
 
 $$
-T^{-1}:\quad \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix} + \begin{pmatrix} \cos\theta(r) & \sin\theta(r) \\ -\sin\theta(r) & \cos\theta(r) \end{pmatrix} \begin{pmatrix} x' - x_0 \\ y' - y_0 \end{pmatrix},
+T^{-1}:\quad \begin{pmatrix}
+x\\
+y
+\end{pmatrix} = \begin{pmatrix}
+x_0\\
+y_0
+\end{pmatrix} + \begin{pmatrix}
+\cos\theta(r)&\sin\theta(r)\\
+-\sin\theta(r)&\cos\theta(r)
+\end{pmatrix} \begin{pmatrix}
+x' - x_0\\
+y' - y_0
+\end{pmatrix},
 $$
 
 $$

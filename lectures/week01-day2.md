@@ -36,13 +36,25 @@ $f:\mathbb{R}^2\to\mathbb{R}^k$ vs. $I\in\mathbb{Z}^{M\times N\times k}$; inject
 - A point is a column vector $\mathbf{p}=(x,y)^T$. A linear map is $\mathbf{p}'=A\mathbf{p}$ with $A\in\mathbb{R}^{2\times 2}$:
 
 $$
-\begin{pmatrix} x' \\ y' \end{pmatrix} = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}.
+\begin{pmatrix}
+x'\\
+y'
+\end{pmatrix} = \begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \begin{pmatrix}
+x\\
+y
+\end{pmatrix}.
 $$
 
 - Examples: scaling $\mathrm{diag}(s_x,s_y)$; rotation by $\theta$:
 
 $$
-R_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}.
+R_\theta = \begin{pmatrix}
+\cos\theta&-\sin\theta\\
+\sin\theta&\cos\theta
+\end{pmatrix}.
 $$
 
   (The same rotation matrix appears in the swirl transform in `syllabus/technical-notes.md`, used in Week 2.)
@@ -111,7 +123,16 @@ Key message: resampling is information-losing in practice. Week 2 uses geometric
 
 ## Exercises
 
-1. Is $A=\begin{pmatrix}2&4\\1&2\end{pmatrix}$ injective as a map $\mathbb{R}^2\to\mathbb{R}^2$? Describe what it does to the plane.
+1. Is
+
+   $$
+   A=\begin{pmatrix}
+   2&4\\
+   1&2
+   \end{pmatrix}
+   $$
+
+   injective as a map $\mathbb{R}^2\to\mathbb{R}^2$? Describe what it does to the plane.
 2. Show $R_\theta$ is bijective and find $R_\theta^{-1}$.
 3. Rotate a $3\times 3$ image by $45^\circ$ about its center. Explain why forward mapping may leave holes and how backward mapping fixes this.
 4. Given pixel values $10, 20$ at positions $0,1$ (1D), compute the interpolated value at $x=0.3$ using nearest-neighbor and linear interpolation.
