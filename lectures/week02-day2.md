@@ -105,6 +105,10 @@ A[Warped observation] --> B[Candidate grid]
 ### 6. Case study: *Operation Vico* (2007), brief (15 min)
 *Keep this short and factual; it is an introduction, not the legal unit.*
 
+<img src="../media/operation-vico_interpol.webp" alt="Swirled facial image associated with the Operation Vico public appeal" width="240">
+
+*Operation Vico (2007): historical illustration of the swirl distortion.*
+
 From the syllabus (`syllabus/technical-notes.md`): forensic specialists with Germany's BKA reversed a digital swirl filter by estimating its center, radius, and twist angle via edge continuity and applying the inverse rotation $-\theta(r)$.
 
 Widely reported public context (to verify against primary sources before class):
