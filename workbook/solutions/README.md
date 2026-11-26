@@ -133,3 +133,14 @@ These sketches provide answers or evaluation guidance, not complete worked solut
 6. With independent fixed replacement, the Jacobian is $\mathrm{diag}(1-\alpha)$. With linear replacement $Hf$, add $\mathrm{diag}(\alpha)H$. At full opacity the second term may remain nonzero.
 7. Document threshold selection, independent scene-level units, matching criteria and utility definitions. Distinguish geometric coverage from effective protection; report both false-negative and unnecessary masking outcomes.
 8. The street photograph illustrates actual plate redaction and preserved context; the linked Google examples illustrate other redaction styles. Appearance alone does not establish the transformation parameters, exact original content, or statistical privacy guarantees.
+
+## Week 13
+
+1. Conditional on $C=c$, the output law is the pushforward of the independent law of $Z$ under $G(c,\cdot)$ and does not depend on $X$. Expanding $I(X;C,Y)$ in two orders gives $I(X;C)=I(X;Y)+I(X;C\mid Y)$, hence the bound.
+2. The binary symmetric channel preserves a fair marginal, so $I(X;C)=1-h_2(0.2)\approx0.278072$ bits, where $h_2(p)=-p\log_2p-(1-p)\log_2(1-p)$. The same leakage remains for $Y=C$; a constant output leaks zero bits in this model.
+3. For fixed mask, conditioning and randomness, $(1-M)\odot V=0$ makes the retained raster and generator input identical. For a counterexample, let the two-pixel source be $(1,1)$ and select mask $(1,0)$ or $(0,1)$ according to a protected bit. Replacing the masked coordinate by zero discloses the bit through the location of the zero.
+4. Apply data processing to $X\to Y\to U$. With the stated binary channel the lower bound is $1-h_2(0.25)\approx0.188722$ bits.
+5. Predicted state $(5,5.5,2,-3)$; position $(5,5.5)$. Missing observations leave localization uncertainty and may require conservative protection or withholding, rather than treating an undetected region as safe.
+6. Unaligned squared error is $1+0.25=1.25$, so MSE = 0.25. The shifted signal is $(0,0,1,1,0)$, giving compensated MSE = 0.05. Excluding the fourth sample leaves four valid samples with zero error.
+7. Use independent synthetic sequences and seeded randomness; compare matched motion conditions, distinguish missing coverage from zero error, and report how the chosen metric reflects appearance rather than identity protection. A fixed independent replacement is a useful baseline.
+8. Each marginal mutual information is zero; the pair determines $X$, so joint mutual information is one bit. Evaluate the complete sequence and permitted side information; consistent synthetic appearance may support tracking yet undermine an unlinkability requirement.

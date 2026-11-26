@@ -35,3 +35,5 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 11, Day 2](week11-day2.md): Forward matching, output separation, total variation, and secure redaction
 - [Week 12, Day 1](week12-day1.md): Web-scale detection, coverage, precision, cascades, and historical Street View
 - [Week 12, Day 2](week12-day2.md): Randomized redaction, alpha blending, panorama stitching, and privacy–utility evaluation
+- [Week 13, Day 1](week13-day1.md): Generative anonymization, zero-leakage conditions, masked inpainting, and DeepPrivacy2
+- [Week 13, Day 2](week13-day2.md): Tracking, temporal consistency, video diffusion, and sequence-level leakage

@@ -26,7 +26,8 @@ This companion workbook provides mathematical exercises, computational problems,
 | 10 | [Learned Restoration and Generative Artifacts](week10.md) |
 | 11 | [Visual Redaction and Information Leakage](week11.md) |
 | 12 | [Web-Scale Visual Privacy Pipelines](week12.md) |
-| 13–14 | Part IV — to be developed with the corresponding lectures |
+| 13 | [Generative Anonymization and Temporal Consistency](week13.md) |
+| 14 | Part IV — to be developed with the corresponding lectures |
 
 ## Instructor Materials
 

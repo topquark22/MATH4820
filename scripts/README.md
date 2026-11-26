@@ -18,3 +18,5 @@ The scripts cover Weeks 1–3, Week 4, Weeks 5–7, and Weeks 8–9, respectivel
 The existing standalone SVGs for Weeks 10–11 are outside the scope of these generators.
 
 For Week 12, run `node scripts/generate-figures-week12.mjs` to regenerate the five original SVG illustrations. The externally hosted photographic examples are separately attributed in `media/samples/README.md`.
+
+For Week 13, run `node scripts/generate-figures-week13.mjs` to regenerate the six original SVG illustrations.
