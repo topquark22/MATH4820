@@ -122,3 +122,14 @@ These sketches provide answers or evaluation guidance, not complete worked solut
 6. Total variation is $(0.4+0+0.4)/2=0.4$. Equal-prior error is 0.3. For unequal priors the summed smaller weighted masses are $0.05+0.075+0.075=0.2$.
 7. Report the release mechanism and label distribution, contingency counts and uncertainty, comparison against the baseline, and utility. Finite empirical estimates can be biased, especially with sparse categories; absence of measured dependence is not proof of independence.
 8. The protected coordinates may be absent from the rendered raster while present in another representation. Verify the complete independent release artifact, including previews, layers, metadata and associated files, and withhold the release if requirements are not satisfied.
+
+## Week 12
+
+1. IoU = 90/150 = 0.6; coverage = 0.75. With full containment by area 240, IoU = 0.5 and coverage = 1.
+2. Expected TP = 1990, FN = 10, FP = 4990. Precision from expected counts is 1990/6980, approximately 28.51%; this is the population conditional probability under the model, not necessarily the expected finite-sample ratio.
+3. Final recall = 0.98802; false-positive probability = 0.003. Multiply the proposal probability by conditional retention.
+4. Under independence, $1-0.998^{500}\approx0.63249$. Expected misses = 1 without needing independence; the union bound is 1.
+5. Each protected view is unchanged by the specified perturbation; fixed warps and weights preserve equality under composition and summation. Geometry or weights derived from the original sensitive pixels may violate the invariance assumption.
+6. With independent fixed replacement, the Jacobian is $\mathrm{diag}(1-\alpha)$. With linear replacement $Hf$, add $\mathrm{diag}(\alpha)H$. At full opacity the second term may remain nonzero.
+7. Document threshold selection, independent scene-level units, matching criteria and utility definitions. Distinguish geometric coverage from effective protection; report both false-negative and unnecessary masking outcomes.
+8. The street photograph illustrates actual plate redaction and preserved context; the linked Google examples illustrate other redaction styles. Appearance alone does not establish the transformation parameters, exact original content, or statistical privacy guarantees.

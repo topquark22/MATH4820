@@ -33,3 +33,5 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 10, Day 2](week10-day2.md): Generative artifacts, identity drift, controlled restoration experiments, provenance, and forensic reliability
 - [Week 11, Day 1](week11-day1.md): Restricted-domain injectivity, entropy, mutual information, and masking
 - [Week 11, Day 2](week11-day2.md): Forward matching, output separation, total variation, and secure redaction
+- [Week 12, Day 1](week12-day1.md): Web-scale detection, coverage, precision, cascades, and historical Street View
+- [Week 12, Day 2](week12-day2.md): Randomized redaction, alpha blending, panorama stitching, and privacy–utility evaluation
