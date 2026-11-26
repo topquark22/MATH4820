@@ -123,16 +123,16 @@ Key message: resampling is information-losing in practice. Week 2 uses geometric
 
 ## Exercises
 
-1. Is
+**1.** Is
 
-   $$
-   A=\begin{pmatrix}
-   2&4\\
-   1&2
-   \end{pmatrix}
-   $$
+$$
+A=\begin{pmatrix}
+2&4\\
+1&2
+\end{pmatrix}
+$$
 
-   injective as a map $\mathbb{R}^2\to\mathbb{R}^2$? Describe what it does to the plane.
+injective as a map $\mathbb{R}^2\to\mathbb{R}^2$? Describe what it does to the plane.
 2. Show $R_\theta$ is bijective and find $R_\theta^{-1}$.
 3. Rotate a $3\times 3$ image by $45^\circ$ about its center. Explain why forward mapping may leave holes and how backward mapping fixes this.
 4. Given pixel values $10, 20$ at positions $0,1$ (1D), compute the interpolated value at $x=0.3$ using nearest-neighbor and linear interpolation.
