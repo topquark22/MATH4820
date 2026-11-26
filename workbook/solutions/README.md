@@ -144,3 +144,14 @@ These sketches provide answers or evaluation guidance, not complete worked solut
 6. Unaligned squared error is $1+0.25=1.25$, so MSE = 0.25. The shifted signal is $(0,0,1,1,0)$, giving compensated MSE = 0.05. Excluding the fourth sample leaves four valid samples with zero error.
 7. Use independent synthetic sequences and seeded randomness; compare matched motion conditions, distinguish missing coverage from zero error, and report how the chosen metric reflects appearance rather than identity protection. A fixed independent replacement is a useful baseline.
 8. Each marginal mutual information is zero; the pair determines $X$, so joint mutual information is one bit. Evaluate the complete sequence and permitted side information; consistent synthetic appearance may support tracking yet undermine an unlinkability requirement.
+
+## Week 14
+
+1. Nondominated: A, B, C, E. C dominates D. Under budget 0.25 choose B; under budget 0.5 choose C.
+2. B must beat or tie A, requiring $0.5-0.2\lambda\ge0.3-0.1\lambda$, hence $\lambda\le2$. It must beat or tie C, requiring $0.5-0.2\lambda\ge0.8-0.3\lambda$, hence $\lambda\ge3$. These cannot both hold.
+3. Precision at successive ranks: $1,1/2,2/3,3/4,3/5,2/3$; recall: $1/5,1/5,2/5,3/5,3/5,4/5$. AP is $(1+2/3+3/4+2/3)/5=37/60\approx0.616667$. Maximum recall 0.8.
+4. Original mAP 0.6; anonymized mAP 0.55. Absolute decrease 0.05 (five percentage points), relative decrease approximately 8.33%. The aggregation must use the same evaluated classes and conventions.
+5. PCK at 0.05 is 1/5 = 0.2; at 0.10 it is 3/5 = 0.6.
+6. $N\ge\log(0.05)/\log(0.99)$, hence 299 independent trials. Adjacent frames share subjects and acquisition conditions and are generally dependent.
+7. Verify dominance by pairwise comparison. Record the calibration-only selection rule and evaluate the fixed choice on the separate test table. Artificial point estimates illustrate the method but do not establish deployment performance.
+8. Under independent Bernoulli sampling with common failure probability, the exact upper 95% bound is $1-0.05^{1/40}\approx0.07216$. Without justified independence or applicability even that bound need not describe deployment risk. Specify threat model, coverage, leakage baseline, held-out references, utility evaluator, uncertainty and reproducible release records. A small mAP decrease is not proof of privacy.

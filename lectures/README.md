@@ -37,3 +37,5 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 12, Day 2](week12-day2.md): Randomized redaction, alpha blending, panorama stitching, and privacy–utility evaluation
 - [Week 13, Day 1](week13-day1.md): Generative anonymization, zero-leakage conditions, masked inpainting, and DeepPrivacy2
 - [Week 13, Day 2](week13-day2.md): Tracking, temporal consistency, video diffusion, and sequence-level leakage
+- [Week 14, Day 1](week14-day1.md): Integrated privacy–utility evaluation, Pareto optimality, AP/mAP, and statistical uncertainty
+- [Week 14, Day 2](week14-day2.md): Capstone presentations, scientific defense, and course synthesis

@@ -27,7 +27,7 @@ This companion workbook provides mathematical exercises, computational problems,
 | 11 | [Visual Redaction and Information Leakage](week11.md) |
 | 12 | [Web-Scale Visual Privacy Pipelines](week12.md) |
 | 13 | [Generative Anonymization and Temporal Consistency](week13.md) |
-| 14 | Part IV — to be developed with the corresponding lectures |
+| 14 | [Integrated Privacy–Utility Evaluation](week14.md) |
 
 ## Instructor Materials
 
