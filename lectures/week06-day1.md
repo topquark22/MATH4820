@@ -87,6 +87,14 @@ $$
 
 It accepts less high-frequency content, reducing noise sensitivity but leaving more blur. For Tikhonov with `λ=0.01`, the gain is `0.05/(0.0025+0.01)=4`. This example illustrates how the parameter changes the bias–variance balance; it does not identify a universally best value.
 
+![Comparison of naive, identity-penalty Tikhonov and constant-ratio Wiener gains. The chosen positive regularization parameters differ; equal parameters would give the same gain formula.](../media/week06-regularization-gains.svg)
+
+*Illustration 1. Comparison of naive, identity-penalty Tikhonov and constant-ratio Wiener gains. The chosen positive regularization parameters differ; equal parameters would give the same gain formula.*
+
+![Analytical squared bias, variance and expected squared error in a scalar Tikhonov example with fixed truth and additive zero-mean noise. The optimum is specific to this model.](../media/week06-bias-variance.svg)
+
+*Illustration 2. Analytical squared bias, variance and expected squared error in a scalar Tikhonov example with fixed truth and additive zero-mean noise. The optimum is specific to this model.*
+
 ### 5. Parameter selection and evaluation (15 min)
 
 On synthetic calibration data with known references, sweep several logarithmically spaced parameter values. Plot reference error and inspect residuals; report the selected value and the criterion used. Following Week 5, Day 2, reserve separate held-out test images: choose parameters on calibration data or use a predeclared observation-only selection rule, record the test reconstruction and settings, and only then reveal the test reference. If no held-out data are available, describe reference-tuned results as exploratory or oracle results, not independent test performance. For real unknown data, report sensitivity across plausible settings and avoid claiming that a visually preferred output is the true image.

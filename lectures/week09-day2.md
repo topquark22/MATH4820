@@ -136,6 +136,10 @@ If a human examiner rather than a numerical detector interprets a derivative, de
 
 For the noiseless linear example, if $Hv=0$ then $H(f+v)=Hf$. Even with no exact null space, noise and quantization may make the observations practically indistinguishable. Reuse the Week 8 B-versus-8 example to motivate controls.
 
+![Synthetic reference and derivative differing only at nine pixels that form a localized stroke. A small global MSE can conceal a task-relevant error.](../media/week09-local-feature-error.svg)
+
+*Illustration 1. Synthetic reference and derivative differing only at nine pixels that form a localized stroke. A small global MSE can conceal a task-relevant error.*
+
 ### 3. Positive and negative controls; experimental design (15 min)
 
 A positive control contains the predefined feature of interest. A negative control lacks that feature but should still represent relevant alternative structures. Both undergo the same specified degradation and reconstruction procedures.
@@ -286,6 +290,18 @@ $$
 This quantity depends on the population and the applicability of the model. For example, with sensitivity 80%, false-positive probability 5%, and prevalence 1%, the positive predictive value is about 13.9%, despite the apparently low false-positive rate.
 
 The balanced positive/negative control dataset need not reflect real-world prevalence. Do not transfer its class balance into a case-specific probability, or treat a feature-level false-positive rate as the probability that an accused person is innocent or guilty.
+
+![The four outcomes of binary feature detection against independently known reference labels.](../media/week09-confusion-matrix.svg)
+
+*Illustration 2. The four outcomes of binary feature detection against independently known reference labels.*
+
+![The exact one-sided 95% zero-failure confidence bound compared with the rule of three on logarithmic axes, assuming independent Bernoulli trials with common error probability.](../media/week09-confidence-bounds.svg)
+
+*Illustration 3. The exact one-sided 95% zero-failure confidence bound compared with the rule of three on logarithmic axes, assuming independent Bernoulli trials with common error probability.*
+
+![Analytic threshold-dependent sensitivity, specificity and false-positive rate for two illustrative score distributions. These curves are not measured forensic performance.](../media/week09-threshold-tradeoffs.svg)
+
+*Illustration 4. Analytic threshold-dependent sensitivity, specificity and false-positive rate for two illustrative score distributions. These curves are not measured forensic performance.*
 
 ### 5. Model mismatch and robustness testing (15 min)
 

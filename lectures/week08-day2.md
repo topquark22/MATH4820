@@ -193,6 +193,10 @@ Select tolerances based on the numerical method and intended measurement before 
 
 **Demonstration (5 min).** Show the floating-point example, then compare two hypothetical runs of the same algorithm. If the derived file hashes differ, first check the run settings and inputs, then examine encoding and metadata, numerical arrays, and relevant feature differences. Report the observed level of agreement. Do not claim an exact match when only tolerance-based agreement has been established.
 
+![Spacing of representable binary64 numbers near one and near ten to the sixteenth. The increment of one near the larger value is lost under round-to-nearest, ties-to-even.](../media/week08-floating-point-spacing.svg)
+
+*Illustration 1. Spacing of representable binary64 numbers near one and near ten to the sixteenth. The increment of one near the larger value is lost under round-to-nearest, ties-to-even.*
+
 ### 5. Audit trails and parameter provenance (15 min)
 
 An audit trail should allow a reviewer to reconstruct the sequence of actions and relate each output to its actual inputs. Record both successful and failed or abandoned attempts where relevant to the examination. Preserve the rationale for selecting the reported result.

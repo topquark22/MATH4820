@@ -102,6 +102,10 @@ Use the spot example during the properties discussion (about 2–3 minutes); the
 
 **Forward model** (from the technical notes): $B=(I*G)+N$ where $I$ is the true image, $G$ the PSF, and $N$ sensor/quantization noise. Inverse problem (Weeks 5–6): given $B$ and (maybe) $G$, find $I$.
 
+![Two positions of a moving symmetric weighted neighborhood. The output values are computed from the displayed samples and the normalized kernel.](../media/week04-convolution-neighborhood.svg)
+
+*Illustration 1. Two positions of a moving symmetric weighted neighborhood. The output values are computed from the displayed samples and the normalized kernel.*
+
 ### 3. Point spread functions (20 min)
 Write each PSF as a normalized nonnegative array/function.
 
@@ -124,6 +128,10 @@ $$
 *Flag:* the Kolmogorov long-exposure model has a transfer function proportional to $\exp\!\big(-c\,\rho^{5/3}\big)$ in radial frequency $\rho$ (to verify); the Gaussian is a convenient simplification. Short exposures are random and not shift-invariant. The same Gaussian is used for "Gaussian blur" in Photoshop and in this course's labs ($\sigma=1.5,3.0,5.0$ in `labs/lab-specifications.md`).
 
 Demo (numpy): build the three PSFs as small arrays and print their sums (should be 1).
+
+![Representative motion, defocus disk and Gaussian kernels, displayed with peak normalization; the kernels used for convolution are normalized to unit sum.](../media/week04-point-spread-functions.svg)
+
+*Illustration 2. Representative motion, defocus disk and Gaussian kernels, displayed with peak normalization; the kernels used for convolution are normalized to unit sum.*
 
 ### 4. The Convolution Theorem (20 min)
 
@@ -217,6 +225,10 @@ def blur(img, psf):
     return np.fft.ifft2(np.fft.fft2(img) * psf_to_otf(psf, img.shape)).real   # circular!
 ```
 
+![Linear and circular convolution of the worked example above. The final linear sample wraps into the first circular sample when the FFT length is four.](../media/week04-circular-convolution.svg)
+
+*Illustration 3. Linear and circular convolution of the worked example above. The final linear sample wraps into the first circular sample when the FFT length is four.*
+
 ### 6. Zeros and attenuation of blur spectra (10 min)
 
 **Motion blur: exact zeros.** The 1D box $h[n]=1/L$ for $n=0,\dots,L-1$ (zero-padded to length $N$) has, for $k\ne0$,
@@ -237,6 +249,10 @@ $$
 **Lead-in to Week 5.** Naive inversion divides by $H$: $\hat F[k]=B[k]/H[k]$. At zeros this is division by zero; near zeros/at strong attenuation it multiplies the noise spectrum $N[k]$ by $1/H[k]$, which may be huge (this is the "noise explosion", technical notes). Motion and defocus blur have structured, partly recoverable spectra; Gaussian blur destroys high frequencies smoothly and fatally.
 
 **Demo (numpy/matplotlib).** Plot $\log(1+|H|)$ (centered) for a motion PSF ($L=15$), a disk ($R=7$), and a Gaussian ($\sigma=3$) on a $256\times256$ grid; mark the zero lines/rings.
+
+![Horizontal frequency responses for an eight-sample motion kernel, a discrete radius-four disk and an ideal continuous Gaussian with standard deviation two pixels.](../media/week04-psf-responses.svg)
+
+*Illustration 4. Horizontal frequency responses for an eight-sample motion kernel, a discrete radius-four disk and an ideal continuous Gaussian with standard deviation two pixels.*
 
 ### 7. Wrap-up
 Three sentences: (1) blur is convolution with a PSF; (2) in the DFT basis convolution is pointwise multiplication $G=FH$, valid for *circular* convolution, so pad; (3) zeros or tiny values of $H$ erase or bury frequencies, which makes inversion ill-posed (Week 5). Lab 3 Part A (`labs/lab-specifications.md`): synthesize motion and Gaussian blurs with `numpy.fft.fft2`.

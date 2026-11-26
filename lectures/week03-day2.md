@@ -49,6 +49,10 @@ $$
 - **Sharp edges/text:** the many non-negligible high-frequency coefficients of an edge block are all perturbed, so the reconstructed block shows ringing near the edge (Gibbs-like harmonics), which is the Week 1 teaser made precise. Smooth regions suffer little.
 - Quality setting scales $Q$: lower quality means bigger steps and more loss.
 
+![Ideal scalar quantization with Q = 10 and ties rounded upward. The error is the decoded value minus the original value.](../media/week03-quantization.svg)
+
+*Illustration 1. Ideal scalar quantization with Q = 10 and ties rounded upward. The error is the decoded value minus the original value.*
+
 ### 3. Consequences for inverse problems (10 min)
 - Week 2's swirl inverse assumed exact pixel values. If the swirled image was saved as JPEG, the data we hold is $\tilde f$, differing from the true values by quantization noise of size up to $Q/2$ per coefficient.
 - Unwarping applies a spatially varying resampling, so quantization noise is moved around and amplified or smeared; the blocks no longer align with the grid. Hence "practical inverses are noisy approximations" (`syllabus/technical-notes.md`).
@@ -76,6 +80,10 @@ A[Reference raster] --> B[JPEG encode at Q2]
 ~~~
 
 *Figure 1. Single versus double JPEG. Quality and alignment affect detectability; traces alone do not establish manipulation.*
+
+![Idealized scalar coefficient histograms for Q1 = 7 and Q2 = 5. The experiment assumes a uniform finite integer range and does not simulate a complete JPEG codec.](../media/week03-double-quantization.svg)
+
+*Illustration 2. Idealized scalar coefficient histograms for Q1 = 7 and Q2 = 5. The experiment assumes a uniform finite integer range and does not simulate a complete JPEG codec.*
 
 ### 5. Resampling traces (15 min)
 When an image is resized or rotated (Weeks 1–2), each interpolated pixel is a fixed linear combination of its neighbors.

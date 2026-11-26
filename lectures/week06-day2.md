@@ -84,6 +84,10 @@ Standard RL is not a generic method for additive Gaussian noise. Gaussian-noise 
 
 For a board exercise, take a small nonnegative image, apply a short normalized blur, and perform one RL update. Track the predicted counts, ratio, adjoint back-projection, and updated estimate. Discuss why the result alone does not establish that the model assumptions hold.
 
+![A seeded one-dimensional Poisson-count experiment with a circular symmetric unit-sum PSF. Reference error and Poisson deviance need not improve together; the reference-optimal iteration is an oracle result, not a stopping rule.](../media/week06-richardson-lucy.svg)
+
+*Illustration 1. A seeded one-dimensional Poisson-count experiment with a circular symmetric unit-sum PSF. Reference error and Poisson deviance need not improve together; the reference-optimal iteration is an oracle result, not a stopping rule.*
+
 ### 4. Blind deconvolution and identifiability (20 min)
 
 When the PSF is unknown, estimate both image and kernel:

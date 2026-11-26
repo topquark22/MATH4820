@@ -177,6 +177,10 @@ A matching digest cannot establish:
 
 A plain hash also does not authenticate its own record. Someone able to replace both an evidence file and its stored digest could defeat a naive verification procedure without finding a collision. Protect reference manifests with appropriate access controls, independently retained records, and authenticated or signed records where appropriate. A signature authenticates the signed record relative to a trusted key; it does not make the underlying assertions true.
 
+![Exact birthday collision probabilities for ideal truncated hash lengths, computed from the finite-space product. These are idealized probabilities, not measured SHA-256 collision rates.](../media/week08-birthday-bound.svg)
+
+*Illustration 1. Exact birthday collision probabilities for ideal truncated hash lengths, computed from the finite-space product. These are idealized probabilities, not measured SHA-256 collision rates.*
+
 ### 5. Chain of custody and provenance (15 min)
 
 A chain of custody is a documented account of possession and transfers of an evidence item. It is related to, but distinct from, the technical audit trail of computational operations (Day 2).

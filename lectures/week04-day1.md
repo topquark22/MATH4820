@@ -88,6 +88,10 @@ So $X=(10,\,-2+2i,\,-2,\,-2-2i)$. Check the inverse at $n=0$: $\frac14(10+(-2+2i
 
 **Interpretation.** $|X[k]|$ is the strength of wave $k$; $\arg X[k]$ is its phase (shift). For $x[n]=\cos(2\pi k_0n/N)$ with $0<k_0<N/2$: $X[k_0]=X[N-k_0]=N/2$ and all other $X[k]=0$. (Because $\cos\phi=\tfrac12(e^{i\phi}+e^{-i\phi})$, and $e^{-2\pi i k_0n/N}=e_{N-k_0}[n]$.)
 
+![The eight roots of unity under the forward DFT convention. Increasing the exponent rotates clockwise.](../media/week04-roots-of-unity.svg)
+
+*Illustration 1. The eight roots of unity under the forward DFT convention. Increasing the exponent rotates clockwise.*
+
 ### 3. Properties to know (10 min)
 - **Real input.** If $x$ is real, $X[N-k]=\overline{X[k]}$. So only $k=0,\dots,\lfloor N/2\rfloor$ are independent; the rest are mirrors. (Check with the example: $X[3]=\overline{X[1]}$.)
 - **Nyquist.** The highest distinct frequency is $k=N/2$ (alternating $+1,-1,\dots$), i.e. 2 samples per cycle. Higher "frequencies" alias to lower ones: $k$ and $k+N$ give the same samples $e_k$. This is the same aliasing we saw with nearest-neighbor resampling.
@@ -183,6 +187,10 @@ A[Length-N sequence, N a power of two] --> B{N = 1?}
 
 *Figure 2. Radix-2 FFT recursion. Each branch has half the input length; linear work in the combination stage yields O(N log N) overall.*
 
+![A radix-2 butterfly combines the even and odd DFT coefficients through a twiddle factor, a sum and a difference.](../media/week04-fft-butterfly.svg)
+
+*Illustration 2. A radix-2 butterfly combines the even and odd DFT coefficients through a twiddle factor, a sum and a difference.*
+
 ### 6. Reading a centered magnitude spectrum (15 min incl. demos)
 Raw `fft2` output puts the DC term $F[0,0]$ at the corner and negative frequencies in the second half of each axis. `fftshift` rearranges so that $F[0,0]$ is at the center. Because dynamic range is huge, display $\log(1+|F|)$.
 
@@ -241,6 +249,10 @@ n = np.arange(len(x)); Wm = np.exp(-2j*np.pi*np.outer(n, n)/len(x))
 t0 = time.time(); Wm @ x; t1 = time.time(); np.fft.fft(x); t2 = time.time()
 print(t1 - t0, t2 - t1)   # FFT is orders of magnitude faster
 ```
+
+![Three sampled cosine patterns and their analytically computed centered DFT magnitudes. The conjugate peaks identify the direction and frequency of spatial variation.](../media/week04-sinusoidal-spectra.svg)
+
+*Illustration 3. Three sampled cosine patterns and their analytically computed centered DFT magnitudes. The conjugate peaks identify the direction and frequency of spatial variation.*
 
 ### 7. Wrap-up (within the final segment)
 Three sentences: (1) the DFT is an invertible change of basis into plane waves; (2) 2D = rows then columns; (3) the FFT computes the same thing in $O(N\log N)$. Preview Day 2: blur is a convolution, and in this basis convolution becomes pointwise multiplication, which will explain why some blurs destroy certain frequencies entirely.

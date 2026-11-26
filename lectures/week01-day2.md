@@ -75,6 +75,10 @@ A[Choose output pixel] --> B[Map to source coordinates]
 
 *Figure 1. Backward resampling. Use the specified kernel and boundary convention.*
 
+![The four neighbors and their bilinear weights at a fractional coordinate. The weights sum to one.](../media/week01-bilinear.svg)
+
+*Illustration 1. The four neighbors and their bilinear weights at a fractional coordinate. The weights sum to one.*
+
 ### 5. Interpolation kernels (25 min)
 In 1D (2D kernels are products $h(x)h(y)$ — a standard separability fact):
 
@@ -91,6 +95,10 @@ h(t)=\begin{cases}
 $$
 
 **Why these are low-pass filters (informal):** interpolation is a convolution of the samples with $h$. The smoother and wider the kernel, the more it attenuates high spatial frequencies (fine detail, edges), i.e. it blurs. The ideal low-pass (sinc) kernel is not used in practice because it has infinite support. Treat any ranking of the kernels' attenuation as qualitative until the Fourier transform is covered in Week 4.
+
+![Nearest-neighbor, linear and Keys cubic kernels with the parameter used above. Negative cubic lobes can cause overshoot.](../media/week01-interpolation-kernels.svg)
+
+*Illustration 2. Nearest-neighbor, linear and Keys cubic kernels with the parameter used above. Negative cubic lobes can cause overshoot.*
 
 ### 6. Wrap-up (5 min)
 Key message: resampling is information-losing in practice. Week 2 uses geometric warps (swirl, twirl) and shows why their digital inverses are noisy approximations.

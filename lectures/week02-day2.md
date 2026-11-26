@@ -52,6 +52,10 @@ $$
 - **Bijectivity:** a rotation preserves distance to the center, so $T$ maps each circle $r=\text{const}$ onto itself by a rigid rotation. Hence $T$ is a bijection of $\mathbb{R}^2$ for *any* function $\theta(r)$ (the center is fixed). If $\theta$ is discontinuous, $T$ is still bijective but tears the plane; continuity of $\theta$ only affects how nice the picture looks.
 - This is the "permutation cipher" idea from Day 1, now on the continuous plane: a keyed rearrangement, where the key is the parameter set.
 
+![A radial swirl and its exact continuous inverse, computed using the profile above with central angle π. The dashed circle and marked point illustrate radius preservation. Discrete resampling need not be exactly reversible.](../media/week02-radial-swirl.svg)
+
+*Illustration 1. A radial swirl and its exact continuous inverse, computed using the profile above with central angle π. The dashed circle and marked point illustrate radius preservation. Discrete resampling need not be exactly reversible.*
+
 ### 4. Inverse and discrete hurdles (10 min)
 Because $T$ preserves $r$, the inverse is a rotation by the opposite angle at the same radius:
 

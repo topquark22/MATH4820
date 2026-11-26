@@ -137,6 +137,14 @@ which grows exponentially. Thus a mathematically nonzero response can still be p
 
 Connect this to Week 3: quantization/compression perturbations are also present in the observation. Smoothing attenuates high-frequency image detail; the inverse filter cannot tell whether a weak high-frequency coefficient is a faint real edge, sensor noise, or quantization error. It boosts all of them together.
 
+![Logarithmic magnitude of the ideal Gaussian transfer function for several blur strengths. Even without exact zeros, the attenuation can be extreme.](../media/week05-gaussian-attenuation.svg)
+
+*Illustration 1. Logarithmic magnitude of the ideal Gaussian transfer function for several blur strengths. Even without exact zeros, the attenuation can be extreme.*
+
+![Logarithmic naive inverse gain for the same ideal Gaussian responses. The reciprocal magnifies errors exponentially with squared spatial frequency.](../media/week05-inverse-gain.svg)
+
+*Illustration 2. Logarithmic naive inverse gain for the same ideal Gaussian responses. The reciprocal magnifies errors exponentially with squared spatial frequency.*
+
 ### 5. Demonstration: where did the “detail” come from? (15 min)
 
 Use a known test image with both smooth areas and sharp edges or fine text. Show the following sequence side by side:

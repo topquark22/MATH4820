@@ -70,6 +70,10 @@ For a fixed PSF and exact assumed transfer function, compare `F̂ = B/H` across 
 
 A useful diagnostic is to plot the inverse gain `1/|H|` alongside the observed spectrum. Ask students to predict which frequency bands will be unreliable before viewing the reconstruction. A denominator threshold can be tested to prevent division by tiny values, but students must record the threshold: it suppresses those bands and therefore leaves residual blur. It does not reveal the original coefficients.
 
+![A reproducible synthetic circular-blur experiment with seeded additive Gaussian noise. All panels use the same display range; the reported numerical ranges and MSE precede clipping.](../media/week05-inverse-artifacts.svg)
+
+*Illustration 1. A reproducible synthetic circular-blur experiment with seeded additive Gaussian noise. All panels use the same display range; the reported numerical ranges and MSE precede clipping.*
+
 ### 4. PSF mismatch, boundaries, and display artifacts (20 min)
 
 If the true PSF is `H_t` but the inverse uses `H_a`, then

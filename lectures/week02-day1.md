@@ -92,6 +92,10 @@ A[Rigid] --> B[Similarity]
 
 *Figure 2. Nested transformation classes. Arrows denote class inclusion, not processing order. Projective maps are understood on the projective plane.*
 
+![Coordinate grids under explicit affine and projective maps. Parallelism is preserved by the affine examples but not necessarily by the homography.](../media/week02-affine-transformations.svg)
+
+*Illustration 1. Coordinate grids under explicit affine and projective maps. Parallelism is preserved by the affine examples but not necessarily by the homography.*
+
 ### 5. Permutation "ciphers" (15 min)
 A pixel permutation keeps every value and only rearranges positions. On an $M\times N$ grid, a permutation $\pi$ of the $MN$ positions gives $I'[\pi(m,n)]=I[m,n]$.
 

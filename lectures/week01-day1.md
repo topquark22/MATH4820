@@ -66,6 +66,10 @@ A[Continuous image] --> B[Sample spatial grid]
 
 *Figure 1. Sampling and quantization. Sampling discretizes locations; quantization discretizes values.*
 
+![Distinct continuous-domain functions can agree at every sampled location. The example uses a quantizer with step 0.25; the plotted samples are a one-dimensional slice.](../media/week01-sampling.svg)
+
+*Illustration 1. Distinct continuous-domain functions can agree at every sampled location. The example uses a quantizer with step 0.25; the plotted samples are a one-dimensional slice.*
+
 ### 4. Injective, surjective, bijective (20 min)
 For a map $T: X \to Y$:
 

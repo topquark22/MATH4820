@@ -82,6 +82,10 @@ In 4:2:0 each $2\times 2$ block of pixels keeps its four $Y$ values but shares o
 - It is a many-to-one map: different chroma patterns inside a $2\times 2$ block give the same stored value, so it is **not injective**; the lost detail cannot be recovered, only interpolated back (Week 1 interpolation kernels apply to the upsampling).
 - Sharp colored edges (e.g. red text on a blue background) show color bleeding; luma edges remain sharp.
 
+![Full luminance sampling with three chroma sampling arrangements. Chroma sample siting is schematic; each colored marker represents one sample per chroma channel.](../media/week03-chroma-subsampling.svg)
+
+*Illustration 1. Full luminance sampling with three chroma sampling arrangements. Chroma sample siting is schematic; each colored marker represents one sample per chroma channel.*
+
 ### 4. The 8×8 block DCT (25 min)
 Split each channel into $8\times 8$ blocks, subtract 128 (level shift), and transform each block $g[x,y]$ ($0\le x,y\le 7$):
 
@@ -96,6 +100,10 @@ where $c(0)=1/\sqrt{2}$ and $c(w)=1$ for $w>0$.
 - Why do it? Natural, smooth blocks concentrate energy in a few low-frequency coefficients, so the others can be coarsely quantized cheaply.
 - **Edges and text:** a block containing a jump has significant energy in many coefficients (the representation is not sparse). Coarse quantization of those coefficients then distorts the edge: ringing / Gibbs-like harmonic artifacts around it (Week 1 teaser). Blocks are processed independently, so artifacts also appear at block boundaries (blocking).
 - The DCT is an even-symmetric cousin of the Fourier transform, which is why it behaves well on blocks (informal; Week 4 covers the Fourier transform).
+
+![All 64 separable cosine basis patterns. Display intensities represent cosine products rather than the orthonormal scaling coefficients.](../media/week03-dct-basis.svg)
+
+*Illustration 2. All 64 separable cosine basis patterns. Display intensities represent cosine products rather than the orthonormal scaling coefficients.*
 
 ### 5. Activity (part of the 10-min closing segment)
 Show an $8\times 8$ block that is (a) flat, (b) a horizontal gradient, (c) a black-and-white vertical edge. Predict which coefficients are nonzero. Preview Day 2: what happens when $G[u,v]$ is rounded.

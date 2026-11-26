@@ -85,6 +85,10 @@ Reuse the forward and inverse models from Labs 3–4. Compare naive inversion wi
 
 Require students to record parameter choices, stopping criteria, operator ordering, and any deviations from the assumed observation model. Select parameters without access to the challenge ground truth, using a separate calibration example or an observation-based criterion.
 
+![A synthetic experiment comparing restoration orders for a 90-degree pixel permutation followed by horizontal circular blur and additive noise. Both use the same filter; the correct order is specific to the forward model.](../media/week07-composite-reconstruction.svg)
+
+*Illustration 1. A synthetic experiment comparing restoration orders for a 90-degree pixel permutation followed by horizontal circular blur and additive noise. Both use the same filter; the correct order is specific to the forward model.*
+
 ### 5. Quantitative evaluation against ground truth (10 min)
 
 Release the corresponding reference images after students have recorded their reconstruction choices. Compare reference error, PSNR, and, where appropriate, SSIM and text accuracy. Evaluate the forward-model residual before any display-only clipping, with quantization or compression accounted for where relevant. Compare results with a simple baseline and identify evidence of model mismatch.
