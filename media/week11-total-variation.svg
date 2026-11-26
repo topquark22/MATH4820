@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 390" role="img" aria-labelledby="title desc">
+  <title id="title">Total variation and optimal binary error</title>
+  <desc id="desc">For equal priors, optimal error decreases linearly from 0.5 to zero as total variation increases from zero to one.</desc>
+  <rect width="680" height="390" fill="white"/>
+  <g font-family="Arial,sans-serif" fill="#172334">
+    <text x="340" y="30" text-anchor="middle" font-size="20">Equal-prior binary classification</text>
+    <g stroke="#cbd5e1" stroke-dasharray="4 4"><path d="M95 60 H625"/><path d="M95 190 H625"/><path d="M360 60 V320"/></g>
+    <path d="M95 50 V320 H635" stroke="#172334" stroke-width="2" fill="none"/>
+    <path d="M95 60 L625 320" stroke="#16756a" stroke-width="4" fill="none"/>
+    <g fill="#16756a"><circle cx="95" cy="60" r="5"/><circle cx="307" cy="164" r="5"/><circle cx="625" cy="320" r="5"/></g>
+    <g font-size="15"><text x="82" y="65" text-anchor="end">0.5</text><text x="82" y="195" text-anchor="end">0.25</text><text x="82" y="325" text-anchor="end">0</text><text x="95" y="342" text-anchor="middle">0</text><text x="360" y="342" text-anchor="middle">0.5</text><text x="625" y="342" text-anchor="middle">1</text></g>
+    <text x="320" y="151" font-size="15">TV = 0.4, error = 0.3</text>
+    <text x="360" y="372" text-anchor="middle" font-size="17">Total variation distance</text>
+    <text transform="translate(27 190) rotate(-90)" text-anchor="middle" font-size="17">Minimum classification error</text>
+  </g>
+</svg>

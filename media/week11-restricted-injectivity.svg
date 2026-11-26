@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Restricted injectivity of the sum map</title>
+  <desc id="desc">Three parallel fibers of x plus y, each containing one selected candidate and other possible inputs.</desc>
+  <rect width="640" height="360" fill="#fff"/>
+  <g font-family="Arial,sans-serif" fill="#172334">
+    <text x="220" y="32" text-anchor="middle" font-size="19">Input space</text>
+    <text x="530" y="32" text-anchor="middle" font-size="19">Output A(x,y)</text>
+    <g stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 5">
+      <path d="M40 90 H400"/><path d="M40 170 H400"/><path d="M40 250 H400"/>
+    </g>
+    <g fill="#94a3b8"><circle cx="72" cy="90" r="5"/><circle cx="260" cy="90" r="5"/><circle cx="100" cy="170" r="5"/><circle cx="320" cy="170" r="5"/><circle cx="70" cy="250" r="5"/><circle cx="280" cy="250" r="5"/></g>
+    <g fill="#2563eb"><circle cx="155" cy="90" r="8"/><circle cx="220" cy="170" r="8"/><circle cx="180" cy="250" r="8"/></g>
+    <g font-size="14"><text x="155" y="77" text-anchor="middle">(0,0)</text><text x="220" y="157" text-anchor="middle">(1,0)</text><text x="180" y="237" text-anchor="middle">(1,1)</text></g>
+    <g stroke="#475569" fill="none" stroke-width="2"><path d="M400 90 H500 l-8 -5 M500 90 l-8 5"/><path d="M400 170 H500 l-8 -5 M500 170 l-8 5"/><path d="M400 250 H500 l-8 -5 M500 250 l-8 5"/></g>
+    <g fill="#16756a"><circle cx="530" cy="90" r="8"/><circle cx="530" cy="170" r="8"/><circle cx="530" cy="250" r="8"/></g>
+    <g font-size="18"><text x="550" y="96">0</text><text x="550" y="176">1</text><text x="550" y="256">2</text></g>
+    <circle cx="65" cy="310" r="7" fill="#2563eb"/><text x="80" y="315" font-size="14">Selected candidate</text>
+    <circle cx="290" cy="310" r="5" fill="#94a3b8"/><text x="305" y="315" font-size="14">Other possible input</text>
+    <text x="320" y="344" text-anchor="middle" font-size="13" fill="#475569">Schematic fiber layout, not Cartesian coordinates.</text>
+  </g>
+</svg>

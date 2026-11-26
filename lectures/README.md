@@ -31,3 +31,5 @@ Both are assumptions. Actual lecture/tutorial length and frequency vary by insti
 - [Week 9, Day 2](week09-day2.md): Experimental validation, positive and negative controls, feature error, binomial confidence bounds, and model mismatch
 - [Week 10, Day 1](week10-day1.md): Bayesian inverse problems, learned priors, super-resolution, GANs, diffusion, and the perception–distortion trade-off
 - [Week 10, Day 2](week10-day2.md): Generative artifacts, identity drift, controlled restoration experiments, provenance, and forensic reliability
+- [Week 11, Day 1](week11-day1.md): Restricted-domain injectivity, entropy, mutual information, and masking
+- [Week 11, Day 2](week11-day2.md): Forward matching, output separation, total variation, and secure redaction

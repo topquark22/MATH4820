@@ -111,3 +111,14 @@ These sketches provide answers or evaluation guidance, not complete worked solut
 6. Distance $\sqrt{2(1-0.8)}=\sqrt{0.4}\approx0.6325$. Both metrics depend on the same representation and do not independently validate identity.
 7. Use matched observations, record model settings and failures, retain independent references, and report feature errors and limitations without cherry-picking.
 8. Processing provenance concerns whether a model was used; feature attribution requires evidence that a particular detail was synthesized or altered. Anonymization may intentionally replace details, but privacy and utility must be tested independently.
+
+## Week 11
+
+1. Rank one; kernel consists of vectors whose coordinates sum to zero, with dimension two. For example $(0,0,0),(1,0,0),(1,1,0),(1,1,1)$ have sums 0, 1, 2, 3. No nonzero difference of these candidates lies in the kernel.
+2. If $s=b\circ A$, equal outputs imply equal labels. Conversely define $b(Ax)=s(x)$; the implication ensures this is well-defined. For example, take $A$ to be a block mean and $s$ the indicator that this mean exceeds a fixed threshold.
+3. Initial entropy is 1 bit, conditional entropy is 0.7 bits, and mutual information is 0.3 bits.
+4. Without $Z$, the exclusive-or output is independent of $X$, so mutual information is zero. Given $Z$, the output determines $X$, giving conditional mutual information of 1 bit.
+5. Minimum separation 0.8. Radius 0.3 gives disjoint intervals; radius 0.5 gives overlapping intervals for the first two centers.
+6. Total variation is $(0.4+0+0.4)/2=0.4$. Equal-prior error is 0.3. For unequal priors the summed smaller weighted masses are $0.05+0.075+0.075=0.2$.
+7. Report the release mechanism and label distribution, contingency counts and uncertainty, comparison against the baseline, and utility. Finite empirical estimates can be biased, especially with sparse categories; absence of measured dependence is not proof of independence.
+8. The protected coordinates may be absent from the rendered raster while present in another representation. Verify the complete independent release artifact, including previews, layers, metadata and associated files, and withhold the release if requirements are not satisfied.
