@@ -18,6 +18,14 @@
 - Scientific Working Group on Digital Evidence (SWGDE). *Best Practices for Maintaining the Integrity of Imagery* (Document 17-I-001). [Published document](https://www.swgde.org/documents/published-complete-listing/17-i-001-best-practices-for-maintaining-the-integrity-of-imagery/)
 - Scientific Working Group on Digital Evidence (SWGDE). *Digital Image Compression and File Format Guidelines* (Document 16-M-001). [Published document](https://www.swgde.org/documents/published-complete-listing/16-m-001-swgde-digital-image-compression-and-file-format-guidelines/)
 
+### Foundational Legal References by Jurisdiction
+
+- **United States (federal):** *Federal Rules of Evidence, Rule 702 — Testimony by Expert Witnesses* (as amended in 2023). [Rule and advisory committee notes](https://www.law.cornell.edu/rules/fre/rule_702). The governing federal expert-testimony rule, incorporating the Daubert reliability framework; addresses expert qualifications, sufficient factual basis, reliable methods, and reliable application. State rules may differ.
+- **Canada:** *R. v. Mohan*, [1994] 2 S.C.R. 9 (Supreme Court of Canada). [Judgment](https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/1131/index.do). Foundational expert-evidence admissibility criteria: relevance, necessity in assisting the trier of fact, absence of an exclusionary rule, and a properly qualified expert.
+- **European Union:** Council Framework Decision 2009/905/JHA of 30 November 2009, *Accreditation of forensic service providers carrying out laboratory activities*, OJ L 322, 9 December 2009, pp. 14–16. [EUR-Lex](https://eur-lex.europa.eu/eli/dec_framw/2009/905/oj). Establishes an EN ISO/IEC 17025 accreditation framework for laboratory activities producing DNA profiles and fingerprint/palm-print data. Its scope does not extend generally to forensic image enhancement, and it expressly preserves national rules on judicial assessment of evidence.
+
+These are introductory jurisdiction-specific references, not interchangeable admissibility tests. The EU instrument concerns accreditation and cross-border recognition within its limited scope; it is not an EU-wide counterpart to Daubert or Mohan.
+
 ## Foundational Signal Processing and Inverse Problems
 
 - Gonzalez, R. C., & Woods, R. E. *Digital Image Processing* (4th ed.). Pearson. Chapters on geometric transformations, image restoration, and regularized deconvolution.
