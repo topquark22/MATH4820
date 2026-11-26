@@ -133,9 +133,15 @@ A=\begin{pmatrix}
 $$
 
 injective as a map $\mathbb{R}^2\to\mathbb{R}^2$? Describe what it does to the plane.
-2. Show $R_\theta$ is bijective and find $R_\theta^{-1}$.
-3. Rotate a $3\times 3$ image by $45^\circ$ about its center. Explain why forward mapping may leave holes and how backward mapping fixes this.
-4. Given pixel values $10, 20$ at positions $0,1$ (1D), compute the interpolated value at $x=0.3$ using nearest-neighbor and linear interpolation.
-5. Verify that the bilinear kernel $h(t)=1-|t|$ gives $h(0)=1$ and $h(k)=0$ for nonzero integers $k$ (so it reproduces the original samples).
-6. *(Discussion)* Upscale an image by $2\times$ then downscale by $2\times$ using bilinear interpolation. Is the result identical to the original? Why or why not?
-7. *(Optional, Python)* Rotate an image by $10^\circ$ and then by $-10^\circ$ with each of the three interpolation methods in OpenCV; compare with the original.
+
+**2.** Show $R_\theta$ is bijective and find $R_\theta^{-1}$.
+
+**3.** Rotate a $3\times 3$ image by $45^\circ$ about its center. Explain why forward mapping may leave holes and how backward mapping fixes this.
+
+**4.** Given pixel values $10, 20$ at positions $0,1$ (1D), compute the interpolated value at $x=0.3$ using nearest-neighbor and linear interpolation.
+
+**5.** Verify that the bilinear kernel $h(t)=1-|t|$ gives $h(0)=1$ and $h(k)=0$ for nonzero integers $k$ (so it reproduces the original samples).
+
+**6.** *(Discussion)* Upscale an image by $2\times$ then downscale by $2\times$ using bilinear interpolation. Is the result identical to the original? Why or why not?
+
+**7.** *(Optional, Python)* Rotate an image by $10^\circ$ and then by $-10^\circ$ with each of the three interpolation methods in OpenCV; compare with the original.
