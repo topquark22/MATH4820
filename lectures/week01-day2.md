@@ -100,8 +100,8 @@ In 1D (2D kernels are products $h(x)h(y)$ — a standard separability fact):
 
 $$
 h(t)=\begin{cases}
-\tfrac32|t|^3-\tfrac52|t|^2+1, & |t|\le 1,\\[2pt]
--\tfrac12|t|^3+\tfrac52|t|^2-4|t|+2, & 1<|t|<2,\\[2pt]
+\tfrac32|t|^3-\tfrac52|t|^2+1, & |t|\le 1,\\
+-\tfrac12|t|^3+\tfrac52|t|^2-4|t|+2, & 1<|t|<2,\\
 0, & \text{otherwise.}
 \end{cases}
 $$
