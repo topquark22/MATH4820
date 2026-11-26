@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1-example",
+  "example_only": true,
+  "run_id": "synthetic-run-example",
+  "timestamp_utc": null,
+  "source": {
+    "identifier": "synthetic-source",
+    "digest_algorithm": "SHA-256",
+    "acquisition_digest_reference": null,
+    "expected_digest": null,
+    "working_copy_digest": null,
+    "verification_status": "not_run"
+  },
+  "operation": {
+    "name": null,
+    "parameters": {},
+    "boundary_convention": null,
+    "coordinate_convention": null,
+    "random_seed": null
+  },
+  "environment": {
+    "python_version": null,
+    "packages": {},
+    "platform": null,
+    "device": null,
+    "model_revision": null,
+    "checkpoint_sha256": null
+  },
+  "output": {
+    "identifier": null,
+    "sha256": null,
+    "representation": null
+  },
+  "comparison": {
+    "status": "not_run",
+    "absolute_tolerance": null,
+    "relative_tolerance": null
+  },
+  "outcome": {
+    "status": "not_run",
+    "limitations": []
+  }
+}

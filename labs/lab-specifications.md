@@ -1,5 +1,7 @@
 # Laboratory Curriculum
 
+[Teaching Assistant Laboratory Manual](ta/README.md) — preparation, numerical checks, diagnostic guidance, and report templates.
+
 ## Detailed Laboratory Specifications
 
 The source draft describes six labs, alternating between guided implementation and evaluation / red-teaming / validation, and a two-week capstone project. Each scheduled lab session is one hour; multi-part labs span several weeks and may require preparation and work outside the scheduled session. The individual specifications linked below are working drafts for further development; this file retains the curriculum overview.
