@@ -129,20 +129,26 @@ Pairs match each Photoshop operation (Rotate, Skew, Perspective, Flip, Warp) wit
 
 ## Exercises
 
-1. Find $A$ and $\mathbf{t}$ for a rotation by $30^\circ$ about the point $(2,1)$. Give $T^{-1}$.
-2. Is $T(x,y)=(2x+y, 4x+2y)$ a bijection of $\mathbb{R}^2$? What does it do to the plane? Can the warp $f\circ T^{-1}$ be formed?
-3. A homography has
+**1.** Find $A$ and $\mathbf{t}$ for a rotation by $30^\circ$ about the point $(2,1)$. Give $T^{-1}$.
 
-   $$
-   H=\begin{pmatrix}
-   1&0&0\\
-   0&1&0\\
-   0.01&0&1
-   \end{pmatrix}.
-   $$
+**2.** Is $T(x,y)=(2x+y, 4x+2y)$ a bijection of $\mathbb{R}^2$? What does it do to the plane? Can the warp $f\circ T^{-1}$ be formed?
 
-   Compute the image of $(100,50)$. Which line is sent to infinity?
-4. Show that composing two affine maps is affine, and give the resulting $A$ and $\mathbf{t}$.
-5. Count: how many pixel permutations exist for a $3\times 3$ image? How many keyed block-shuffles of four $2\times 2$ blocks in a $4\times 4$ image?
-6. A photo of text is rotated by $10^\circ$ and rotated back using bilinear interpolation. Predict qualitatively what changes near the letter edges.
-7. *(Optional, Python/OpenCV)* Use `cv2.getAffineTransform`, `cv2.getPerspectiveTransform`, and `cv2.warpAffine` / `cv2.warpPerspective` to warp a test image and invert it; compare with the original under each interpolation flag.
+**3.** A homography has
+
+$$
+H=\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0.01&0&1
+\end{pmatrix}.
+$$
+
+Compute the image of $(100,50)$. Which line is sent to infinity?
+
+**4.** Show that composing two affine maps is affine, and give the resulting $A$ and $\mathbf{t}$.
+
+**5.** Count: how many pixel permutations exist for a $3\times 3$ image? How many keyed block-shuffles of four $2\times 2$ blocks in a $4\times 4$ image?
+
+**6.** A photo of text is rotated by $10^\circ$ and rotated back using bilinear interpolation. Predict qualitatively what changes near the letter edges.
+
+**7.** *(Optional, Python/OpenCV)* Use `cv2.getAffineTransform`, `cv2.getPerspectiveTransform`, and `cv2.warpAffine` / `cv2.warpPerspective` to warp a test image and invert it; compare with the original under each interpolation flag.

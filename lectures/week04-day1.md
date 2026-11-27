@@ -68,7 +68,10 @@ $$
 
 $$
 \sum_{n=0}^{N-1}e_k[n] \overline{e_l[n]}=\sum_{n=0}^{N-1}\big(e^{2\pi i (k-l)/N}\big)^n=
-\begin{cases}N,&k\equiv l \pmod N,\\[2pt]0,&\text{otherwise.}\end{cases}
+\begin{cases}
+N,&k\equiv l \pmod N,\\
+0,&\text{otherwise.}
+\end{cases}
 $$
 
 *Derivation.* Let $q=e^{2\pi i(k-l)/N}$. If $k\equiv l\pmod N$ then $q=1$ and the sum is $N$. Otherwise $q\neq1$ but $q^N=1$, so by the geometric series $\sum_{n=0}^{N-1}q^n=\dfrac{1-q^N}{1-q}=0$.
