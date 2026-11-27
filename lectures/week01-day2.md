@@ -71,7 +71,7 @@ $$
 Resampling means estimating $f$ at coordinates that are not grid points (rotation, scaling, fractional shifts). Since only $I$ is known, we need an **interpolation kernel** $h$:
 
 $$
-\hat f(x,y) = \sum_{m,n} I[m,n]\, h(x-m,\,y-n).
+\hat f(x,y) = \sum_{m,n} I[m,n] h(x-m, y-n).
 $$
 
 Interpolation produces values not in the original data, so repeated resampling accumulates error. Since $f$ is not assumed continuous (it may have sharp edges), $\hat f$ is only an estimate and can blur or overshoot at jumps. This is why discrete inverses of geometric transforms are only approximate (technical notes: "Discrete hurdles").
@@ -119,7 +119,7 @@ Key message: resampling is information-losing in practice. Week 2 uses geometric
 
 - Linear map $\mathbf{p}'=A\mathbf{p}$; invertible iff $\det A\ne 0$.
 - Backward mapping: $\mathbf{p}=T^{-1}(\mathbf{q})$.
-- Interpolation: $\hat f(x,y)=\sum_{m,n} I[m,n]\,h(x-m,y-n)$.
+- Interpolation: $\hat f(x,y)=\sum_{m,n} I[m,n] h(x-m,y-n)$.
 
 ## Exercises
 

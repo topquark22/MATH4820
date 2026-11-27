@@ -59,15 +59,15 @@ By the end of this session students can:
 Let $x=(x[0],\dots,x[N-1])$ be a sequence (a row of pixels, say). Define $W=e^{-2\pi i/N}$ (an $N$-th root of unity, $W^N=1$). The DFT and its inverse are
 
 $$
-X[k]=\sum_{n=0}^{N-1}x[n]\,W^{kn},\qquad x[n]=\frac1N\sum_{k=0}^{N-1}X[k]\,W^{-kn}.
+X[k]=\sum_{n=0}^{N-1}x[n] W^{kn},\qquad x[n]=\frac1N\sum_{k=0}^{N-1}X[k] W^{-kn}.
 $$
 
-**Intuition (say this first).** The functions $e_k[n]=e^{2\pi i kn/N}=\cos(2\pi kn/N)+i\sin(2\pi kn/N)$ are $N$ sampled waves; $e_k$ completes $k$ cycles over the $N$ samples. The inverse formula says *$x$ is a weighted sum of these waves*, with weights $X[k]/N$. The forward formula says *to find the weight of wave $k$, correlate $x$ with that wave*, i.e. take $\sum_n x[n]\,\overline{e_k[n]}$.
+**Intuition (say this first).** The functions $e_k[n]=e^{2\pi i kn/N}=\cos(2\pi kn/N)+i\sin(2\pi kn/N)$ are $N$ sampled waves; $e_k$ completes $k$ cycles over the $N$ samples. The inverse formula says *$x$ is a weighted sum of these waves*, with weights $X[k]/N$. The forward formula says *to find the weight of wave $k$, correlate $x$ with that wave*, i.e. take $\sum_n x[n] \overline{e_k[n]}$.
 
 **Why it works: orthogonality.** For integers $k,l$:
 
 $$
-\sum_{n=0}^{N-1}e_k[n]\,\overline{e_l[n]}=\sum_{n=0}^{N-1}\big(e^{2\pi i (k-l)/N}\big)^n=
+\sum_{n=0}^{N-1}e_k[n] \overline{e_l[n]}=\sum_{n=0}^{N-1}\big(e^{2\pi i (k-l)/N}\big)^n=
 \begin{cases}N,&k\equiv l \pmod N,\\[2pt]0,&\text{otherwise.}\end{cases}
 $$
 
@@ -84,7 +84,7 @@ Take $x=(1,2,3,4)$.
 - $X[2]=1+2(-1)+3(1)+4(-1)=-2$.
 - $X[3]=1+2(-i)^3+3(-i)^6+4(-i)^9=1+2i-3-4i=-2-2i$.
 
-So $X=(10,\,-2+2i,\,-2,\,-2-2i)$. Check the inverse at $n=0$: $\frac14(10+(-2+2i)+(-2)+(-2-2i))=\frac14\cdot4=1=x[0]$. ✓
+So $X=(10, -2+2i, -2, -2-2i)$. Check the inverse at $n=0$: $\frac14(10+(-2+2i)+(-2)+(-2-2i))=\frac14\cdot4=1=x[0]$. ✓
 
 **Interpretation.** $|X[k]|$ is the strength of wave $k$; $\arg X[k]$ is its phase (shift). For $x[n]=\cos(2\pi k_0n/N)$ with $0<k_0<N/2$: $X[k_0]=X[N-k_0]=N/2$ and all other $X[k]=0$. (Because $\cos\phi=\tfrac12(e^{i\phi}+e^{-i\phi})$, and $e^{-2\pi i k_0n/N}=e_{N-k_0}[n]$.)
 
@@ -104,8 +104,8 @@ So $X=(10,\,-2+2i,\,-2,\,-2-2i)$. Check the inverse at $n=0$: $\frac14(10+(-2+2i
 For an $M\times N$ array $I[m,n]$ (one channel at a time; $k$ channels are transformed independently):
 
 $$
-F[u,v]=\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}I[m,n]\,e^{-2\pi i\left(\frac{um}{M}+\frac{vn}{N}\right)},\qquad
-I[m,n]=\frac1{MN}\sum_{u=0}^{M-1}\sum_{v=0}^{N-1}F[u,v]\,e^{2\pi i\left(\frac{um}{M}+\frac{vn}{N}\right)}.
+F[u,v]=\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}I[m,n] e^{-2\pi i\left(\frac{um}{M}+\frac{vn}{N}\right)},\qquad
+I[m,n]=\frac1{MN}\sum_{u=0}^{M-1}\sum_{v=0}^{N-1}F[u,v] e^{2\pi i\left(\frac{um}{M}+\frac{vn}{N}\right)}.
 $$
 
 (Convention: $u$ indexes the row direction $m$, $v$ the column direction $n$; matches `numpy.fft.fft2`.)
@@ -115,14 +115,14 @@ $$
 **Separability (derivation).** Factor the exponential:
 
 $$
-F[u,v]=\sum_{m=0}^{M-1}e^{-2\pi i\,um/M}\left(\sum_{n=0}^{N-1}I[m,n]\,e^{-2\pi i\,vn/N}\right).
+F[u,v]=\sum_{m=0}^{M-1}e^{-2\pi i um/M}\left(\sum_{n=0}^{N-1}I[m,n] e^{-2\pi i vn/N}\right).
 $$
 
 The inner sum is the 1D DFT of row $m$ (length $N$), producing an intermediate array $R[m,v]$. The outer sum is then the 1D DFT of column $v$ of $R$ (length $M$). Hence: **2D DFT = 1D DFTs along every row, then 1D DFTs along every column** (the order does not matter).
 
 Cost (with $M=N$): direct double sum for every $(u,v)$ costs $\sim(MN)^2=N^4$; separable with naive 1D DFTs costs $\sim 2N\cdot N^2=2N^3$; separable with the FFT costs $\sim 2N\cdot N\log_2N$.
 
-A consequence of separability worth stating: if $I[m,n]=a[m]\,b[n]$ (an outer product), then $F[u,v]=A[u]\,B[v]$ (exercise 6).
+A consequence of separability worth stating: if $I[m,n]=a[m] b[n]$ (an outer product), then $F[u,v]=A[u] B[v]$ (exercise 6).
 
 ~~~mermaid
 flowchart TD
@@ -138,7 +138,7 @@ A[M x N spatial samples] --> B[Length-N DFT of every row]
 The matrix-vector product $X=\mathcal{W}x$ costs $N^2$ complex multiplications. The FFT (Cooley–Tukey, radix-2) computes **exactly the same $X$** using $O(N\log N)$ operations, by exploiting the structure of $W^{kn}$. Take $N$ even and split $x$ into even- and odd-indexed samples. Write $n=2r$ or $n=2r+1$:
 
 $$
-X[k]=\sum_{r=0}^{N/2-1}x[2r]\,W^{2rk}+W^{k}\sum_{r=0}^{N/2-1}x[2r+1]\,W^{2rk}.
+X[k]=\sum_{r=0}^{N/2-1}x[2r] W^{2rk}+W^{k}\sum_{r=0}^{N/2-1}x[2r+1] W^{2rk}.
 $$
 
 Now $W^{2}=e^{-2\pi i/(N/2)}$ is the primitive $N/2$-th root of unity, so each sum is an $(N/2)$-point DFT, $E[k]$ of the even samples and $O[k]$ of the odd samples:
@@ -158,7 +158,7 @@ This "butterfly" yields two outputs from one multiplication $W^kO[k]$.
 **Cost.** Let $T(N)$ be the cost. Two half-size DFTs plus $N/2$ twiddle multiplications and $N$ additions:
 
 $$
-T(N)=2\,T(N/2)+cN\ \Longrightarrow\ T(N)=cN\log_2N+N\,T(1).
+T(N)=2 T(N/2)+cN\ \Longrightarrow\ T(N)=cN\log_2N+N T(1).
 $$
 
 (Unroll: $\log_2N$ levels, each costing $cN$.) For $N=1024$: $N^2\approx10^6$ vs. $\tfrac N2\log_2N=5120$ complex multiplications (about $200\times$ fewer); for a $512\times512$ image the saving is far bigger (see exercise 7).
@@ -259,10 +259,10 @@ Three sentences: (1) the DFT is an invertible change of basis into plane waves; 
 
 ## Key Formulas Summary
 
-- $X[k]=\sum_{n=0}^{N-1}x[n]\,e^{-2\pi i kn/N}$; $x[n]=\frac1N\sum_{k}X[k]\,e^{2\pi i kn/N}$.
+- $X[k]=\sum_{n=0}^{N-1}x[n] e^{-2\pi i kn/N}$; $x[n]=\frac1N\sum_{k}X[k] e^{2\pi i kn/N}$.
 - Orthogonality: $\sum_n e^{2\pi i (k-l)n/N}=N$ if $k\equiv l\pmod N$, else $0$.
 - Real input: $X[N-k]=\overline{X[k]}$. Shift: $x[n-n_0]\leftrightarrow W^{kn_0}X[k]$. Parseval: $\sum|x|^2=\frac1N\sum|X|^2$.
-- 2D: $F[u,v]=\sum_{m,n}I[m,n]\,e^{-2\pi i(um/M+vn/N)}$, separable.
+- 2D: $F[u,v]=\sum_{m,n}I[m,n] e^{-2\pi i(um/M+vn/N)}$, separable.
 - FFT: $X[k]=E[k]+W^kO[k]$, $X[k+N/2]=E[k]-W^kO[k]$; cost $\sim N\log_2N$.
 
 ## Exercises
@@ -270,9 +270,9 @@ Three sentences: (1) the DFT is an invertible change of basis into plane waves; 
 1. Compute the 4-point DFT of (a) $x=(1,0,0,0)$, (b) $x=(1,1,1,1)$, (c) $x=(1,0,-1,0)$.
 2. Compute the 4-point DFT of $x=(1,2,3,4)$ yourself and verify $X[3]=\overline{X[1]}$.
 3. Show the circular shift property: if $y[n]=x[(n-n_0)\bmod N]$ then $Y[k]=W^{kn_0}X[k]$. What happens to $|Y[k]|$?
-4. Prove the orthogonality relation $\sum_{n=0}^{N-1}W^{(k-l)n}=N\,\delta_{k,l}$ for $k,l\in\{0,\dots,N-1\}$, and use it to prove the inverse DFT formula.
+4. Prove the orthogonality relation $\sum_{n=0}^{N-1}W^{(k-l)n}=N \delta_{k,l}$ for $k,l\in\{0,\dots,N-1\}$, and use it to prove the inverse DFT formula.
 5. Verify Parseval for $x=(1,2,3,4)$.
-6. If $I[m,n]=a[m]\,b[n]$, show $F[u,v]=A[u]\,B[v]$.
+6. If $I[m,n]=a[m] b[n]$, show $F[u,v]=A[u] B[v]$.
 7. Operation counts (order of magnitude): (a) $N=1024$, direct DFT vs. FFT, in complex multiplications. (b) For a $512\times512$ image, compare the direct 2D sum ($(MN)^2$), separable naive ($MN(M+N)$), and separable FFT ($\approx MN\log_2(MN)$).
 8. Run the radix-2 FFT by hand on $x=(1,2,3,4)$ and match it with exercise 2.
 9. A $128\times128$ image consists of vertical stripes with period 8 pixels. Where are the nonzero entries of $F[u,v]$ (indices, ignoring the DC term)?
@@ -283,9 +283,9 @@ Three sentences: (1) the DFT is an invertible change of basis into plane waves; 
 ## Instructor Answer Key
 
 1. (a) $X=(1,1,1,1)$ (an impulse contains all frequencies equally). (b) $X=(4,0,0,0)$ (constant = DC only). (c) $X[k]=1-(-1)^k$, so $X=(0,2,0,2)$ (this is $\cos(2\pi n/4)$: $N/2=2$ at $k=1,3$).
-2. $X=(10,\,-2+2i,\,-2,\,-2-2i)$; indeed $X[3]=\overline{X[1]}$.
+2. $X=(10, -2+2i, -2, -2-2i)$; indeed $X[3]=\overline{X[1]}$.
 3. $Y[k]=\sum_n x[(n-n_0)\bmod N]W^{kn}$; substitute $m=(n-n_0)\bmod N$, so $n\equiv m+n_0$ and $W^{kn}=W^{km}W^{kn_0}$ (because $W^N=1$). Hence $Y[k]=W^{kn_0}X[k]$ and $|Y[k]|=|X[k]|$ since $|W^{kn_0}|=1$: shifting changes only phase.
-4. Geometric series with ratio $q=W^{k-l}$, as in the text. For the inverse: $\frac1N\sum_kX[k]W^{-kn}=\frac1N\sum_m x[m]\sum_kW^{k(m-n)}=\frac1N\sum_m x[m]\,N\delta_{m,n}=x[n]$.
+4. Geometric series with ratio $q=W^{k-l}$, as in the text. For the inverse: $\frac1N\sum_kX[k]W^{-kn}=\frac1N\sum_m x[m]\sum_kW^{k(m-n)}=\frac1N\sum_m x[m] N\delta_{m,n}=x[n]$.
 5. $\sum|x|^2=1+4+9+16=30$. $\sum|X|^2=100+8+4+8=120$, and $120/4=30$. ✓
 6. $F[u,v]=\sum_m\sum_na[m]b[n]e^{-2\pi i um/M}e^{-2\pi ivn/N}=\big(\sum_ma[m]e^{-2\pi ium/M}\big)\big(\sum_nb[n]e^{-2\pi ivn/N}\big)=A[u]B[v]$.
 7. (a) Direct: $N^2=1{,}048{,}576$. FFT: $\tfrac N2\log_2N=5120$ twiddle multiplications (about $200\times$ fewer; some texts quote $N\log_2N\approx10^4$). (b) $MN=2^{18}$. Direct: $(2^{18})^2=2^{36}\approx6.9\times10^{10}$. Separable naive: $2^{18}\cdot2^{10}=2^{28}\approx2.7\times10^8$. Separable FFT: $2^{18}\cdot18\approx4.7\times10^6$. (Constants ignored.)

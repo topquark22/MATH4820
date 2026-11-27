@@ -39,7 +39,7 @@ The block DCT is bijective; the only lossy steps are chroma subsampling and quan
 Each DCT coefficient $G[u,v]$ is divided by an entry $Q[u,v]$ of a quantization table and rounded; decoding multiplies back:
 
 $$
-G_q[u,v] = \left\lfloor \frac{G[u,v]}{Q[u,v]} + \frac12 \right\rfloor \text{ (stored)}, \qquad \tilde{G}[u,v] = Q[u,v]\,G_q[u,v] \text{ (decoded)}.
+G_q[u,v] = \left\lfloor \frac{G[u,v]}{Q[u,v]} + \frac12 \right\rfloor \text{ (stored)}, \qquad \tilde{G}[u,v] = Q[u,v] G_q[u,v] \text{ (decoded)}.
 $$
 
 - The stored value is the integer nearest to $G/Q$ (ties rounded up; codecs differ in tie handling).
@@ -104,7 +104,7 @@ Small groups: given a hypothetical pipeline "photo → crop → rotate 3° → r
 
 ## Exercises
 
-1. With $Q=16$, list the stored integers and decoded values for $G=\{-27,\,-7,\,3,\,8,\,9,\,25\}$. Which of these map to the same stored value?
+1. With $Q=16$, list the stored integers and decoded values for $G=\{-27, -7, 3, 8, 9, 25\}$. Which of these map to the same stored value?
 2. If one 8×8 block has all 64 coefficients quantized with the same $Q=10$, bound the worst-case error per coefficient. By orthonormality, bound the total squared error in the block.
 3. Show that for the 1D rounding map $x\mapsto Q\cdot\text{round}(x/Q)$, applying it a second time with the same $Q$ changes nothing (idempotent). What does this imply about repeated saves at the same quality?
 4. Quantize with $Q_1=7$, then with $Q_2=5$. Which values of the original integer coefficient in $[0,35]$ map to each final value? Explain the unequal bin counts.

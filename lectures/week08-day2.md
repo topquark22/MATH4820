@@ -113,7 +113,7 @@ J_{\lambda}(u)=\|Hu-g\|_2^2+\lambda\|Lu\|_2^2.
 $$
 
 $$
-\widehat{u}_{\lambda}\in\mathop{\mathrm{arg\,min}}_u J_{\lambda}(u).
+\widehat{u}_{\lambda}\in\mathop{\mathrm{argmin}}_u J_{\lambda}(u).
 $$
 
 Here $u$ represents the warped image before blur, and $L$ is a specified regularization operator. This is an approximate model for decoded observations when quantization has been neglected or otherwise accounted for. The geometric correction is then applied to $\widehat{u}_{\lambda}$ using the specified inverse-warp implementation.

@@ -83,7 +83,7 @@ w
 x\\
 y\\
 1
-\end{pmatrix}, \qquad (x',y') = \left(\frac{u}{w},\,\frac{v}{w}\right).
+\end{pmatrix}, \qquad (x',y') = \left(\frac{u}{w}, \frac{v}{w}\right).
 $$
 
 - $H$ is defined up to a nonzero scalar; it has 8 degrees of freedom. Four point correspondences (no three collinear) determine $H$.
@@ -124,13 +124,13 @@ Pairs match each Photoshop operation (Rotate, Skew, Perspective, Flip, Warp) wit
 
 - Warp: $f'=f\circ T^{-1}$ for a bijection $T$; no continuity of $f$ is assumed.
 - Affine: $T(\mathbf{p})=A\mathbf{p}+\mathbf{t}$; invertible iff $\det A\ne 0$.
-- Homography: $(x',y')=(u/w,\,v/w)$ with $(u,v,w)^T=H(x,y,1)^T$, $H$ invertible.
+- Homography: $(x',y')=(u/w, v/w)$ with $(u,v,w)^T=H(x,y,1)^T$, $H$ invertible.
 - Pixel permutation: bijection of grid positions; exactly invertible.
 
 ## Exercises
 
 1. Find $A$ and $\mathbf{t}$ for a rotation by $30^\circ$ about the point $(2,1)$. Give $T^{-1}$.
-2. Is $T(x,y)=(2x+y,\,4x+2y)$ a bijection of $\mathbb{R}^2$? What does it do to the plane? Can the warp $f\circ T^{-1}$ be formed?
+2. Is $T(x,y)=(2x+y, 4x+2y)$ a bijection of $\mathbb{R}^2$? What does it do to the plane? Can the warp $f\circ T^{-1}$ be formed?
 3. A homography has
 
    $$

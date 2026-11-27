@@ -16,7 +16,7 @@ By the end of this session students can:
 
 1. Define discrete and continuous 2D convolution and state its basic properties (linear, shift-invariant, commutative, mass-preserving for normalized PSFs).
 2. Write down PSFs for linear motion blur, an out-of-focus (pillbox) disk, and a Gaussian-like turbulence model.
-3. State and **derive** the (circular) Convolution Theorem: $G[k]=F[k]\,H[k]$.
+3. State and **derive** the (circular) Convolution Theorem: $G[k]=F[k] H[k]$.
 4. Explain circular vs. linear convolution, wrap-around, zero-padding size rules, and PSF centering pitfalls.
 5. Explain why some blur kernels have exact zeros in their spectra and others merely attenuate, and why zeros make the blur non-injective (lead-in to Week 5).
 6. Distinguish commutativity of convolution from commutativity of blur and geometric warping.
@@ -58,7 +58,7 @@ Day 1: the DFT is an invertible change of basis into plane waves, computable by 
 **Continuous.** For a PSF $h:\mathbb{R}^2\to\mathbb{R}$ (nonnegative, $\iint h=1$) and a bounded function $f:\mathbb{R}^2\to\mathbb{R}$, not necessarily continuous,
 
 $$
-(f*h)(x,y)=\iint f(x-s,\,y-t)\,h(s,t)\,ds\,dt.
+(f*h)(x,y)=\iint f(x-s, y-t) h(s,t) ds dt.
 $$
 
 Interpretation: each output value is a weighted average of $f$ around $(x,y)$, with weights given by the flipped PSF. A jump in $f$ becomes a smooth ramp whose width is about the PSF's width.
@@ -66,7 +66,7 @@ Interpretation: each output value is a weighted average of $f$ around $(x,y)$, w
 **Discrete.** For arrays $I$ and $G$ (PSF) of finite support,
 
 $$
-(I*G)[m,n]=\sum_{i}\sum_{j}I[m-i,\,n-j]\;G[i,j].
+(I*G)[m,n]=\sum_{i}\sum_{j}I[m-i, n-j]\;G[i,j].
 $$
 
 **Properties** (all follow from the definition; state them, prove one):
@@ -85,7 +85,7 @@ $$
 Indeed, writing $x$ and $u$ as two-dimensional vectors,
 
 $$
-(W_T H_h f)(x)=\int_{\mathbb{R}^2} f(A^{-1}(x-b)-u)h(u)\,du
+(W_T H_h f)(x)=\int_{\mathbb{R}^2} f(A^{-1}(x-b)-u)h(u) du
 $$
 
 and substituting $v=Au$ gives the convolution of $W_T f$ with $h_A$. Thus the warp transforms the PSF as well as the image.
@@ -125,7 +125,7 @@ Real bokeh depends on the aperture shape (polygonal) and often has bright edges;
 $$
 h(x,y)=\frac{1}{2\pi\sigma^2}\exp\!\left(-\frac{x^2+y^2}{2\sigma^2}\right).
 $$
-*Flag:* the Kolmogorov long-exposure model has a transfer function proportional to $\exp\!\big(-c\,\rho^{5/3}\big)$ in radial frequency $\rho$ (to verify); the Gaussian is a convenient simplification. Short exposures are random and not shift-invariant. The same Gaussian is used for "Gaussian blur" in Photoshop and in this course's labs ($\sigma=1.5,3.0,5.0$ in `labs/lab-specifications.md`).
+*Flag:* the Kolmogorov long-exposure model has a transfer function proportional to $\exp\!\big(-c \rho^{5/3}\big)$ in radial frequency $\rho$ (to verify); the Gaussian is a convenient simplification. Short exposures are random and not shift-invariant. The same Gaussian is used for "Gaussian blur" in Photoshop and in this course's labs ($\sigma=1.5,3.0,5.0$ in `labs/lab-specifications.md`).
 
 Demo (numpy): build the three PSFs as small arrays and print their sums (should be 1).
 
@@ -144,33 +144,33 @@ $$
 Then for the DFT $G[k]=\sum_n g[n]W^{kn}$ with $W=e^{-2\pi i/N}$:
 
 $$
-\boxed{G[k]=F[k]\,H[k]}.
+\boxed{G[k]=F[k] H[k]}.
 $$
 
 **Derivation (intermediate steps).**
 
 $$
 \begin{aligned}
-G[k]&=\sum_{n=0}^{N-1}\sum_{m=0}^{N-1}f[m]\,h[(n-m)\bmod N]\,W^{kn}\\
-&=\sum_{m=0}^{N-1}f[m]\sum_{n=0}^{N-1}h[(n-m)\bmod N]\,W^{kn}\qquad(\text{swap sums}).
+G[k]&=\sum_{n=0}^{N-1}\sum_{m=0}^{N-1}f[m] h[(n-m)\bmod N] W^{kn}\\
+&=\sum_{m=0}^{N-1}f[m]\sum_{n=0}^{N-1}h[(n-m)\bmod N] W^{kn}\qquad(\text{swap sums}).
 \end{aligned}
 $$
 
 For fixed $m$, substitute $r=(n-m)\bmod N$. As $n$ runs through $0,\dots,N-1$, $r$ also runs through $0,\dots,N-1$ (each once), and $n\equiv m+r\pmod N$. Since $W^N=1$, $W^{kn}=W^{k(m+r)}=W^{km}W^{kr}$. Hence
 
 $$
-G[k]=\sum_{m}f[m]\,W^{km}\sum_{r=0}^{N-1}h[r]\,W^{kr}=F[k]\,H[k].\qquad\blacksquare
+G[k]=\sum_{m}f[m] W^{km}\sum_{r=0}^{N-1}h[r] W^{kr}=F[k] H[k].\qquad\blacksquare
 $$
 
-(Key idea to stress: the plane waves $e_k$ are **eigenvectors of every circular convolution**: $e_k\circledast h=H[k]\,e_k$. Blur cannot mix frequencies; it only rescales each by $H[k]$.)
+(Key idea to stress: the plane waves $e_k$ are **eigenvectors of every circular convolution**: $e_k\circledast h=H[k] e_k$. Blur cannot mix frequencies; it only rescales each by $H[k]$.)
 
-**2D.** For $M\times N$ arrays with circular indices, $g[m,n]=\sum_{i,j}f[i,j]\,h[(m-i)\bmod M,(n-j)\bmod N]$ and, by the same computation applied in each index (or by separability from Day 1),
+**2D.** For $M\times N$ arrays with circular indices, $g[m,n]=\sum_{i,j}f[i,j] h[(m-i)\bmod M,(n-j)\bmod N]$ and, by the same computation applied in each index (or by separability from Day 1),
 
 $$
-G[u,v]=F[u,v]\,H[u,v].
+G[u,v]=F[u,v] H[u,v].
 $$
 
-**Continuous version (statement only).** With $\mathcal{F}$ the Fourier transform, $\mathcal{F}\{f*h\}=\mathcal{F}\{f\}\,\mathcal{F}\{h\}$ for integrable $f,h$ (no continuity of $f$ needed). $H=\mathcal{F}\{h\}$ is the **optical transfer function** (OTF); $|H|$ is the modulation transfer function (standard terminology; assumed). The technical notes write $\mathcal{F}(G)$ for the PSF's transform.
+**Continuous version (statement only).** With $\mathcal{F}$ the Fourier transform, $\mathcal{F}\{f*h\}=\mathcal{F}\{f\} \mathcal{F}\{h\}$ for integrable $f,h$ (no continuity of $f$ needed). $H=\mathcal{F}\{h\}$ is the **optical transfer function** (OTF); $|H|$ is the modulation transfer function (standard terminology; assumed). The technical notes write $\mathcal{F}(G)$ for the PSF's transform.
 
 **Why this matters computationally.** Direct 2D convolution with a $P\times P$ PSF costs about $MNP^2$; via FFT: transform, multiply pointwise, inverse transform, about $MN\log(MN)$, independent of $P$ (large PSFs especially). It also explains *deconvolution*: dividing $B$'s spectrum by $H$ (Week 5).
 
@@ -259,11 +259,11 @@ Three sentences: (1) blur is convolution with a PSF; (2) in the DFT basis convol
 
 ## Key Formulas Summary
 
-- Discrete convolution: $(I*G)[m,n]=\sum_{i,j}I[m-i,n-j]\,G[i,j]$; model $B=(I*G)+N$.
+- Discrete convolution: $(I*G)[m,n]=\sum_{i,j}I[m-i,n-j] G[i,j]$; model $B=(I*G)+N$.
 - Motion PSF: $1/L$ on a segment; pillbox: $1/(\pi R^2)$ on a disk; Gaussian: $\frac1{2\pi\sigma^2}e^{-(x^2+y^2)/(2\sigma^2)}$.
-- Convolution Theorem (circular): $G[u,v]=F[u,v]\,H[u,v]$.
+- Convolution Theorem (circular): $G[u,v]=F[u,v] H[u,v]$.
 - Padding rule: $N\ge L_1+L_2-1$ per axis for linear convolution via FFT.
-- Box spectrum: $|H[k]|=\dfrac{|\sin(\pi kL/N)|}{L\,|\sin(\pi k/N)|}$, zeros at $kL/N\in\mathbb{Z}$.
+- Box spectrum: $|H[k]|=\dfrac{|\sin(\pi kL/N)|}{L |\sin(\pi k/N)|}$, zeros at $kL/N\in\mathbb{Z}$.
 - Gaussian transform: $\exp(-2\pi^2\sigma^2\rho^2)$.
 
 ## Exercises
@@ -283,10 +283,10 @@ Three sentences: (1) blur is convolution with a PSF; (2) in the DFT basis convol
 
 ## Instructor Answer Key
 
-1. Linear: $(1,3,5,3)$. Circular $N=3$: wrap the last entry onto index 0: $(1+3,\,3,\,5)=(4,3,5)$. (Both sum to $12=6\cdot2$.)
+1. Linear: $(1,3,5,3)$. Circular $N=3$: wrap the last entry onto index 0: $(1+3, 3, 5)=(4,3,5)$. (Both sum to $12=6\cdot2$.)
 2. $\sum_{m,n}\sum_{i,j}f[i,j]h[m-i,n-j]=\sum_{i,j}f[i,j]\sum_{m,n}h[m-i,n-j]=\big(\sum f\big)\big(\sum h\big)$. With $\sum h=1$, total (hence mean) brightness is preserved.
 3. $H[k]=\tfrac12(1+W^k)$ with $W=-i$: $H[0]=1$; $H[1]=\tfrac12(1-i)$, $|H[1]|=\tfrac{\sqrt2}{2}$; $H[2]=\tfrac12(1+(-1))=0$; $H[3]=\tfrac12(1+i)$. Frequency $k=2$ (the alternating $(1,-1,1,-1)$ wave) is annihilated.
-4. $f_1=(0,0,0,0)$ and $f_2=(1,-1,1,-1)$: $f_2\circledast h=(\tfrac12-\tfrac12,\ \tfrac12-\tfrac12,\dots)=(0,0,0,0)$. Different inputs give identical outputs, so the blur is not injective. (Any input $a+c\,(1,-1,1,-1)$ gives the same output for every $c$.)
+4. $f_1=(0,0,0,0)$ and $f_2=(1,-1,1,-1)$: $f_2\circledast h=(\tfrac12-\tfrac12,\ \tfrac12-\tfrac12,\dots)=(0,0,0,0)$. Different inputs give identical outputs, so the blur is not injective. (Any input $a+c (1,-1,1,-1)$ gives the same output for every $c$.)
 5. Zeros at $k=jN/L=8j$: $k=8,16,24,32,40,48,56$ (7 values), for all $u$ (lines perpendicular to the motion direction).
 6. $\sigma=1$: $\exp(-2\pi^2\cdot0.0625)=\exp(-1.234)\approx0.29$. $\sigma=3$: $\exp(-2\pi^2\cdot9\cdot0.0625)=\exp(-11.10)\approx1.5\times10^{-5}$, much smaller than $1/255\approx3.9\times10^{-3}$.
 7. $512+31-1=542$ per axis. Practical: $576=2^6\cdot3^2$ (or $640$, or $1024$); avoid primes and sizes with large prime factors. Crop to the valid region afterward.

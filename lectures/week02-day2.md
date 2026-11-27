@@ -60,7 +60,7 @@ y - y_0
 $$
 
 - Intensities are carried along: $f'(x',y')=f(x,y)$. Positions are permuted, values are preserved.
-- **Illustrative profile (assumed):** a twirl-like choice $\theta(r)=\theta_0\,(1-r/R)$ for $r<R$ and $\theta(r)=0$ for $r\ge R$, where $\theta_0$ is the central twist angle and $R$ the radius of effect. The parameters are $(x_0,y_0,R,\theta_0)$.
+- **Illustrative profile (assumed):** a twirl-like choice $\theta(r)=\theta_0 (1-r/R)$ for $r<R$ and $\theta(r)=0$ for $r\ge R$, where $\theta_0$ is the central twist angle and $R$ the radius of effect. The parameters are $(x_0,y_0,R,\theta_0)$.
 - **Bijectivity:** a rotation preserves distance to the center, so $T$ maps each circle $r=\text{const}$ onto itself by a rigid rotation. Hence $T$ is a bijection of $\mathbb{R}^2$ for *any* function $\theta(r)$ (the center is fixed). If $\theta$ is discontinuous, $T$ is still bijective but tears the plane; continuity of $\theta$ only affects how nice the picture looks.
 - This is the "permutation cipher" idea from Day 1, now on the continuous plane: a keyed rearrangement, where the key is the parameter set.
 
