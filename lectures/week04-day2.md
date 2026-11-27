@@ -78,23 +78,23 @@ $$
 
 For an invertible affine map $T(x)=Ax+b$ on the plane, a change of variables in the convolution integral gives
 
-$
+$$
 W_T H_h f=H_{h_A}W_T f,\qquad h_A(x)=\frac{1}{|\det A|}h(A^{-1}x).
-$
+$$
 
 Indeed, writing $x$ and $u$ as two-dimensional vectors,
 
-$
+$$
 (W_T H_h f)(x)=\int_{\mathbb{R}^2} f(A^{-1}(x-b)-u)h(u)\,du
-$
+$$
 
 and substituting $v=Au$ gives the convolution of $W_T f$ with $h_A$. Thus the warp transforms the PSF as well as the image.
 
 For a concrete counterexample, let $h$ be a horizontal motion-blur PSF and let $T$ rotate the plane by $90^\circ$. Blurring a small circular spot and then rotating it produces a vertical smear; rotating the spot first and then applying the same horizontal blur produces a horizontal smear. Hence in general
 
-$
+$$
 H_h W_T\ne W_T H_h.
-$
+$$
 
 There are important exceptions on the full plane: translations commute with shift-invariant convolution, and rotations commute with radially symmetric PSFs such as an isotropic Gaussian. For nonlinear warps, the transformed blur need not even be shift-invariant. Discrete resampling, cropping, and boundary conventions can further break these ideal continuous identities.
 
