@@ -109,22 +109,31 @@ Use the spot example during the properties discussion (about 2–3 minutes); the
 ### 3. Point spread functions (20 min)
 Write each PSF as a normalized nonnegative array/function.
 
-1. **Linear (uniform) motion blur**, length $L$ pixels, direction angle $\varphi$: the image moves during exposure, so each point is smeared along a line segment. Along the horizontal direction:
+**1.** **Linear (uniform) motion blur**, length $L$ pixels, direction angle $\varphi$: the image moves during exposure, so each point is smeared along a line segment. Along the horizontal direction:
+
 $$
 h[0,j]=\frac1L,\quad j=0,\dots,L-1\ (\text{zero elsewhere}).
 $$
+
 For other angles the segment is rasterized (interpolation again!). Assumed: constant velocity over exposure; real camera shake is a curved path.
 
-2. **Out-of-focus blur (pillbox / "bokeh disk")** of radius $R$: a point source becomes a uniform disk,
+**2.** **Out-of-focus blur (pillbox / "bokeh disk")** of radius $R$: a point source becomes a uniform disk,
+
 $$
-h(x,y)=\begin{cases}\dfrac{1}{\pi R^2},&x^2+y^2\le R^2,\\[4pt]0,&\text{otherwise.}\end{cases}
+h(x,y)=\begin{cases}
+\dfrac{1}{\pi R^2},&x^2+y^2\le R^2,\\
+0,&\text{otherwise.}
+\end{cases}
 $$
+
 Real bokeh depends on the aperture shape (polygonal) and often has bright edges; the pillbox is the standard idealization. Link to Photoshop: *Lens Blur* / *Field Blur* (assumed familiar; behavior varies by version).
 
-3. **Atmospheric turbulence** (long-exposure, approximated): often modeled as Gaussian blur,
+**3.** **Atmospheric turbulence** (long-exposure, approximated): often modeled as Gaussian blur,
+
 $$
 h(x,y)=\frac{1}{2\pi\sigma^2}\exp\!\left(-\frac{x^2+y^2}{2\sigma^2}\right).
 $$
+
 *Flag:* the Kolmogorov long-exposure model has a transfer function proportional to $\exp\!\big(-c \rho^{5/3}\big)$ in radial frequency $\rho$ (to verify); the Gaussian is a convenient simplification. Short exposures are random and not shift-invariant. The same Gaussian is used for "Gaussian blur" in Photoshop and in this course's labs ($\sigma=1.5,3.0,5.0$ in `labs/lab-specifications.md`).
 
 Demo (numpy): build the three PSFs as small arrays and print their sums (should be 1).
