@@ -90,3 +90,9 @@
 | **12** | **IV. Visual Privacy** | Web-Scale Privacy Engineering (*Google Street View* Architecture) | **Lab 6 (Part B):** Noise-Injected Irreversible Blurring |
 | **13** | **IV. Visual Privacy** | Zero-Leakage GAN/Diffusion Anonymization (*DeepPrivacy2*) & Video Jitter | **Lab 6 (Part C):** Deploying DeepPrivacy2 on Video *(Lab 6 Due)* |
 | **14** | **IV. Visual Privacy** | Privacy-Utility Trade-Offs, Re-Identification Metrics & Course Synthesis | **Capstone Project Demos & Final Red-Team Evaluation** |
+
+## Final Examination Period
+
+After Week 14, the cumulative final examination takes place during the institution's designated examination period, on a date determined by the institutional schedule. The proposed format is a three-hour computer-assisted written mathematics examination of 10 compulsory questions (100 marks), emphasizing Weeks 8–14. The Week 14 capstone is a separate assessment.
+
+See the [final examination skeleton](../assessment/README.md#final-examination-format) for the provisional subject allocation, problem types, computational arrangements, and marking principles. The actual paper, datasets, and marking scheme are to be developed separately.
