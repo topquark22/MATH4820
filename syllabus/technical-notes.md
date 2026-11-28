@@ -22,18 +22,13 @@ $$
 \begin{pmatrix}
 x'\\
 y'
-\end{pmatrix}
-=
-\begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 x_0\\
 y_0
-\end{pmatrix}
-+
-\begin{pmatrix}
+\end{pmatrix} + \begin{pmatrix}
 \cos\theta(r)&-\sin\theta(r)\\
 \sin\theta(r)&\cos\theta(r)
-\end{pmatrix}
-\begin{pmatrix}
+\end{pmatrix} \begin{pmatrix}
 x-x_0\\
 y-y_0
 \end{pmatrix}.
