@@ -36,6 +36,7 @@
 - **Lab 4:** Compare Tikhonov/Wiener, Poisson-model Richardson–Lucy, and constrained blind-PSF estimation on controlled text / plate targets.
 
 #### Week 7: Midterm Exam and Applied Reconstruction Challenge
+- The midterm is normally held during Week 7, at a time determined by the institution, and may occupy a separately scheduled three-hour window outside regular lecture hours. See the [assessment framework](../assessment/README.md#midterm-examination-format) for the provisional duration and examination arrangements. The Week 7 instructor notes are planning material, not a prescribed examination timetable.
 - Practical benchmark: recover obscured text and license plates from motion-blurred vs. Gaussian-blurred test sets under controlled noise levels.
 
 ### Part III: Digital Forensics and Evidentiary Admissibility (Weeks 8–10)

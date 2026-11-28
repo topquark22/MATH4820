@@ -4,7 +4,7 @@
 
 The MATH 4820 / CS 6820 midterm is a computer-assisted written mathematics examination covering Weeks 1–6. It combines traditional mathematical reasoning with numerical computation and experimental analysis. The computer is a mathematical instrument, not a substitute for derivations, proofs, or interpretation.
 
-The midterm is scheduled for Week 7, Day 1. The applied reconstruction challenge on Day 2 is a separate assessment activity.
+The midterm is normally held during Week 7, at a date and time determined by the institution. The proposed three-hour examination may be scheduled outside regular lecture hours. The Week 7, Day 1 instructor-facing plan retains its original 90-minute outline as a planning reference, not as the examination duration or timetable. The applied reconstruction challenge on Day 2 is a separate assessment activity.
 
 ### Examination Structure
 
