@@ -55,7 +55,7 @@ These distinct likelihoods explain why the observation model affects the reconst
 Under a known nonnegative PSF, standard RL iterates
 
 $$
-f^{(k+1)}=f^{(k)}\odot H^*\!\left(\frac{b}{Hf^{(k)}}\right),
+f^{(k+1)}=f^{(k)}\odot H^*\left(\frac{b}{Hf^{(k)}}\right),
 $$
 
 where division and `⊙` are elementwise, and `H*` is the adjoint blur (convolution with the flipped PSF, under the corresponding boundary convention). For a normalized PSF and suitable boundary handling, this is the standard Poisson maximum-likelihood update. Initialize with a positive image; near-zero predicted counts need careful numerical handling.

@@ -131,10 +131,10 @@ Real bokeh depends on the aperture shape (polygonal) and often has bright edges;
 **3.** **Atmospheric turbulence** (long-exposure, approximated): often modeled as Gaussian blur,
 
 $$
-h(x,y)=\frac{1}{2\pi\sigma^2}\exp\!\left(-\frac{x^2+y^2}{2\sigma^2}\right).
+h(x,y)=\frac{1}{2\pi\sigma^2}\exp\left(-\frac{x^2+y^2}{2\sigma^2}\right).
 $$
 
-*Flag:* the Kolmogorov long-exposure model has a transfer function proportional to $\exp\!\big(-c \rho^{5/3}\big)$ in radial frequency $\rho$ (to verify); the Gaussian is a convenient simplification. Short exposures are random and not shift-invariant. The same Gaussian is used for "Gaussian blur" in Photoshop and in this course's labs ($\sigma=1.5,3.0,5.0$ in `labs/lab-specifications.md`).
+*Flag:* the Kolmogorov long-exposure model has a transfer function proportional to $\exp\big(-c \rho^{5/3}\big)$ in radial frequency $\rho$ (to verify); the Gaussian is a convenient simplification. Short exposures are random and not shift-invariant. The same Gaussian is used for "Gaussian blur" in Photoshop and in this course's labs ($\sigma=1.5,3.0,5.0$ in `labs/lab-specifications.md`).
 
 Demo (numpy): build the three PSFs as small arrays and print their sums (should be 1).
 

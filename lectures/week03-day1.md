@@ -90,7 +90,7 @@ In 4:2:0 each $2\times 2$ block of pixels keeps its four $Y$ values but shares o
 Split each channel into $8\times 8$ blocks, subtract 128 (level shift), and transform each block $g[x,y]$ ($0\le x,y\le 7$):
 
 $$
-G[u,v] = \tfrac14 c(u) c(v) \sum_{x=0}^{7}\sum_{y=0}^{7} g[x,y] \cos\!\frac{(2x+1)u\pi}{16} \cos\!\frac{(2y+1)v\pi}{16},
+G[u,v] = \tfrac14 c(u) c(v) \sum_{x=0}^{7}\sum_{y=0}^{7} g[x,y] \cos\frac{(2x+1)u\pi}{16} \cos\frac{(2y+1)v\pi}{16},
 $$
 
 where $c(0)=1/\sqrt{2}$ and $c(w)=1$ for $w>0$.
