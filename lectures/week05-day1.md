@@ -116,19 +116,19 @@ A[Original image f] --> B[Blur H]
 For the normalized 2D Gaussian PSF with spatial standard deviation `σ`,
 
 $$
-h(x,y) = \frac{1}{2\pi\sigma^2}\exp\!\left(-\frac{x^2+y^2}{2\sigma^2}\right),
+h(x,y) = \frac{1}{2\pi\sigma^2}\exp\left(-\frac{x^2+y^2}{2\sigma^2}\right),
 $$
 
 using spatial frequencies in cycles per unit distance, its Fourier transform is
 
 $$
-H(\nu_x,\nu_y) = \exp\!\left(-2\pi^2\sigma^2(\nu_x^2+\nu_y^2)\right).
+H(\nu_x,\nu_y) = \exp\left(-2\pi^2\sigma^2(\nu_x^2+\nu_y^2)\right).
 $$
 
 This response is positive at every finite frequency, but decays exponentially with squared frequency. The inverse gain is
 
 $$
-\frac{1}{|H|} = \exp\!\left(2\pi^2\sigma^2(\nu_x^2+\nu_y^2)\right),
+\frac{1}{|H|} = \exp\left(2\pi^2\sigma^2(\nu_x^2+\nu_y^2)\right),
 $$
 
 which grows exponentially. Thus a mathematically nonzero response can still be practically indistinguishable from zero in the presence of noise and finite precision.
